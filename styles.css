@@ -158,8 +158,8 @@ body{background:var(--bg);color:var(--ink)}
 .hero::before{
   content:"";
   position:absolute; inset:0;
-  background: url("assets/mountain-bg-navy.png") no-repeat center 45% / cover;
-  opacity:.12;
+  background: url("assets/mountain-bg-navy.png") no-repeat center 30% / cover;
+  opacity:.30;
   z-index:0;
 }
 
