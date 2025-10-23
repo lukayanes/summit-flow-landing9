@@ -166,7 +166,7 @@ body{background:var(--bg);color:var(--ink)}
   content: "";
   position: absolute;
   inset: 0;
-  background: url("assets/mountain-bg.png") no-repeat center -200px / min(100vw, 1200px) auto;
+  background: url("assets/MTN.png") no-repeat center -200px / min(100vw, 1200px) auto;
   opacity: 0.12;  /* adjust between .10–.16 for visibility */
   z-index: 0;
 }
