@@ -151,20 +151,32 @@ body{background:var(--bg);color:var(--ink)}
 .hero *{ position:relative; z-index:1 }
 
 /* Bigger navbar logo */
-.brand img{ height:64px !important; width:auto }
-.brand span{ font-size:22px; font-weight:900 }
-
-
-.hero::before{
-  content:"";
-  position:absolute; inset:0;
-  background: url("assets/mountain-bg-navy.png") no-repeat center 30% / cover;
-  opacity:.30;
-  z-index:0;
+.brand img { 
+  height: 64px !important; 
+  width: auto; 
 }
 
+.brand span { 
+  font-size: 22px; 
+  font-weight: 900; 
 }
-.hero *{ position:relative; z-index:1 }
+
+/* Raise the mountain background */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/mountain-bg.png") no-repeat center -200px / min(100vw, 1200px) auto;
+  opacity: 0.12;  /* adjust between .10–.16 for visibility */
+  z-index: 0;
+}
+
+/* Keep text and buttons above the mountain */
+.hero * { 
+  position: relative; 
+  z-index: 1; 
+}
+
 
 /* Pop the hero text in white */
 .wordmark{ color:#ffffff !important; text-shadow:0 2px 10px rgba(0,0,0,.12) }
