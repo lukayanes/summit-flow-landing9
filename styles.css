@@ -155,14 +155,14 @@ body{background:var(--bg);color:var(--ink)}
 .brand span{ font-size:22px; font-weight:900 }
 
 
-/* --- Navy full-width mountain behind hero text --- */
-.hero{ position:relative; overflow:hidden }
 .hero::before{
   content:"";
   position:absolute; inset:0;
-  background: url("assets/mountain-bg-navy.png") no-repeat center 68% / cover; /* full-width */
-  opacity:.12; /* watermark strength */
+  background: url("assets/mountain-bg-navy.png") no-repeat center 45% / cover;
+  opacity:.12;
   z-index:0;
+}
+
 }
 .hero *{ position:relative; z-index:1 }
 
