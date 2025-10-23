@@ -144,8 +144,8 @@ body{background:var(--bg);color:var(--ink)}
   content:"";
   position:absolute;
   inset:0;
-  background: url("assets/mountain-bg.png") no-repeat center 18% / min(82vw, 980px) auto;
-  opacity: .10;           /* subtle; increase to .14 for stronger mark */
+  background: url("assets/mountain-bg.png") no-repeat center 40% / min(100vw, 1200px) auto;
+  opacity: .12;           /* slightly stronger so it shows up more */
   z-index:0;
 }
 .hero *{ position:relative; z-index:1 }
