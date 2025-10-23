@@ -197,7 +197,7 @@ body{background:var(--bg);color:var(--ink)}
   .hero::before{
     width: 120vw;
     height: 60vh;
-    transform: translate(-50%, calc(-50% + 80px)); /* move DOWN more on mobile */
+    transform: translate(-50%, calc(-90% + 80px)); /* move DOWN more on mobile */
     opacity: .20; /* a touch stronger for small screens */
   }
 
