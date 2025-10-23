@@ -225,4 +225,37 @@ body{background:var(--bg);color:var(--ink)}
 /* Improve anchor scrolling (nav links don’t hide headers under sticky bar) */
 html{scroll-padding-top:80px}
 
+/* Center mountain behind "Summit Flow" on mobile */
+@media (max-width: 768px) {
+  .hero::before {
+    background: url("assets/mountain-bg-navy.png") no-repeat center center / contain;
+    width: 120vw;
+    height: 65vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -58%); /* raise or lower mountain */
+    opacity: .20;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .wordmark {
+    font-size: clamp(34px, 10vw, 44px);
+    line-height: 1.05;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .tagline {
+    text-align: center;
+  }
+}
+
+
 
