@@ -148,7 +148,7 @@ body{background:var(--bg);color:var(--ink)}
   height: min(70vh, 520px);
   transform: translate(-50%, calc(-110% + 40px)); /* ↓ move down (+); ↑ move up (-) */
   background: url("assets/mountain-bg-navy.png") center / contain no-repeat; /* show the WHOLE mountain */
-  opacity: .20;        /* .10–.20 depending on how strong you want it */
+  opacity: .30;        /* .10–.20 depending on how strong you want it */
   z-index: 0;
   pointer-events: none;
 }
@@ -226,7 +226,7 @@ html{scroll-padding-top:80px}
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -93%); /* raise or lower mountain */
+    transform: translate(-50%, -100%); /* raise or lower mountain */
     opacity: .20;
     z-index: 0;
     pointer-events: none;
