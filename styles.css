@@ -193,14 +193,6 @@ body{background:var(--bg);color:var(--ink)}
   .badge{font-size:14px; padding:8px 10px}
   .badges .badge:nth-child(n+3){display:none} /* show only first 2 on mobile */
 
-  /* Mountain background: bigger box, lower so you see it */
-  .hero::before{
-    width: 120vw;
-    height: 60vh;
-    transform: translate(-50%, calc(-90% + 80px)); /* move DOWN more on mobile */
-    opacity: .20; /* a touch stronger for small screens */
-  }
-
   /* Feature tiles */
   .punch{padding:24px 0 !important}
   .punch-grid{grid-template-columns:1fr 1fr; gap:10px}
