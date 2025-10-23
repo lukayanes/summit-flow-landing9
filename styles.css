@@ -146,7 +146,7 @@ body{background:var(--bg);color:var(--ink)}
   /* draw a sized box and paint the image inside it */
   width: min(95vw, 1400px);
   height: min(70vh, 520px);
-  transform: translate(-50%, calc(-50% + 40px)); /* ↓ move down (+); ↑ move up (-) */
+  transform: translate(-100%, calc(-100% + 40px)); /* ↓ move down (+); ↑ move up (-) */
   background: url("assets/mountain-bg-navy.png") center / contain no-repeat; /* show the WHOLE mountain */
   opacity: .16;        /* .10–.20 depending on how strong you want it */
   z-index: 0;
