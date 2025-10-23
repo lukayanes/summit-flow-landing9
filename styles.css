@@ -147,7 +147,7 @@ body{background:var(--bg);color:var(--ink)}
   width: min(95vw, 1400px);
   height: min(70vh, 520px);
   transform: translate(-50%, calc(-50% + 40px)); /* ↓ move down (+); ↑ move up (-) */
-  background: url("assets/mtn.png") center / contain no-repeat; /* show the WHOLE mountain */
+  background: url("assets/mountain-bg-navy.png") center / contain no-repeat; /* show the WHOLE mountain */
   opacity: .16;        /* .10–.20 depending on how strong you want it */
   z-index: 0;
   pointer-events: none;
