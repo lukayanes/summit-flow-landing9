@@ -156,3 +156,73 @@ body{background:var(--bg);color:var(--ink)}
 /* keep the hero text/CTAs above the image */
 .hero * { position: relative; z-index: 1; }
 
+/* =======================
+   MOBILE POLISH (<=768px)
+   ======================= */
+@media (max-width: 768px){
+
+  /* Global rhythm */
+  .wrap{padding:0 16px}
+  section{padding:32px 0 !important}
+
+  /* Header */
+  .site-header .nav{height:64px}
+  .nav a{margin-left:12px}
+
+  /* Hero spacing & scale */
+  .hero{padding:72px 0 28px}
+  h1.wordmark{
+    font-size: clamp(32px, 10vw, 44px) !important;
+    line-height: 1.05;
+    margin: 0 0 8px;
+    text-align: center;
+  }
+  .tagline{
+    font-size:16px;
+    line-height:1.4;
+    margin: 0 0 14px !important;
+    text-align:center;
+  }
+
+  /* Stack CTAs full-width */
+  .cta{flex-direction:column; gap:10px; align-items:stretch}
+  .cta .btn{width:100%; padding:14px 16px}
+
+  /* Badges: fewer + smaller */
+  .badges{gap:8px; justify-content:center}
+  .badge{font-size:14px; padding:8px 10px}
+  .badges .badge:nth-child(n+3){display:none} /* show only first 2 on mobile */
+
+  /* Mountain background: bigger box, lower so you see it */
+  .hero::before{
+    width: 120vw;
+    height: 60vh;
+    transform: translate(-50%, calc(-50% + 80px)); /* move DOWN more on mobile */
+    opacity: .20; /* a touch stronger for small screens */
+  }
+
+  /* Feature tiles */
+  .punch{padding:24px 0 !important}
+  .punch-grid{grid-template-columns:1fr 1fr; gap:10px}
+  .punch-card{padding:14px}
+
+  /* Video grid */
+  .clips{padding:32px 0 !important}
+  .video-grid{grid-template-columns:1fr 1fr; gap:10px}
+  .vthumb img{height:120px}
+
+  /* Pricing */
+  .pricing{padding:32px 0 !important}
+  .price-cards{grid-template-columns:1fr; gap:12px}
+  .price-card{padding:16px}
+  .price-card h3{font-size:36px}
+
+  /* Sticky CTA bar spacing */
+  .cta-bar{gap:8px; padding:10px 12px}
+  .cta-bar .btn{padding:12px 14px}
+}
+
+/* Improve anchor scrolling (nav links don’t hide headers under sticky bar) */
+html{scroll-padding-top:80px}
+
+
