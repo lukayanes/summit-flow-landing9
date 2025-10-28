@@ -359,7 +359,7 @@ html{scroll-padding-top:80px}
 
 /* Make Summit Flow logo in navbar larger */
 .brand img {
-  height: 80px !important;  /* increase from 64px */
+  height: 73px !important;  /* increase from 64px */
   width: auto !important;
   margin-top: 4px;          /* small vertical adjustment */
   transition: all 0.2s ease;
