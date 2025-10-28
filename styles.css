@@ -341,3 +341,18 @@ html{scroll-padding-top:80px}
   }
 }
 
+/* Make Summit Flow logo in navbar larger */
+.brand img {
+  height: 88px !important;  /* increase from 64px */
+  width: auto !important;
+  margin-top: 4px;          /* small vertical adjustment */
+  transition: all 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .brand img {
+    height: 72px !important; /* slightly smaller for mobile */
+  }
+}
+
+
