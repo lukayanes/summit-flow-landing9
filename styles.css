@@ -510,3 +510,55 @@ header {
   align-items: center;
   gap: 40px;
 }
+
+/* Prevent sideways scroll everywhere */
+html, body { max-width: 100%; overflow-x: hidden; }
+*, *::before, *::after { box-sizing: border-box; }
+img, svg, video { max-width: 100%; height: auto; }
+a, button { min-width: 0; }            /* allows wrapping */
+section, .wrap, .container { overflow-x: clip; } /* clip any rogue children */
+
+/* HEADER */
+.site-header {
+  position: sticky; top: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 12px 16px;
+  background: #fff;
+}
+
+.brand img { display:block; height: 32px; }
+
+/* desktop menu */
+.menu { display: flex; gap: 24px; align-items: center; }
+.apply-btn {
+  padding: 10px 16px; border-radius: 12px; font-weight: 700;
+  background: linear-gradient(90deg,#1780ff,#28c4ff);
+  color: #fff; text-decoration: none;
+  white-space: normal;             /* allow wrapping on narrow screens */
+  max-width: 100%;
+}
+
+/* hamburger hidden on desktop */
+.burger { display: none; background: none; border: 0; font-size: 28px; line-height: 1; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .burger { display: block; }
+  .menu {
+    position: fixed; inset: 60px 0 0 0;       /* below header, full width */
+    display: none; flex-direction: column; gap: 16px;
+    padding: 20px; background: #fff;
+    height: calc(100dvh - 60px); overflow-y: auto;
+    border-top: 1px solid #eee;
+  }
+  .menu.open { display: flex; }
+  .brand img { height: 28px; }                 /* keeps header compact */
+}
+
+/* Optional: grids/cards below hero – avoid fixed widths */
+.grid, .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px,100%), 1fr));
+  gap: 16px;
+}
+
