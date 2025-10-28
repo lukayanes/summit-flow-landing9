@@ -422,3 +422,73 @@ html{scroll-padding-top:80px}
   .navbar{ padding: 8px 12px; }
 }
 
+/* === NAVBAR CLEANUP === */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 10px 6%;
+}
+
+/* contain and align */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* smaller, centered logo */
+.brand img {
+  height: 42px !important;   /* smaller and consistent */
+  width: auto;
+  display: block;
+}
+
+/* right-aligned nav links */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* nav link style */
+.main-nav a {
+  color: #0f3355;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: #0072ce;
+}
+
+/* Apply button look */
+.main-nav .btn.small.ghost {
+  border: 1px solid rgba(15,51,85,0.3);
+  border-radius: 8px;
+  padding: 6px 14px;
+}
+
+/* === MOBILE ADJUSTMENTS === */
+@media (max-width: 768px) {
+  header {
+    padding: 8px 4%;
+  }
+  .brand img {
+    height: 34px !important;
+  }
+  .main-nav {
+    gap: 18px;
+    font-size: 0.95rem;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .main-nav a {
+    padding: 6px 2px;
+  }
+  html { scroll-padding-top: 80px; } /* avoid hero being hidden */
+}
