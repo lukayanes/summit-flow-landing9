@@ -492,3 +492,21 @@ header {
   }
   html { scroll-padding-top: 80px; } /* avoid hero being hidden */
 }
+/* Make Summit Flow logo bigger (top-left corner) */
+.brand img {
+  height: 72px !important;   /* increase size */
+  width: auto !important;
+  display: block;
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
+
+.brand img:hover {
+  transform: scale(1.05);
+}
+
+/* Adjust navbar alignment to keep it centered with new logo size */
+.nav-container {
+  align-items: center;
+  gap: 40px;
+}
