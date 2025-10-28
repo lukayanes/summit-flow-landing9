@@ -322,13 +322,16 @@ html{scroll-padding-top:80px}
   }
 }
 
+/* Force Summit Logo size under About Us */
 .about-logo img {
-  max-width: 160px;    /* smaller size */
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.08));
-  border-radius: 8px;
+  max-width: 120px !important;   /* force smaller */
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.1));
 }
+
 
 @media (max-width: 768px) {
   .about-logo img {
