@@ -172,5 +172,16 @@
   })();
 </script>
 
+  <script>
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('menu');
+  burger.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.documentElement.classList.toggle('no-scroll', open);
+  });
+</script>
+
+
 </body>
 </html>
