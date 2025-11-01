@@ -837,3 +837,87 @@ section, .wrap, .container { overflow-x: clip; } /* clip any rogue children */
   }
 }
 
+.clips-columns {
+  display: grid;
+  grid-template-columns: 1fr 340px; /* left grows, right fixed */
+  gap: 24px; /* smaller horizontal space */
+  align-items: stretch; /* match heights between columns */
+  margin-top: 30px;
+}
+
+/* LEFT: YouTube videos share same total height as TikTok */
+.clips-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* evenly fill vertical space */
+  height: 100%; /* match TikTok height */
+}
+
+/* Make each YouTube video share equal height */
+.clips-left .video-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+/* keep proper 16:9 aspect but flexible */
+.clips-left .video-container {
+  flex: 1;
+  display: flex;
+}
+.clips-left .video-container iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: 100%;
+  display: block;
+}
+
+.video-title {
+  text-align: center;
+  padding: 8px 0 10px;
+  font-size: 0.85rem;
+}
+
+/* RIGHT: TikTok fixed width */
+.clips-right {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clips-right .tiktok-embed {
+  width: 100% !important;
+  height: 780px; /* controls full column height */
+  border-radius: 10px;
+}
+
+.clips-right .video-title {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Responsive stack */
+@media (max-width: 900px) {
+  .clips-columns {
+    display: block;
+  }
+  .clips-right {
+    max-width: 420px;
+    margin: 30px auto 0;
+  }
+  .clips-left {
+    height: auto;
+  }
+  .clips-left .video-item {
+    margin-bottom: 20px;
+  }
+}
+
