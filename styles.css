@@ -921,3 +921,68 @@ section, .wrap, .container { overflow-x: clip; } /* clip any rogue children */
   }
 }
 
+/* === FINAL CLIPS ALIGNMENT FIX === */
+.clips-columns {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* RIGHT: fix TikTok height */
+.clips-right .tiktok-embed {
+  width: 100% !important;
+  height: 720px !important;   /* <-- pick your height here */
+  max-height: 720px;
+}
+
+/* LEFT: make YouTube column SAME height as TikTok */
+.clips-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 720px;          /* <-- match the TikTok height */
+}
+
+/* 3 videos share that height equally */
+.clips-left .video-item {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+}
+
+/* make the iframe fill its card */
+.clips-left .video-container {
+  flex: 1;
+  display: flex;
+}
+
+.clips-left .video-container iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.clips-left .video-title {
+  text-align: center;
+  padding: 6px 0 10px;
+  font-size: 0.8rem;
+}
+
+/* mobile: stack again */
+@media (max-width: 900px) {
+  .clips-columns {
+    flex-direction: column;
+  }
+  .clips-left {
+    min-height: auto;
+  }
+  .clips-right .tiktok-embed {
+    height: 560px !important;
+  }
+}
