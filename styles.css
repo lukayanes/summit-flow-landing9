@@ -986,3 +986,42 @@ section, .wrap, .container { overflow-x: clip; } /* clip any rogue children */
     height: 560px !important;
   }
 }
+
+/* === MOBILE RESET FOR CLIPS === */
+@media (max-width: 900px) {
+
+  /* stack again */
+  .clips-columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* let left side be normal height again */
+  .clips-left {
+    min-height: auto;
+    display: block;
+  }
+
+  .clips-left .video-item {
+    flex: none;
+    margin-bottom: 16px;
+  }
+
+  .clips-left .video-container {
+    display: block;
+  }
+
+  .clips-left .video-container iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  /* TikTok a bit shorter on mobile */
+  .clips-right {
+    max-width: 100%;
+  }
+  .clips-right .tiktok-embed {
+    height: 560px !important;
+  }
+}
