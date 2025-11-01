@@ -588,4 +588,9 @@ section, .wrap, .container { overflow-x: clip; } /* clip any rogue children */
   border: 0;
 }
 
+.tiktok-embed {
+  margin: 1rem auto;
+  width: 100%;
+  max-width: 400px; /* or 100% if you want full width */
+}
 
