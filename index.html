@@ -66,20 +66,50 @@
   </section>
 
 
-  <section id="clips" class="clips panel">
-    <div class="wrap">
-      <div class="clips-head">
-        <h2>Demo clips</h2>
-        <p class="sub">Short, redacted previews (10–20s)</p>
-      </div>
-      <div class="video-grid">
-        <button class="vthumb" data-src="assets/clip1.mp4"><img src="assets/clip1_poster.svg" alt=""><span>Intake</span></button>
-        <button class="vthumb" data-src="assets/clip2.mp4"><img src="assets/clip2_poster.svg" alt=""><span>Routing</span></button>
-        <button class="vthumb" data-src="assets/clip3.mp4"><img src="assets/clip3_poster.svg" alt=""><span>Call task</span></button>
-        <button class="vthumb" data-src="assets/clip4.mp4"><img src="assets/clip4_poster.svg" alt=""><span>Contract</span></button>
-        <button class="vthumb" data-src="assets/clip5.mp4"><img src="assets/clip5_poster.svg" alt=""><span>Dashboards</span></button>
-      </div>
+<section id="clips" class="clips panel">
+  <div class="wrap">
+    <div class="clips-head">
+      <h2>Demo clips</h2>
+      <p class="sub">Short, redacted previews (10–20s)</p>
     </div>
+
+    <div class="video-grid">
+
+      <!-- YouTube embed replaces first video -->
+      <div class="video-container">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/Cj-lytZJ1Z4?si=VFdopV9hq63-rNBE"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Keep the other four local video buttons -->
+      <button class="vthumb" data-src="assets/clip2.mp4">
+        <img src="assets/clip2_poster.svg" alt=""><span>Routing</span>
+      </button>
+
+      <button class="vthumb" data-src="assets/clip3.mp4">
+        <img src="assets/clip3_poster.svg" alt=""><span>Call task</span>
+      </button>
+
+      <button class="vthumb" data-src="assets/clip4.mp4">
+        <img src="assets/clip4_poster.svg" alt=""><span>Contract</span>
+      </button>
+
+      <button class="vthumb" data-src="assets/clip5.mp4">
+        <img src="assets/clip5_poster.svg" alt=""><span>Dashboards</span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
 
     <div class="modal" id="videoModal" aria-hidden="true">
       <div class="modal-backdrop" data-close></div>
