@@ -262,6 +262,17 @@
     document.documentElement.classList.toggle('no-scroll', open);
   });
 </script>
+<!-- Lead Event for GHL Form Submission -->
+<script>
+window.addEventListener("message", function(event) {
+  if (event.data.eventName === "LC_FORM_SUBMIT") {
+    fbq('track', 'Lead');
+  }
+});
+</script>
+<!-- End Lead Event -->
+</body>
+</html>
 
 
 </body>
