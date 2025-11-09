@@ -12,7 +12,24 @@
   !function (w, d, t) { w.TiktokAnalyticsObject=t;var tt=w[t]=w[t]||[];tt.methods=['page','track','identify','instances','debug','on','off','once','ready','alias','group','enableCookie','disableCookie'],tt.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))};};for(var i=0;i<tt.methods.length;i++){tt.setAndDefer(tt,tt.methods[i]);}tt.instance=function(t){var e=tt._i[t]||[];for(var n=0;n<tt.methods.length;n++){tt.setAndDefer(e,tt.methods[n]);}return e;},tt.load=function(e,n){var i='https://analytics.tiktok.com/i18n/pixel/events.js';tt._i=tt._i||{},tt._i[e]=[],tt._i[e]._u=i,tt._t=tt._t||{},tt._o=tt._o||{},tt._o[e]=n||{};var a=d.createElement('script');a.type='text/javascript',a.async=!0,a.src=i+'?sdkid='+e+'&lib='+t;var s=d.getElementsByTagName('script')[0];s.parentNode.insertBefore(a,s);};
   tt.load('YOUR_TIKTOK_PIXEL_ID'); tt.page();
   }(window, document, 'ttq');
-  </script>
+</script>
+      <!-- Meta (Facebook) Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq){f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '873899848533916');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=873899848533916&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta (Facebook) Pixel Code -->
+
 </head>
 <body>
 <header>
