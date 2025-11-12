@@ -1025,3 +1025,16 @@ section, .wrap, .container { overflow-x: clip; } /* clip any rogue children */
     height: 560px !important;
   }
 }
+
+/* Summit Blue "Buy Now" button */
+.btn.success {
+  background-color: #1e40af; /* Summit blue */
+  color: #fff;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn.success:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
