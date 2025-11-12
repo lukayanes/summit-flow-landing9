@@ -1064,3 +1064,14 @@ section, .wrap, .container { overflow-x: clip; } /* clip any rogue children */
   background: #1e40af;
   color: #fff;
 }
+
+/* Make "Buy Now" match the left CTA */
+.btn.success {
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  color: #fff;
+}
+
+.btn.success:hover {
+  filter: brightness(1.05);
+}
+
