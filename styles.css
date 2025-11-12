@@ -1038,3 +1038,29 @@ section, .wrap, .container { overflow-x: clip; } /* clip any rogue children */
   background-color: #1d4ed8;
   transform: translateY(-2px);
 }
+/* --- Summit Flow Unified Button Style --- */
+.btn.primary,
+.btn.success {
+  background-color: #1e40af; /* Summit Flow blue */
+  color: #fff;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn.primary:hover,
+.btn.success:hover {
+  background-color: #1d4ed8; /* Slightly lighter Summit Flow blue for hover */
+  transform: translateY(-2px);
+}
+
+/* Optional: keep .btn.ghost the same outline style */
+.btn.ghost {
+  border: 2px solid #1e40af;
+  color: #1e40af;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+.btn.ghost:hover {
+  background: #1e40af;
+  color: #fff;
+}
