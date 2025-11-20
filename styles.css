@@ -1075,3 +1075,16 @@ section, .wrap, .container { overflow-x: clip; } /* clip any rogue children */
   filter: brightness(1.05);
 }
 
+<button style="
+  background: linear-gradient(135deg, #0A1A2F 0%, #0F3355 100%);
+  color:white;
+  padding:12px 24px;
+  border-radius:8px;
+  font-weight:700;
+  font-size:18px;
+  border:none;
+  cursor:pointer;
+">
+  Sign Up Now
+</button>
+
