@@ -179,25 +179,85 @@
   </div>
 </section>
 
-
-<section class="listings">
-  <div class="container listings-grid">
-    <div>
-      <h2>Get listed on every major listing site in one step.</h2>
-      <p>Maximize buyer exposure across all major real estate platforms.</p>
-      <a href="./consultation.html" class="link">Sell a home →</a>
+<section id="clips" class="clips panel">
+  <div class="wrap">
+    <div class="clips-head">
+      <h2>Summit Flow Demo</h2>
     </div>
 
-    <!-- RIGHT SIDE IMAGE -->
-    <div class="listings-image-wrap">
-      <img
-        src="./assets/listing_locations.svg"
-        alt="Listing distribution preview"
-        class="listings-image"
-      />
+    <div class="clips-columns">
+      <!-- LEFT COLUMN: YouTube videos stacked vertically -->
+      <div class="clips-left">
+        <div class="video-item">
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/Cj-lytZJ1Z4?si=VFdopV9hq63-rNBE"
+              title="Summit Flow - New Leads Workflow"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <h3 class="video-title">New Leads Workflow (YouTube)</h3>
+        </div>
+
+        <div class="video-item">
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/dyTLCLwZpJY?si=AV5s4JY4MHE2Urkd"
+              title="Summit Flow - Opportunity Pipelines"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <h3 class="video-title">Opportunity Pipelines (YouTube)</h3>
+        </div>
+
+        <div class="video-item">
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/uR2GAMOhfn4?si=p9bCAXSkP590AEhr"
+              title="Summit Flow - Send a Contract"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <h3 class="video-title">Send a Contract (YouTube)</h3>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: TikTok -->
+      <div class="clips-right">
+        <blockquote class="tiktok-embed"
+          cite="https://www.tiktok.com/@aubrey.evans11/video/7567807490537147678"
+          data-video-id="7567807490537147678"
+          style="margin: 0 auto;">
+          <section>
+            <a target="_blank" title="Summit Flow TikTok"
+               href="https://www.tiktok.com/@aubrey.evans11/video/7567807490537147678">
+              View on TikTok
+            </a>
+          </section>
+        </blockquote>
+        <h3 class="video-title">Summit Flow CRM Demo (TikTok)</h3>
+        <script async src="https://www.tiktok.com/embed.js"></script>
+      </div>
     </div>
   </div>
 </section>
+
+
+    <div class="modal" id="videoModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-dialog">
+        <button class="modal-close" data-close aria-label="Close">×</button>
+        <video id="modalVideo" playsinline controls muted></video>
+      </div>
+    </div>
+  </section>
+
 
 <footer class="footer">
   <div class="container">
