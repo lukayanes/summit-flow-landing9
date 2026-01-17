@@ -1,1090 +1,2152 @@
-/* Summit Flow — Prominent branding + gray panels */
+/* ===== TOP HERO (GBRS-style) ===== */
+
+/* Font import (same vibe: condensed uppercase heading + clean body) */
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&family=Karla:wght@400;600;700&display=swap');
+
 :root{
-  --ink:#1E2B38;         /* charcoal text */
-  --muted:#5f6b78;       /* secondary text */
-  --navy:#0F3355;        /* Summit deep navy */
-  --blue:#1F6FE5;        /* accent */
-  --cyan:#3EB5FF;        /* bright detail */
-  --bg:#F1F3F6;          /* app background (subtle gray) */
-  --panel:#F7F8FA;       /* panels/boxes (not white) */
-  --panel-strong:#EEF1F5;/* darker panel */
-  --border:#D6DAE1;      /* muted borders */
-  --ring:#B9D7FF;
-  --shadow:0 14px 40px rgba(15, 51, 85, .10);
-  --radius:16px;
+  --hero-overlay: rgba(0,0,0,0.45);
+  --nav-text: rgba(255,255,255,0.85);
+  --nav-text-strong: #ffffff;
 }
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg)}
-body{
-  font-family:'Inter',system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color:var(--ink); line-height:1.5;
+/* Full-bleed hero with background image */
+.top-hero{
+  min-height: 92vh;
+  position: relative;
+  background:
+    linear-gradient(var(--hero-overlay), var(--hero-overlay)),
+    url("./assets/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
-a{text-decoration:none}
-
-.site-header{position:sticky;top:0;background:rgba(247,248,250,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:10}
-.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
-.brand{display:flex;align-items:center;gap:.6rem;color:var(--navy);font-weight:900;font-size:18px}
-.brand img{height:42px;width:auto}
-.nav a{color:var(--muted);font-weight:800;margin-left:18px}
-.nav a:hover{color:var(--blue)}
-.btn{display:inline-block;padding:12px 18px;border-radius:14px;border:1px solid transparent;font-weight:900;box-shadow:0 8px 20px rgba(31,111,229,.15)}
-.btn.small{padding:8px 12px;border-radius:10px;box-shadow:none}
-.btn.xl{padding:14px 22px;font-size:16px}
-.btn.primary{background:linear-gradient(90deg,var(--blue),var(--cyan));color:#fff}
-.btn.primary:hover{filter:brightness(1.05)}
-.btn.ghost{border-color:var(--border);color:var(--navy)}
-.btn.ghost:hover{background:#fff; border-color:#cfd6df}
-
-.hero{position:relative;padding:84px 0 48px;background:
-  radial-gradient(900px 360px at 60% -10%, rgba(31,111,229,.15), transparent 70%),
-  linear-gradient(180deg, #FAFBFD, #F1F3F6 65%);
-  border-bottom:1px solid var(--border)
-}
-.hero-centered .brand-stack{display:grid;justify-items:center;gap:10px}
-.brand-mark{position:relative;display:grid;place-items:center;width:120px;height:120px;border-radius:26px;background:var(--panel);border:1px solid var(--border);box-shadow:var(--shadow)}
-.brand-mark img{height:70px;width:auto}
-.brand-mark .ring{position:absolute;inset:-8px;border-radius:30px;background:conic-gradient(from 140deg, rgba(31,111,229,.18), rgba(62,181,255,.18), rgba(31,111,229,.18));filter:blur(14px);z-index:-1}
-.wordmark{font-size:clamp(34px,6vw,70px);line-height:1.02;margin:0;color:var(--navy);letter-spacing:-.02em}
-.tagline{text-align:center;color:var(--muted);margin:6px 0 16px;font-size:clamp(16px,2.2vw,20px)}
-.cta{display:flex;gap:12px;justify-content:center;margin:10px 0 12px}
-.badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.badge{padding:8px 12px;border-radius:999px;background:#E8F1FF;border:1px solid #D6E6FF;color:#174a8b;font-weight:900}
-
-.punch{padding:26px 0}
-.punch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.punch-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-align:center;box-shadow:var(--shadow)}
-.punch-card h3{margin:4px 0 2px;color:var(--navy)}
-.punch-card p{margin:0;color:var(--muted)}
-
-.panel{padding:48px 0;background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.panel-strong{padding:48px 0;background:var(--panel-strong);border-top:1px solid var(--border)}
-.clips .clips-head{display:flex;align-items:flex-end;justify-content:space-between;margin:0 0 12px}
-.clips h2{margin:0;font-size:28px;color:var(--navy)}
-.sub{color:var(--muted)}
-
-.video-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-.vthumb{position:relative;padding:0;border:none;border-radius:var(--radius);overflow:hidden;cursor:pointer;background:var(--panel);border:1px solid var(--border);box-shadow:var(--shadow)}
-.vthumb img{display:block;width:100%;height:150px;object-fit:cover;filter:saturate(.95)}
-.vthumb span{position:absolute;left:10px;bottom:10px;padding:6px 10px;border-radius:999px;background:#E8F1FF;border:1px solid #D6E6FF;color:#174a8b;font-weight:900}
-.vthumb:after{content:"▶";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:28px;text-shadow:0 10px 30px rgba(0,0,0,.3)}
-
-.modal{position:fixed;inset:0;display:none}
-.modal[aria-hidden="false"]{display:block}
-.modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.55)}
-.modal-dialog{position:absolute;inset:8% 8%;background:#000;border-radius:14px;border:1px solid #1b2d44;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,.45)}
-.modal-close{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:10px;border:1px solid #2a3947;background:#0e1b24;color:#fff;font-size:20px;cursor:pointer}
-#modalVideo{width:100%;height:100%;background:#000}
-
-.pricing .price-cards{display:grid;grid-template-columns:2fr 1fr;gap:12px}
-.price-card{position:relative;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;text-align:center}
-.price-card.highlight{outline:2px solid rgba(31,111,229,.35);box-shadow:0 12px 36px rgba(31,111,229,.15)}
-.price-card.subdued{opacity:.9}
-.price-card .ribbon{position:absolute;margin-top:-12px;margin-left:-12px;background:linear-gradient(90deg,var(--blue),var(--cyan));padding:6px 10px;border-radius:10px;color:#fff;font-size:12px;font-weight:900}
-.price-card h3{margin:0;font-size:44px;color:var(--navy)}
-.price-card h3 span{font-size:.45em;color:var(--muted)}
-.price-card ul{list-style:none;padding:0;margin:12px 0 16px;color:var(--muted);font-weight:700}
-.price-card li{margin:6px 0}
-
-.apply h2{text-align:center;margin:0 0 14px;color:var(--navy)}
-.form-embed{border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
-.micro{color:var(--muted);text-align:center}
-
-.site-footer{border-top:1px solid var(--border);padding:18px 0;color:var(--muted);background:var(--panel)}
-.site-footer a{color:var(--navy)}
-
-.cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:none;gap:10px;align-items:center;justify-content:center;padding:10px 14px;background:rgba(247,248,250,.96);border-top:1px solid var(--border);backdrop-filter:blur(8px)}
-.cta-bar .btn{padding:12px 16px}
-@media (max-width: 820px){ .cta-bar{display:flex} }
-
-@media (max-width: 1100px){
-  .video-grid{grid-template-columns:repeat(3,1fr)}
-  .pricing .price-cards{grid-template-columns:1fr}
-}
-@media (max-width: 680px){
-  .video-grid{grid-template-columns:repeat(2,1fr)}
-}
-
-a:focus,button:focus,.btn:focus{outline:3px solid var(--ring);outline-offset:2px;box-shadow:0 0 0 4px rgba(31,111,229,.15)}
-
-
-/* === Final Blue + Gray Edition === */
-:root{
-  --ink:#0F3355;          /* navy headings */
-  --muted:#53606E;        /* body text */
-  --blue:#1F6FE5;         /* CTA accent */
-  --cyan:#3EB5FF;         /* gradient end */
-  --bg:#F4F6F9;           /* page background (neutral gray) */
-  --panel:#E6F0FF;        /* BLUE cards/panels */
-  --section:#EDF1F6;      /* gray-blue section bg */
-  --panel-strong:#E1E7F2; /* darker frame for form */
-  --border:#C2D1E4;       /* steel border */
-  --ring:#B9D7FF;
-  --shadow:0 14px 40px rgba(15, 51, 85, .12);
-  --radius:16px;
-}
-body{background:var(--bg);color:var(--ink)}
-.hero{background:linear-gradient(180deg,#F4F8FF 0%, var(--bg) 80%);}
-.punch-card,.vthumb,.price-card{background:var(--panel);border:1px solid var(--border);}
-.panel{background:var(--section)}
-.panel-strong{background:var(--panel-strong)}
-.btn.primary{background:linear-gradient(90deg,var(--blue),var(--cyan));}
-.brand-mark{background:var(--panel); border:1px solid var(--border)}
-.badge{background:#E8F1FF;border:1px solid #D6E6FF}
-.site-footer{background:var(--section)}
-
-/* Force a single, full-mountain background behind hero text */
-.hero { position: relative; overflow: hidden; }
-
-.hero::before{
-  content: "";
+/* Nav wrapper */
+.top-nav{
   position: absolute;
-  left: 50%;
-  top: 50%;
-  /* draw a sized box and paint the image inside it */
-  width: min(95vw, 1400px);
-  height: min(70vh, 520px);
-  transform: translate(-50%, calc(-110% + 40px)); /* ↓ move down (+); ↑ move up (-) */
-  background: url("assets/mountain-bg-navy.png") center / contain no-repeat; /* show the WHOLE mountain */
-  opacity: .30;        /* .10–.20 depending on how strong you want it */
-  z-index: 0;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  padding: 26px 24px;
 }
 
-/* keep the hero text/CTAs above the image */
-.hero * { position: relative; z-index: 1; }
-
-/* =======================
-   MOBILE POLISH (<=768px)
-   ======================= */
-@media (max-width: 768px){
-
-  /* Global rhythm */
-  .wrap{padding:0 16px}
-  section{padding:32px 0 !important}
-
-  /* Header */
-  .site-header .nav{height:64px}
-  .nav a{margin-left:12px}
-
-  /* Hero spacing & scale */
-  .hero{padding:72px 0 28px}
-  h1.wordmark{
-    font-size: clamp(32px, 10vw, 44px) !important;
-    line-height: 1.05;
-    margin: 0 0 8px;
-    text-align: center;
-  }
-  .tagline{
-    font-size:16px;
-    line-height:1.4;
-    margin: 0 0 14px !important;
-    text-align:center;
-  }
-
-  /* Stack CTAs full-width */
-  .cta{flex-direction:column; gap:10px; align-items:stretch}
-  .cta .btn{width:100%; padding:14px 16px}
-
-  /* Badges: fewer + smaller */
-  .badges{gap:8px; justify-content:center}
-  .badge{font-size:14px; padding:8px 10px}
-  .badges .badge:nth-child(n+3){display:none} /* show only first 2 on mobile */
-
-  /* Feature tiles */
-  .punch{padding:24px 0 !important}
-  .punch-grid{grid-template-columns:1fr 1fr; gap:10px}
-  .punch-card{padding:14px}
-
-  /* Video grid */
-  .clips{padding:32px 0 !important}
-  .video-grid{grid-template-columns:1fr 1fr; gap:10px}
-  .vthumb img{height:120px}
-
-  /* Pricing */
-  .pricing{padding:32px 0 !important}
-  .price-cards{grid-template-columns:1fr; gap:12px}
-  .price-card{padding:16px}
-  .price-card h3{font-size:36px}
-
-  /* Sticky CTA bar spacing */
-  .cta-bar{gap:8px; padding:10px 12px}
-  .cta-bar .btn{padding:12px 14px}
-}
-
-/* Improve anchor scrolling (nav links don’t hide headers under sticky bar) */
-html{scroll-padding-top:80px}
-
-/* Center mountain behind "Summit Flow" on mobile */
-@media (max-width: 768px) {
-  .hero::before {
-    background: url("assets/mountain-bg-navy.png") no-repeat center center / contain;
-    width: 120vw;
-    height: 65vh;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -95%); /* raise or lower mountain */
-    opacity: .20;
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  .hero {
-    padding-top: 80px;
-    padding-bottom: 40px;
-  }
-
-  .wordmark {
-    font-size: clamp(34px, 10vw, 44px);
-    line-height: 1.05;
-    text-align: center;
-    margin-bottom: 12px;
-  }
-
-  .tagline {
-    text-align: center;
-  }
-}
-
-/* --- Journey Section --- */
-.journey-section {
-  background: linear-gradient(to bottom right, #f0f5fa, #ffffff);
-  padding: 100px 0;
-  color: #0f3355;
-  text-align: center;
-}
-
-.journey-header {
-  max-width: 800px;
-  margin: 0 auto 60px auto;
-}
-
-.journey-header h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #0f3355;
-}
-
-.journey-header p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.journey-timeline {
+/* 3-column nav: left links, center , right links/icons */
+.top-nav-inner{
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 18px;
 }
 
-.journey-step {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  padding: 30px 24px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.journey-step:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-}
-
-.journey-step h3 {
-  font-size: 1.3rem;
-  margin-bottom: 12px;
-  color: #0f3355;
-}
-
-.journey-step p {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #334e68;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .journey-section {
-    padding: 60px 0;
-  }
-
-  .journey-header h2 {
-    font-size: 2rem;
-  }
-
-  .journey-step {
-    padding: 24px 18px;
-  }
-}
-
-/* Force Summit Logo size under About Us */
-.about-logo img {
-  max-width: 140px !important;   /* force smaller */
-  width: 100% !important;
-  height: auto !important;
-  display: block;
-  margin: 0 auto;
-  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.1));
-}
-
-#about-logo img {
-  display: block;
-  margin: 0 auto 24px auto; /* 24px space below the logo */
-}
-
-
-
-@media (max-width: 768px) {
-  .about-logo img {
-    max-width: 120px;
-    margin: 0 auto 20px auto;
-    display: block;
-  }
-}
-
-/* Left-align Summit logo under About Us */
-.about-logo {
-  text-align: left !important;
+/* links */
+.nav-left,
+.nav-right{
   display: flex;
+  gap: 26px;
+  align-items: center;
+}
+
+.nav-left{
+  justify-content: flex-end;
+}
+
+.nav-right{
   justify-content: flex-start;
 }
 
-.about-logo img {
-  max-width: 140px !important;
-  width: 100% !important;
-  height: auto !important;
-  margin: 0 !important;     /* remove the auto-center margin */
-  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.1));
+.nav-left a,
+.nav-right a{
+  font-family: "Unica One", system-ui;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 22px;
+  color: var(--nav-text);
 }
 
-
-/* Make Summit Flow logo in navbar larger */
-.brand img {
-  height: 73px !important;  /* increase from 64px */
-  width: auto !important;
-  margin-top: 4px;          /* small vertical adjustment */
-  transition: all 0.2s ease;
+.nav-left a:hover,
+.nav-right a:hover{
+  color: var(--nav-text-strong);
 }
 
-@media (max-width: 768px) {
-  .brand img {
-    height: 72px !important; /* slightly smaller for mobile */
-  }
-}
-
-/* ===== NAV: base ===== */
-.navbar{
-  position: sticky; top: 0; z-index: 999;
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 10px 16px;
-  background: rgba(248,250,253,.9);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(15,51,85,.06);
-}
-
-/* logo size */
-.brand img{ height: 40px; width:auto; }
-
-/* links row (desktop default) */
-.nav-links{ display:flex; align-items:center; gap:22px; }
-.nav-links a{ text-decoration:none; color:#0f3355; font-weight:600; }
-.nav-links .btn.small.ghost{
-  border:1px solid rgba(15,51,85,.25); border-radius:10px; padding:6px 14px;
-}
-
-/* ===== NAV: mobile behavior ===== */
-.nav-toggle{
-  display:none; background:none; border:0; padding:8px; margin-left:auto;
-}
-.nav-toggle span{ display:block; width:22px; height:2px; background:#0f3355; margin:5px 0; transition:.2s; }
-
-/* collapse links on mobile */
-@media (max-width: 768px){
-  .brand img{ height: 34px; }          /* smaller logo on phones */
-
-  .nav-toggle{ display:block; }        /* show hamburger */
-  .nav-links{
-    position: absolute;
-    left:0; right:0; top:60px;         /* under the bar */
-    background:#ffffff;
-    border-bottom:1px solid rgba(15,51,85,.08);
-    display:none;                       /* hidden by default */
-    flex-direction:column;
-    padding:10px 16px 14px;
-    gap:12px;
-  }
-  .nav-links a{ padding:10px 6px; }    /* comfy tap targets */
-  .nav-links .btn.small.ghost{ width:100%; text-align:center; padding:12px 16px; }
-
-  /* when open */
-  .nav-links.open{ display:flex; }
-
-  /* tighten the header height */
-  .navbar{ padding: 8px 12px; }
-}
-
-/* === NAVBAR CLEANUP === */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  padding: 10px 6%;
-}
-
-/* contain and align */
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* smaller, centered logo */
-.brand img {
-  height: 42px !important;   /* smaller and consistent */
+/* centered  */
+.nav-logo img{
+  height: 170px;
   width: auto;
   display: block;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.35));
 }
 
-/* right-aligned nav links */
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 28px;
+/* icon buttons */
+.icon-btn{
+  background: transparent;
+  border: 0;
+  color: var(--nav-text);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 8px 10px;
 }
 
-/* nav link style */
-.main-nav a {
-  color: #0f3355;
-  font-weight: 600;
+.icon-btn:hover{
+  color: var(--nav-text-strong);
+}
+
+/* Centered hero text */
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 120px 18px 60px;
+}
+
+.hero-content{
+  max-width: 980px;
+}
+
+.hero-title{
+  font-family: "Unica One", system-ui;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: clamp(58px, 7vw, 110px);
+  line-height: 1.02;
+  margin: 0 0 14px;
+  color: #ffffff;
+  text-shadow: 0 18px 45px rgba(0,0,0,0.65);
+}
+
+.hero-sub{
+  font-family: "Karla", system-ui;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: rgba(255,255,255,0.85);
+  margin: 0;
+}
+
+
+/* Mobile: stack nav rows but keep logo centered */
+@media (max-width: 900px){
+  .top-nav-inner{
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 14px;
+  }
+
+  .nav-left, .nav-right{
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .nav-logo img{
+    height: 52px;
+  }
+
+  .hero-overlay{
+    padding-top: 150px;
+  }
+}
+/* ===============================
+   GLOBAL
+================================ */
+body {
+  margin: 0;
+  font-family: "Karla", system-ui;
+  background: #f6f7f4;
+  color: #0f2433;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Unica One", system-ui;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Remove default link styling */
+a {
+  color: inherit;
   text-decoration: none;
-  transition: color 0.2s ease;
 }
 
-.main-nav a:hover {
-  color: #0072ce;
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
 }
 
-/* Apply button look */
-.main-nav .btn.small.ghost {
-  border: 1px solid rgba(15,51,85,0.3);
-  border-radius: 8px;
-  padding: 6px 14px;
+/* ===============================
+   HEADER / NAV
+================================ */
+.header {
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
 }
 
-/* === MOBILE ADJUSTMENTS === */
-@media (max-width: 768px) {
-  header {
-    padding: 8px 4%;
-  }
-  .brand img {
-    height: 34px !important;
-  }
-  .main-nav {
-    gap: 18px;
-    font-size: 0.95rem;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  .main-nav a {
-    padding: 6px 2px;
-  }
-  html { scroll-padding-top: 80px; } /* avoid hero being hidden */
-}
-/* Make Summit Flow logo bigger (top-left corner) */
-.brand img {
-  height: 72px !important;   /* increase size */
-  width: auto !important;
-  display: block;
-  margin-left: 4px;
-  transition: transform 0.2s ease;
-}
-
-.brand img:hover {
-  transform: scale(1.05);
-}
-
-/* Adjust navbar alignment to keep it centered with new logo size */
-.nav-container {
+.nav {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 16px 0;
+}
+
+@media (max-width: 900px) {
+
+  /* Stack and center header content */
+  .nav {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  /* Center the nav links row */
+  .links {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    width: 100%;
+    text-align: center;
+  }
+
+  .links a,
+  .phone {
+    margin: 0 !important;
+  }
+
+  /* Center the Sign Up button */
+  .nav-cta {
+    margin: 6px auto 0 !important;
+  }
+}
+
+
+.logo {
+  height: 140px;
+}
+
+.links a,
+.phone {
+  margin-left: 18px;
+  font-weight: 600;
+}
+
+.nav-cta {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #0b1f33;
+  color: #ffffff;
+  font-weight: 600;
+  border: 1px solid rgba(0,0,0,0.12);
+}
+
+.nav-cta:hover {
+  background: #0f2433;
+}
+
+/* ===============================
+   BANNER
+================================ */
+.banner {
+  text-align: center;
+  padding: 10px;
+  background: rgba(111,174,217,0.15); /* light blue */
+}
+
+/* ===============================
+   HERO
+================================ */
+.hero {
+  padding: 80px 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 40px;
 }
 
-/* Prevent sideways scroll everywhere */
-html, body { max-width: 100%; overflow-x: hidden; }
-*, *::before, *::after { box-sizing: border-box; }
-img, svg, video { max-width: 100%; height: auto; }
-a, button { min-width: 0; }            /* allows wrapping */
-section, .wrap, .container { overflow-x: clip; } /* clip any rogue children */
-
-/* HEADER */
-.site-header {
-  position: sticky; top: 0; z-index: 1000;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; padding: 12px 16px;
-  background: #fff;
+.hero h1 {
+  font-family: "Unica One", system-ui;
 }
 
-.brand img { display:block; height: 32px; }
-
-/* desktop menu */
-.menu { display: flex; gap: 24px; align-items: center; }
-.apply-btn {
-  padding: 10px 16px; border-radius: 12px; font-weight: 700;
-  background: linear-gradient(90deg,#1780ff,#28c4ff);
-  color: #fff; text-decoration: none;
-  white-space: normal;             /* allow wrapping on narrow screens */
-  max-width: 100%;
+.hero h1 span {
+  color: #6FAED9;
 }
 
-/* hamburger hidden on desktop */
-.burger { display: none; background: none; border: 0; font-size: 28px; line-height: 1; }
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .burger { display: block; }
-  .menu {
-    position: fixed; inset: 60px 0 0 0;       /* below header, full width */
-    display: none; flex-direction: column; gap: 16px;
-    padding: 20px; background: #fff;
-    height: calc(100dvh - 60px); overflow-y: auto;
-    border-top: 1px solid #eee;
-  }
-  .menu.open { display: flex; }
-  .brand img { height: 28px; }                 /* keeps header compact */
+.lead {
+  font-size: 18px;
+  margin-bottom: 36px;
 }
 
-/* Optional: grids/cards below hero – avoid fixed widths */
-.grid, .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(320px,100%), 1fr));
-  gap: 16px;
-}
-
-.video-container {
-  position: relative;
-  width: 100%;
-  max-width: 800px;        /* keeps it neat on large screens */
-  margin: 0 auto;          /* centers horizontally */
-  aspect-ratio: 16 / 9;    /* keeps correct shape */
-  background: #000;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.tiktok-embed {
-  margin: 1rem auto;
-  width: 100%;
-  max-width: 400px; /* or 100% if you want full width */
-}
-
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  justify-items: center;
-  margin-top: 1.5rem;
-}
-
-.video-item {
-  text-align: center;
-  width: 100%;
-  max-width: 600px;
-}
-
-.video-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #000;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.video-title {
-  font-size: 1rem;
-  margin-top: 0.6rem;
-  color: #222;
-  font-weight: 600;
-}
-
-/* wrap the whole clips area in two columns */
-.clips-wrap {
-  display: flex;
-  gap: 32px;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap; /* so it stacks on smaller screens */
-}
-
-/* LEFT: 3 youtube vids */
-.clips-videos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  max-width: 760px;
-}
-
-.clips-videos .video-item {
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  width: 240px;           /* 3 across on desktop */
-  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
-  text-align: center;
-}
-
-.video-container iframe {
-  width: 100%;
-  height: 140px;
+.states {
   display: block;
+  margin-top: 48px;
 }
 
-.video-title {
-  padding: 10px 12px 14px;
-  font-size: 0.85rem;
+/* ===============================
+   BUTTONS
+================================ */
+.btn {
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-weight: 700;
 }
 
-/* RIGHT: TikTok column */
-.clips-tiktok {
-  min-width: 310px;
-  max-width: 340px;
+.btn.primary {
+  background: #0b1f33;
+  color: #ffffff;
 }
 
-.clips-tiktok .video-title {
-  text-align: center;
-  margin-top: 10px;
+.btn.primary:hover {
+  background: #0f2433;
 }
 
-/* let TikTok be tall but responsive */
-.clips-tiktok .tiktok-embed {
-  width: 100% !important;
+.btn.ghost {
+  border: 1px solid #ccc;
 }
 
-/* responsive tweaks */
-@media (max-width: 1024px) {
-  .clips-videos .video-item {
-    width: calc(50% - 10px); /* 2 across on tablet */
-  }
-}
-
-@media (max-width: 768px) {
-  .clips-wrap {
-    flex-direction: column;
-    align-items: center;
-  }
-  .clips-videos {
-    justify-content: center;
-  }
-  .clips-videos .video-item {
-    width: 100%;
-    max-width: 420px;
-  }
-  .clips-tiktok {
-    width: 100%;
-    max-width: 420px;
-  }
-}
-
-/* Wrap both columns side by side */
-.clips-columns {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 60px;
-  flex-wrap: nowrap; /* force columns to stay side by side on desktop */
-  margin-top: 30px;
-}
-
-/* LEFT: stack YouTubes vertically */
-.clips-left {
-  display: flex;
-  flex-direction: column;   /* this is what was missing */
-  gap: 30px;
-  width: 480px;
-}
-
-/* each YouTube video block */
-.video-item {
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-  text-align: center;
-}
-
-.video-container iframe {
-  width: 100%;
-  height: 260px;
-  display: block;
-}
-
-.video-title {
-  padding: 10px 12px 14px;
-  font-size: 0.9rem;
-}
-
-/* RIGHT: TikTok column */
-.clips-right {
-  width: 340px;
-  flex-shrink: 0;
-}
-
-.clips-right .tiktok-embed {
-  width: 100% !important;
-  min-height: 600px;
-}
-
-.clips-right .video-title {
-  text-align: center;
-  margin-top: 10px;
-}
-
-/* Responsive: stack everything vertically on mobile */
-@media (max-width: 900px) {
-  .clips-columns {
-    flex-direction: column;
-    align-items: center;
-  }
-  .clips-left,
-  .clips-right {
-    width: 100%;
-    max-width: 420px;
-  }
-}
-
-/* 2-column layout for desktop */
-.clips-columns {
+/* ===============================
+   HERO IMAGE
+================================ */
+.sell-grid {
   display: grid;
-  grid-template-columns: minmax(360px, 1fr) 300px; /* left grows, right fixed */
-  gap: 32px;
-  align-items: flex-start;
-  margin-top: 30px;
-}
-
-/* LEFT: stack YouTubes */
-.clips-left {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-/* each YouTube card */
-.clips-left .video-item {
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-}
-
-/* make YouTubes responsive but not huge */
-.clips-left .video-container iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;   /* keeps video shape, no tall black box */
-  display: block;
-}
-
-/* RIGHT: TikTok stays narrow */
-.clips-right {
-  width: 100%;
-  max-width: 300px;
-}
-
-.clips-right .tiktok-embed {
-  width: 100% !important;
-  min-height: 560px;
-}
-
-.clips-right .video-title {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 0.85rem;
-}
-
-/* mobile / small screens: stack */
-@media (max-width: 900px) {
-  .clips-columns {
-    display: block;
-  }
-  .clips-right {
-    max-width: 420px;
-    margin: 30px auto 0;
-  }
-}
-
-.clips-columns {
-  display: grid;
-  grid-template-columns: 1fr 340px; /* left grows, right fixed */
-  gap: 24px; /* smaller horizontal space */
-  align-items: stretch; /* match heights between columns */
-  margin-top: 30px;
-}
-
-/* LEFT: YouTube videos share same total height as TikTok */
-.clips-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* evenly fill vertical space */
-  height: 100%; /* match TikTok height */
-}
-
-/* Make each YouTube video share equal height */
-.clips-left .video-item {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-}
-
-/* keep proper 16:9 aspect but flexible */
-.clips-left .video-container {
-  flex: 1;
-  display: flex;
-}
-.clips-left .video-container iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  height: 100%;
-  display: block;
-}
-
-.video-title {
-  text-align: center;
-  padding: 8px 0 10px;
-  font-size: 0.85rem;
-}
-
-/* RIGHT: TikTok fixed width */
-.clips-right {
-  width: 100%;
-  max-width: 340px;
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
   align-items: center;
 }
 
-.clips-right .tiktok-embed {
-  width: 100% !important;
-  height: 780px; /* controls full column height */
-  border-radius: 10px;
+.sell-image {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  display: block;
 }
 
-.clips-right .video-title {
-  margin-top: 10px;
-  font-size: 0.85rem;
+/* ===============================
+   TRUST / FEATURES
+================================ */
+.trust {
+  padding: 40px 0;
+}
+
+.trust-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.features {
+  background: #eef3f7;
+  padding: 110px 0;
+}
+
+.features .container {
+  max-width: 1400px;
+}
+
+.features-title {
+  font-size: 64px;
+  text-align: center;
+  margin: 0 auto 55px;
+  letter-spacing: 2px;
+  line-height: 1.05;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.feature {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 22px;
+}
+
+.center {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.dark {
+  background: #0b1f33;
+  color: #ffffff;
+}
+
+/* Feature card spacing */
+.feature {
+  padding: 34px;
+}
+
+/* Title highlight */
+.feature h3 {
+  display: inline-block;
+  background: rgba(111,174,217,0.22);
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin: 14px 0 12px;
+  font-size: 27px;
+  letter-spacing: 1px;
+}
+
+
+
+/* ===============================
+   REVIEWS
+================================ */
+.reviews {
+  padding: 80px 0;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+}
+
+.review {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 22px;
+}
+
+.reviews h2 {
+  font-size: 58px;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+/* REVIEWS background photo */
+.reviews{
+  position: relative;
+  padding: 110px 0;
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("./assets/reviews.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Make the heading + cards readable on dark photo */
+.reviews h2{
+  color: #ffffff;
+}
+
+.review{
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(6px);
+}
+
+
+/* ===============================
+   LISTINGS
+================================ */
+.listings {
+  background: #eef3f7;
+  padding: 80px 0;
+}
+
+.listings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.logos {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+}
+
+/* ===============================
+   CTA SECTION
+================================ */
+.cta-section {
+  padding: 100px 0;
   text-align: center;
 }
 
-/* Responsive stack */
+/* ===============================
+   FOOTER
+================================ */
+.footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* ===============================
+   PRICING
+================================ */
+.pricing-wrap {
+  max-width: 980px;
+}
+
+.pricing-title {
+  font-family: "Unica One", system-ui;
+  font-size: 44px;
+  text-align: center;
+  margin: 30px auto 34px;
+}
+
+.pricing-title .accent {
+  color: #6FAED9;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.price-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid #e6edf3;
+  box-shadow: 0 18px 40px rgba(15,36,51,0.06);
+}
+
+.price-card.featured {
+  border: 2px solid #0b1f33;
+  box-shadow: 0 22px 55px rgba(15,36,51,0.10);
+}
+
+.plan {
+  font-family: "Unica One", system-ui;
+  font-size: 26px;
+}
+
+.fineprint {
+  font-size: 12px;
+  color: #5a6f82;
+}
+
+/* ===============================
+   FAQ
+================================ */
+.faq-wrap {
+  max-width: 860px;
+}
+
+.faq-title {
+  font-family: "Unica One", system-ui;
+  font-size: 46px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.faq-list {
+  border-top: 1px solid #e6edf3;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e6edf3;
+  padding: 16px 0;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  color: #0b1f33;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-icon::before {
+  content: "+";
+}
+
+.faq-item[open] .faq-icon::before {
+  content: "−";
+}
+
+/* ===============================
+   CONSULTATION
+================================ */
+.consult-page {
+  padding: 48px 16px 80px;
+}
+
+.consult-wrap {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 32px;
+}
+
+.consult-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
 @media (max-width: 900px) {
-  .clips-columns {
-    display: block;
-  }
-  .clips-right {
-    max-width: 420px;
-    margin: 30px auto 0;
-  }
-  .clips-left {
-    height: auto;
-  }
-  .clips-left .video-item {
-    margin-bottom: 20px;
+  .hero-grid,
+  .grid-3,
+  .review-grid,
+  .listings-grid,
+  .pricing-grid,
+  .consult-wrap {
+    grid-template-columns: 1fr;
   }
 }
 
-/* === FINAL CLIPS ALIGNMENT FIX === */
-.clips-columns {
+.listings {
+  background: #eef3f7;
+  padding: 80px 0;
+}
+
+.listings-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.listings-image-wrap {
   display: flex;
-  gap: 24px;
-  align-items: flex-start;
   justify-content: center;
 }
 
-/* RIGHT: fix TikTok height */
-.clips-right .tiktok-embed {
-  width: 100% !important;
-  height: 720px !important;   /* <-- pick your height here */
-  max-height: 720px;
+.listings-image {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(15,36,51,0.15);
+  display: block;
 }
 
-/* LEFT: make YouTube column SAME height as TikTok */
-.clips-left {
-  display: flex;
-  flex-direction: column;
+@media (max-width: 900px) {
+  .listings-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+/* ===============================
+   HOW IT WORKS (CENTERED + CLEAN)
+================================ */
+.how-works {
+  padding: 96px 0;
+  background: #ffffff; /* keep clean; change to #f6f7f4 if you want off-white */
+}
+
+.how-title {
+  text-align: center;
+  margin: 0 auto 34px;
+  max-width: 760px;
+  font-family: "Unica One", system-ui;
+  font-size: 50px;
+  line-height: 1.1;
+  color: #0b1f33;
+}
+
+/* Center the whole stack */
+.how-steps {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
   gap: 16px;
-  min-height: 720px;          /* <-- match the TikTok height */
 }
 
-/* 3 videos share that height equally */
-.clips-left .video-item {
-  flex: 1 1 0;
+/* Make each step feel like a premium card */
+.how-step {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 16px;
+  align-items: start;
+  background: #ffffff;
+  border: 1px solid #e6edf3;
+  border-radius: 18px;
+  padding: 18px 20px;
+  box-shadow: 0 14px 36px rgba(15,36,51,0.08);
+}
+
+/* HOW IT WORKS - bigger step text */
+.how-step h3 {
+  font-size: 26px;
+  margin: 0 0 8px;
+  letter-spacing: 1px;
+}
+
+.how-step p {
+  font-size: 18px;
+  margin: 0;
+  line-height: 1.55;
+}
+
+
+/* Stronger number badge */
+.how-num {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: #ffffff;
+  background: #0b1f33; /* navy */
+  border: 1px solid rgba(0,0,0,0.10);
+}
+
+/* Better typography */
+.how-text h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #0b1f33;
+}
+
+.how-text p {
+  margin: 0;
+  color: #334b5d;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* CTA centered under steps */
+.how-cta {
   display: flex;
-  flex-direction: column;
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+  justify-content: center;
+  margin-top: 22px;
 }
 
-/* make the iframe fill its card */
-.clips-left .video-container {
-  flex: 1;
-  display: flex;
+.how-cta .btn,
+.how-cta a {
+  display: inline-block;
+  background: #0b1f33;
+  color: #ffffff;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-weight: 800;
 }
 
-.clips-left .video-container iframe {
+.how-cta .btn:hover,
+.how-cta a:hover {
+  background: #0f2433;
+}
+
+/* Mobile tuning */
+@media (max-width: 900px) {
+  .how-works { padding: 72px 0; }
+  .how-title { font-size: 34px; margin-bottom: 24px; }
+  .how-step { grid-template-columns: 46px 1fr; padding: 16px 16px; }
+  .how-num { width: 38px; height: 38px; border-radius: 12px; }
+}
+
+/* ===============================
+   PRICING PAGE – SPACING FIX
+================================ */
+
+/* Overall page container tightening */
+.pricing-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+
+/* Headline spacing */
+.pricing-title {
+  margin-top: 24px;
+  margin-bottom: 32px;
+  line-height: 1.15;
+}
+
+/* Reduce banner → headline gap */
+.banner {
+  margin-bottom: 24px;
+}
+
+/* Cards grid spacing */
+.pricing-grid {
+  margin-top: 24px;
+  margin-bottom: 72px;
+}
+
+/* Individual pricing cards */
+.price-card {
+  padding: 28px 28px 30px;
+}
+
+/* CTA buttons inside cards */
+.plan-btn {
+  margin-top: 14px;
+  margin-bottom: 20px;
+}
+
+/* ===============================
+   FAQ SECTION SPACING FIX
+================================ */
+
+#faq {
+  padding-top: 48px;
+  padding-bottom: 72px;
+}
+
+/* FAQ heading */
+.faq-title {
+  margin-top: 0;
+  margin-bottom: 28px;
+  font-size: 40px;
+  text-align: center;
+}
+
+/* FAQ list container */
+.faq-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Individual FAQ items */
+.faq-item {
+  padding: 18px 0;
+}
+
+/* FAQ question text */
+.faq-item summary {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+/* FAQ answer spacing */
+.faq-body {
+  margin-top: 10px;
+}
+
+/* ===============================
+   MOBILE TUNING
+================================ */
+@media (max-width: 900px) {
+  .pricing-wrap {
+    padding-top: 32px;
+    padding-bottom: 56px;
+  }
+
+  .pricing-grid {
+    margin-bottom: 56px;
+  }
+
+  .faq-title {
+    font-size: 34px;
+    margin-bottom: 22px;
+  }
+}
+
+/* Pricing card internal spacing */
+.price-card .plan { 
+  margin: 0 0 8px !important; 
+}
+
+.price-card .plan-sub { 
+  margin: 0 0 10px !important; 
+}
+
+.price-card .plan-desc { 
+  margin: 0 0 14px !important; 
+}
+
+.price-card .plan-btn { 
+  margin: 10px 0 14px !important; 
+  display: inline-block;
+}
+
+.price-card ul,
+.price-card .plan-list {
+  margin: 0 !important;
+  padding-left: 18px;
+}
+
+.price-card li {
+  margin: 6px 0;
+}
+/* Tighten space AFTER pricing and BEFORE Q&A */
+.pricing-grid {
+  margin-bottom: 36px !important;
+}
+
+/* If your FAQ section is #faq */
+#faq {
+  margin-top: 0 !important;
+  padding-top: 36px !important;
+}
+
+/* FAQ title spacing */
+.faq-title {
+  margin: 0 0 22px !important;
+}
+.features {
+  background: #eef3f7;
+  padding: 96px 0;
+}
+
+.features-title {
+  font-family: "Unica One", system-ui;
+  font-size: 44px;
+  text-align: center;
+  margin: 0 auto 56px;
+  color: #0b1f33;
+  line-height: 1.1;
+}
+
+/* grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 54px 70px;
+  align-items: start;
+}
+
+/* feature blocks */
+.feature {
+  text-align: center;
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  color: #6FAED9;
+}
+
+.feature-icon img {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
 }
 
-.clips-left .video-title {
-  text-align: center;
-  padding: 6px 0 10px;
-  font-size: 0.8rem;
+.feature h3 {
+  font-family: "Unica One", system-ui;
+  font-size: 20px;
+  margin: 0 0 10px;
+  color: #0b1f33;
 }
 
-/* mobile: stack again */
+.feature p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #334b5d;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* CTA */
+.features-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+}
+
+/* mobile */
 @media (max-width: 900px) {
-  .clips-columns {
-    flex-direction: column;
+  .features {
+    padding: 72px 0;
   }
-  .clips-left {
-    min-height: auto;
+
+  .features-title {
+    font-size: 34px;
+    margin-bottom: 40px;
   }
-  .clips-right .tiktok-embed {
-    height: 560px !important;
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 }
 
-/* === MOBILE RESET FOR CLIPS === */
+/* Force SVG icons to Housewell light blue */
+.feature-icon img {
+  filter: invert(63%) sepia(22%) saturate(747%) hue-rotate(168deg) brightness(95%) contrast(92%);
+}
+/* ===============================
+   GHL FORM EMBED — LOOKS NATIVE
+================================ */
+
+/* nice card already exists in your CSS, just refining */
+.consult-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.card-title {
+  margin: 0 0 6px;
+  font-family: "Unica One", system-ui;
+  color: #0b1f33;
+}
+
+.card-sub {
+  margin: 0 0 16px;
+  color: #334b5d;
+  line-height: 1.5;
+}
+
+/* Embed container (prevents weird overflow) */
+.ghl-embed {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e6edf3;
+  background: #fff;
+}
+
+/* The iframe itself */
+.ghl-embed iframe {
+  width: 100%;
+  border: 0;
+  display: block;
+  min-height: 760px; /* adjust if your form is taller */
+}
+
+/* Mobile: make sure it doesn't feel cramped */
+@media (max-width: 900px) {
+  .ghl-embed iframe {
+    min-height: 900px;
+  }
+}
+.consult-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .consult-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+/* ===============================
+   CONSULTATION — VERTICAL STACK
+================================ */
+
+/* Force single column */
+.consult-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 48px;
+  max-width: 760px; /* keeps things readable */
+  margin: 0 auto;
+}
+
+/* Center text block */
+.consult-left {
+  max-width: 720px;
+}
+
+/* Improve readability of the copy */
+.consult-left h1,
+.consult-left h2 {
+  font-family: "Unica One", system-ui;
+  font-size: 40px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  color: #0b1f33;
+}
+
+.consult-left p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #334b5d;
+  margin-bottom: 18px;
+}
+
+.consult-left ul {
+  margin: 0 0 18px;
+  padding-left: 18px;
+}
+
+.consult-left li {
+  margin-bottom: 8px;
+}
+
+/* Card spacing */
+.consult-card {
+  margin-top: 0;
+}
+
+/* Embed height stays sane */
+.ghl-embed iframe {
+  min-height: 760px;
+}
+
+/* Mobile fine-tuning */
+@media (max-width: 768px) {
+  .consult-wrap {
+    gap: 36px;
+    padding-top: 32px;
+  }
+
+  .consult-left h1,
+  .consult-left h2 {
+    font-size: 32px;
+  }
+
+  .ghl-embed iframe {
+    min-height: 900px;
+  }
+}
+
+/* =========================================
+   HOMEPAGE MOBILE FIX (MAIN PAGE)
+========================================= */
 @media (max-width: 900px) {
 
-  /* stack again */
-  .clips-columns {
-    flex-direction: column;
-    gap: 20px;
+  /* --- GLOBAL MOBILE SPACING --- */
+  .container { padding: 0 16px !important; }
+  section { padding-top: 56px; padding-bottom: 56px; }
+
+  /* --- HEADER / NAV CLEANUP --- */
+  .nav {
+    padding: 12px 0 !important;
+    gap: 10px;
+    flex-wrap: wrap;
   }
 
-  /* let left side be normal height again */
-  .clips-left {
-    min-height: auto;
-    display: block;
+  .logo { height: 92px !important; }
+
+  /* keep nav links from stacking awkwardly */
+  .links {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .links a, .phone { margin-left: 0 !important; }
+
+  /* --- BANNER (SAVE 9000 BAR) --- */
+  .banner {
+    padding: 10px 12px !important;
+    font-size: 14px;
+    line-height: 1.25;
   }
 
-  .clips-left .video-item {
-    flex: none;
-    margin-bottom: 16px;
+  /* --- HERO: STACK + TIGHTEN --- */
+  .hero { padding: 40px 0 34px !important; }
+
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    align-items: start;
   }
 
-  .clips-left .video-container {
-    display: block;
+  /* headline: avoid weird huge breaks */
+  .hero h1 {
+    font-size: 40px !important;
+    line-height: 1.05 !important;
+    margin: 0 0 12px !important;
+    letter-spacing: -0.2px;
   }
 
-  .clips-left .video-container iframe {
+  .hero h1 br { display: none; } /* prevents awkward breaks on phones */
+
+  .lead {
+    font-size: 16px !important;
+    margin: 0 0 18px !important;
+  }
+
+  /* CTA buttons: centered + stacked nicely */
+  .cta {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    margin: 0 0 14px !important;
+  }
+
+  .cta a {
     width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
+    text-align: center;
+    padding: 14px 16px;
+    border-radius: 14px;
   }
 
-  /* TikTok a bit shorter on mobile */
-  .clips-right {
-    max-width: 100%;
+  .states {
+    margin-top: 10px !important;
   }
-  .clips-right .tiktok-embed {
-    height: 560px !important;
+
+  /* --- HERO IMAGE: FULL WIDTH + NICE RADIUS --- */
+  .sell-right { margin-top: 10px; }
+  .sell-image {
+    max-width: 100% !important;
+    width: 100% !important;
+    border-radius: 18px !important;
+  }
+
+  /* --- FEATURES SECTION: reduce top gap + make title fit --- */
+  .features { padding: 56px 0 !important; }
+
+  .features-title {
+    font-size: 34px !important;
+    margin: 0 auto 28px !important;
+    line-height: 1.1 !important;
+    text-align: center;
+  }
+
+  .features-grid, .grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .feature p {
+    max-width: 320px;
+  }
+
+  .features-cta { margin-top: 28px !important; }
+
+  /* --- LISTINGS SECTION: tighten --- */
+  .listings { padding: 56px 0 !important; }
+  .listings-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
+  .listings-image { max-width: 100% !important; }
+}
+
+@media (max-width: 900px) {
+
+  /* Force hero CTA buttons to fit screen */
+  .cta a,
+  .btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Ensure CTA container doesn't overflow */
+  .cta {
+    padding: 0 !important;
+  }
+}
+.btn,
+.nav-cta,
+button {
+  font-family: "Unica One", system-ui;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Header for non-home pages (same nav, no hero image) */
+.top-header{
+  background: #0b1f33;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Keep banner readable on dark header */
+.top-header .banner{
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.92);
+}
+
+.top-header .banner a{
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.top-header .top-nav{
+  position: relative;
+}
+
+/* Remove hero background image on non-home pages */
+.top-header{
+  background: #0b1f33 !important;
+}
+
+.top-header{
+  background-image: none !important;
+}
+
+.nav-logo img{
+  height: 170px; /* keep your size */
+  width: auto;
+  display: block;
+  filter: brightness(1.25) contrast(1.15) drop-shadow(0 0 18px rgba(255,255,255,0.35));
+}
+
+/* ===============================
+    PAGE HERO
+================================ */
+/* ===============================
+    HERO (background layer)
+================================ */
+.about-hero{
+  min-height: 70vh;
+}
+
+/* Background image goes on the layer now */
+.about-hero .hero-bg{
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("./assets/about-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ABOUT PAGE: don't scale the entire header */
+.about-hero{
+  transform: none !important;
+}
+
+/* ABOUT PAGE: dramatic zoom only on the bg layer */
+.about-hero .hero-bg{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  transform: scale(1.22);
+  transition: transform 1100ms cubic-bezier(.2,.9,.2,1);
+  will-change: transform;
+}
+
+/* ensure nav/text sit above bg */
+.about-hero > *:not(.hero-bg){
+  position: relative;
+  z-index: 1;
+}
+
+html.is-loaded .about-hero .hero-bg{
+  transform: scale(1);
+}
+
+
+/* ===============================
+   ABOUT INTRO
+================================ */
+.about-intro{
+  background: #ffffff;
+  padding: 90px 0;
+}
+
+/* About page: push title down so it doesn't overlap the logo */
+.about-hero .hero-overlay{
+  padding-top: 200px !important;
+}
+
+
+.about-intro-wrap{
+  max-width: 900px;
+  text-align: center;
+}
+
+.about-heading{
+  font-size: 44px;
+  margin: 0 0 24px;
+  letter-spacing: 2px;
+}
+
+.about-text{
+  font-size: 18px;
+  line-height: 1.7;
+  color: #0f2433;
+  margin: 0 auto 18px;
+  max-width: 760px;
+}
+
+/* ===============================
+   FOUNDERS
+================================ */
+.founders{
+  background: #ffffff;
+  padding: 80px 0 110px;
+}
+
+.founders-title{
+  text-align: center;
+  font-size: 46px;
+  margin: 0 0 60px;
+  letter-spacing: 2px;
+}
+
+.founder{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+  max-width: 980px;
+  margin: 0 auto 90px;
+}
+
+.founder-photo img{
+  width: 100%;
+  max-width: 420px;
+  display: block;
+  border-radius: 0px; /* keep it sharp like GBRS */
+  box-shadow: 0 18px 50px rgba(0,0,0,0.12);
+}
+
+.founder-role{
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  color: #5a6f82;
+}
+
+.founder-name{
+  font-size: 34px;
+  margin: 0 0 16px;
+}
+
+.founder-bio{
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0 0 22px;
+  max-width: 480px;
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  .founder{
+    grid-template-columns: 1fr;
+    gap: 22px;
+    text-align: center;
+  }
+
+  .founder-photo img{
+    margin: 0 auto;
+  }
+
+  .founder-bio{
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
-/* Summit Blue "Buy Now" button */
-.btn.success {
-  background-color: #1e40af; /* Summit blue */
-  color: #fff;
-  border: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+.about-hero .nav-logo img{
+  height: 170px;
+  width: auto;
+  display: block;
+  filter: brightness(1.35) contrast(1.15) drop-shadow(0 0 18px rgba(255,255,255,0.35));
 }
 
-.btn.success:hover {
-  background-color: #1d4ed8;
-  transform: translateY(-2px);
-}
-/* --- Summit Flow Unified Button Style --- */
-.btn.primary,
-.btn.success {
-  background-color: #1e40af; /* Summit Flow blue */
-  color: #fff;
-  border: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+/* FIX: Hero showing only half width on mobile */
+@media (max-width: 900px){
+  html, body{
+    overflow-x: hidden;
+  }
+
+  .top-hero,
+  .about-hero,
+  .hero-overlay,
+  .hero-content{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  
+    min-height: 92vh;
+    background-size: cover !important;
+    background-position: center !important;
+  }
 }
 
-.btn.primary:hover,
-.btn.success:hover {
-  background-color: #1d4ed8; /* Slightly lighter Summit Flow blue for hover */
-  transform: translateY(-2px);
+/* ABOUT page: make ONLY the nav logo pop */
+.about-hero .nav-logo img{
+  filter: brightness(1.6) contrast(1.25) drop-shadow(0 0 22px rgba(255,255,255,0.55)) !important;
 }
 
-/* Optional: keep .btn.ghost the same outline style */
-.btn.ghost {
-  border: 2px solid #1e40af;
-  color: #1e40af;
-  background: transparent;
-  transition: all 0.3s ease;
-}
-.btn.ghost:hover {
-  background: #1e40af;
-  color: #fff;
+/* =========================
+   MOBILE FIX PACK
+   ========================= */
+@media (max-width: 900px){
+  html, body { overflow-x: hidden; }
+
+  /* Make hero truly full width */
+  .top-hero, .about-hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    background-position: center !important;
+    background-size: cover !important;
+  }
+
+  /* Stack nav: links row, logo, links row */
+  .top-nav { position: relative !important; padding: 14px 14px !important; }
+
+  .top-nav-inner{
+    grid-template-columns: 1fr !important;
+    justify-items: center;
+    gap: 10px !important;
+  }
+
+  .nav-left, .nav-right{
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 14px !important;
+  }
+
+  /* CRITICAL: logo cannot be 230px on mobile */
+  .nav-logo img{
+    height: 110px !important;
+    max-height: 110px !important;
+  }
+
+  /* Push hero text below nav so it doesn't collide */
+  .hero-overlay{
+    padding: 170px 14px 60px !important;
+  }
+
+  /* Fix headline cropping */
+  .hero-title{
+    font-size: 44px !important;
+    letter-spacing: 1.5px !important;
+    line-height: 1.05 !important;
+    padding: 0 8px !important;
+    max-width: 95vw !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  .hero-sub{
+    font-size: 13px !important;
+    letter-spacing: 1.2px !important;
+    padding: 0 10px !important;
+    max-width: 92vw !important;
+    text-align: center !important;
+  }
 }
 
-/* Make "Buy Now" match the left CTA */
-.btn.success {
-  background: linear-gradient(90deg, var(--blue), var(--cyan));
-  color: #fff;
+/* =========================
+   HERO TEXT FIX (MOBILE)
+   prevents titles from going off screen
+   ========================= */
+@media (max-width: 900px){
+
+  .hero-content{
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 14px !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-title{
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 40px !important;
+    line-height: 1.08 !important;
+
+    /* THESE are the important ones */
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+
+    /* spacing */
+    letter-spacing: 1px !important;
+    text-align: center !important;
+    margin: 0 auto 12px !important;
+  }
+
+  .hero-sub{
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    letter-spacing: 1px !important;
+    text-align: center !important;
+  }
+}
+/* MOBILE: hard-center hero text so it doesn't drift right */
+@media (max-width: 900px){
+
+  /* prevent any tiny overflow from shifting layout */
+  html, body { overflow-x: hidden; }
+
+  /* make overlay + content centered */
+  .hero-overlay{
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  .hero-content{
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-title,
+  .hero-sub{
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
 }
 
-.btn.success:hover {
-  filter: brightness(1.05);
+@media (max-width: 900px){
+  .hero-title, .hero-sub{
+    transform: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
-<button style="
-  background: linear-gradient(135deg, #0A1A2F 0%, #0F3355 100%);
-  color:white;
-  padding:12px 24px;
-  border-radius:8px;
-  font-weight:700;
-  font-size:18px;
-  border:none;
-  cursor:pointer;
-">
-  Sign Up Now
-</button>
 
+@media (max-width: 900px){
+  .top-hero{ overflow-x: hidden; }
+}
+
+@media (max-width: 900px){
+  .top-hero .hero-content{
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+}
+
+
+/* ================================
+   HERO LOAD ANIMATION (GBRS STYLE)
+   ================================ */
+
+/* HERO BACKGROUND QUICK ZOOM */
+.top-hero{
+  position: relative;
+  overflow: hidden;
+}
+
+html.is-loaded .top-hero{
+  transform: scale(1);
+}
+
+/* TEXT START STATE */
+.hero-title,
+.hero-sub{
+  opacity: 0;
+  transform: translateY(22px); /* slide up from below */
+  will-change: transform, opacity;
+}
+
+/* Title comes in first */
+.hero-title{
+  transition: transform 550ms ease, opacity 550ms ease;
+  transition-delay: 120ms;
+}
+
+/* Subs come after title (staggered) */
+.hero-sub{
+  transition: transform 550ms ease, opacity 550ms ease;
+}
+
+.hero-sub:nth-child(1){ transition-delay: 320ms; }
+.hero-sub:nth-child(2){ transition-delay: 450ms; }
+.hero-sub:nth-child(3){ transition-delay: 580ms; }
+
+/* LOADED STATE */
+html.is-loaded .hero-title,
+html.is-loaded .hero-sub{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce){
+  .top-hero,
+  .hero-title,
+  .hero-sub{
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* =========================
+   HERO SPACING FIXES
+   ========================= */
+
+/* HOME page: push hero text below nav/logo */
+.top-hero:not(.about-hero) .hero-overlay{
+  padding-top: 300px !important;  /* was 120px; fixes headline hitting logo */
+  padding-bottom: 70px !important;
+}
+
+/* Mobile HOME: keep it below stacked nav/logo */
+@media (max-width: 900px){
+  .top-hero:not(.about-hero) .hero-overlay{
+    padding-top: 260px !important;
+    padding-bottom: 60px !important;
+  }
+}
+
+/* ABOUT page: put title higher (not vertically centered) */
+.about-hero .hero-overlay{
+  place-items: start center !important; /* instead of center center */
+  padding-top: 190px !important;        /* tweak: 190–240 based on taste */
+  padding-bottom: 60px !important;
+}
+
+/* MOBILE: push the subcopy block down + make it readable */
+@media (max-width: 900px){
+
+  /* Move ONLY the paragraph block down (not the H1) */
+  .top-hero:not(.about-hero) .hero-sub:first-of-type{
+    margin-top: 200px !important; /* tweak: 110–180px until it lines up with water */
+  }
+}
+
+
+/* =========================================
+   MOBILE HERO: HARD CENTER EVERYTHING
+   (house image + title + paragraph)
+========================================= */
+@media (max-width: 900px){
+
+  html, body{
+    overflow-x: hidden !important;
+  }
+
+  /* Make the hero full width and centered */
+  .top-hero{
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+
+  /* Force overlay to be true center */
+  .hero-overlay{
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto !important;
+    display: grid !important;
+    place-items: center !important;
+    text-align: center !important;
+  }
+
+  /* Force content to center and REMOVE all transforms */
+  .hero-content{
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    position: relative !important;
+  }
+
+  /* Center the text blocks */
+  .hero-title,
+  .hero-sub{
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  /* Remove any weird offsets */
+  .hero-title,
+  .hero-sub{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* =========================================
+   iPHONE HERO: TRUE CENTER + NO CLIPPING
+========================================= */
+@media (max-width: 900px){
+
+  /* 1) Stop the zoom scaling on mobile (it causes drift/clipping) */
+  .top-hero,
+  html.is-loaded .top-hero{
+    transform: none !important;
+  }
+
+  /* 2) Hard-center the background image (house) */
+  .top-hero{
+    background-position: 50% 50% !important;
+    background-size: cover !important;
+  }
+
+  /* 3) Make the H1 fit the screen (THIS fixes "KEEP" clipping) */
+  .hero-title{
+    font-size: 42px !important;      /* drop from 44–58+ */
+    letter-spacing: 1px !important;  /* HUGE fix (yours is big) */
+    padding: 0 18px !important;
+    white-space: normal !important;
+    text-align: center !important;
+    margin: 0 auto 12px !important;
+    max-width: 95vw !important;
+  }
+
+  /* 4) Keep the paragraph block centered and readable */
+  .hero-sub{
+    text-align: center !important;
+    max-width: 92vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    letter-spacing: 1px !important;
+  }
+}
+
+.mobile-break{ display:none; }
+
+@media (max-width: 900px){
+  .mobile-break{ display:inline; }
+}
+
+/* Small banner under hero (same bg as next section) */
+.housewell-banner{
+  width: 100%;
+  background: #eef3f7; /* SAME as your next section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 16px;  /* small height */
+}
+
+.housewell-banner img{
+  width: auto;
+  height: 26px;        /* WAY smaller */
+  display: block;
+  opacity: 0.9;
+}
+
+/* =========================================
+   MOBILE: CENTER EVERYTHING OFF THE LOGO
+   (nav + logo + title + subs)
+========================================= */
+@media (max-width: 900px){
+
+  /* 1) Make the nav a true centered stack */
+  .top-nav{
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    padding: 14px 12px !important;
+  }
+
+  .top-nav-inner{
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+
+    display: grid !important;
+    grid-template-columns: 1fr !important;  /* ONE column */
+    justify-items: center !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
+  /* kill the left/right push */
+  .nav-left, .nav-right{
+    width: 100% !important;
+    justify-content: center !important;
+    gap: 18px !important;
+    margin: 0 !important;
+  }
+
+  /* logo centered */
+  .nav-logo{
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .nav-logo img{
+    height: 110px !important;
+    width: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  /* 2) Center hero text container exactly under the logo */
+  .hero-overlay{
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+
+    padding: 250px 14px 70px !important; /* below the stacked nav/logo */
+    box-sizing: border-box !important;
+  }
+
+  .hero-content{
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    /* remove any centering hacks from earlier */
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+  }
+
+  .hero-title, .hero-sub{
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+}
+
+/* =========================================
+   HERO ZOOM (RIGHT WAY): zoom ONLY the background
+   Keeps logo + text perfectly centered
+========================================= */
+.top-hero{
+  position: relative;
+  overflow: hidden;
+  transform: none !important;   /* NEVER scale the whole header */
+}
+
+/* Create a background layer using the same backgrounds you already set */
+.top-hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  /* Inherit your existing background from .top-hero / .about-hero */
+  background: inherit;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transform: scale(1.18);  /* dramatic start */
+  transition: transform 1100ms cubic-bezier(.2,.9,.2,1);
+  will-change: transform;
+}
+
+/* Make sure nav + overlay sit above the background layer */
+.top-hero > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* Animate in */
+html.is-loaded .top-hero::before{
+  transform: scale(1);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .top-hero::before{
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================
+   HOME HERO MOBILE CENTER PATCH (SAFE)
+   - does NOT touch .housewell-banner
+   - does NOT touch pricing/consult brightness
+   - does NOT touch features chips or how-it-works
+========================================= */
+@media (max-width: 900px){
+
+  /* Kill any leftover horizontal drift */
+  html, body { overflow-x: hidden; }
+
+  /* Ensure nav stack is truly centered */
+  .top-nav{
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+  }
+
+  .top-nav-inner{
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    justify-items: center !important;
+  }
+
+  .nav-left, .nav-right{
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* Center the hero overlay + content block */
+  .top-hero .hero-overlay{
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  .top-hero .hero-content{
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+
+  /* Critical: allow title to wrap and stay centered */
+  .top-hero .hero-title{
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    max-width: 95vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .top-hero .hero-sub{
+    max-width: 92vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+}
+
+/* FIX: banner links not clickable (something is overlaying them) */
+.banner{
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+.banner a{
+  position: relative !important;
+  z-index: 10000 !important;
+  pointer-events: auto !important;
+}
+
+/* make sure hero overlay/background can't steal clicks */
+.top-hero::before{
+  pointer-events: none !important;
+}
+.hero-overlay{
+  pointer-events: none !important;
+}
+.hero-overlay a{
+  pointer-events: auto !important;
+}
+
+/* ================================
+   FIX: PRICING + CONSULT PAGES LOOKING LIKE HOME HERO
+   Requires <header class="top-header"> on those pages
+================================ */
+.top-header{
+  background: #0b1f33 !important;
+  background-image: none !important;
+}
+
+.top-header .top-nav{
+  position: relative !important;  /* stop absolute hero nav */
+  padding: 18px 16px !important;
+}
+
+.top-header .hero-overlay{
+  display: none !important;       /* prevent hero spacing from applying */
+}
+
+/* Mobile: keep logo sane */
+@media (max-width: 900px){
+  .top-header .nav-logo img{
+    height: 92px !important;
+  }
+}
+
+/* =========================================
+   ABOUT HERO: put title back where it was
+   (wins over the 58 other padding rules)
+========================================= */
+.about-hero .hero-overlay{
+  place-items: center !important;         /* puts it back in the middle */
+  padding-top: 190px !important;          /* adjust to your old sweet spot */
+  padding-bottom: 60px !important;
+}
+
+@media (max-width: 900px){
+  .about-hero .hero-overlay{
+    padding-top: 240px !important;        /* same on mobile */
+  }
+}
+
+
+/* ABOUT page: control where the title sits */
+.top-hero.about-hero .hero-overlay{
+  place-items: center !important;
+  padding-top: 240px !important;   /* increase = moves DOWN */
+  padding-bottom: 60px !important;
+}
+
+@media (max-width: 900px){
+  .top-hero.about-hero .hero-overlay{
+    padding-top: 320px !important; /* tweak 220–320 */
+  }
+}
+
+/* =========================================
+   MATCH LOGO SIZE ON PRICING + CONSULT PAGES
+========================================= */
+
+/* Desktop */
+.top-header .nav-logo img{
+  height: 170px !important; /* match home/about */
+  width: auto !important;
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  .top-header .nav-logo img{
+    height: 110px !important; /* match home/about mobile */
+    width: auto !important;
+  }
+}
+
+/* =========================================
+   FORCE NAV LOGO SIZE TO MATCH (ALL PAGES)
+   Mobile: about/index/pricing/consult = same
+========================================= */
+@media (max-width: 900px){
+
+  /* override the old "52px" mobile logo rule */
+  .nav-logo img{
+    height: 110px !important;
+    max-height: 110px !important;
+    width: auto !important;
+  }
+}
