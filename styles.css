@@ -2246,3 +2246,112 @@ html.is-loaded .top-hero::before{
 .top-header {
   background: linear-gradient(135deg, #6FAED9, #3EB5FF) !important;
 }
+
+/* ===== Business Pan Carousel ===== */
+
+.biz-pan {
+  padding: 54px 0;
+}
+
+.biz-pan-title {
+  text-align: center;
+  margin: 0 0 10px;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 900;
+}
+
+.biz-pan-sub {
+  text-align: center;
+  margin: 0 auto 18px;
+  max-width: 78ch;
+  opacity: .9;
+  line-height: 1.55;
+}
+
+.biz-strip {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  padding: 10px 0 6px;
+  mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+}
+.biz-strip::-webkit-scrollbar { display: none; }
+
+.biz-track {
+  display: flex;
+  gap: 14px;
+  padding: 0 4vw;
+  align-items: stretch;
+  width: max-content;
+}
+
+.biz-card {
+  position: relative;
+  width: clamp(240px, 24vw, 360px);
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.14);
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.55)),
+    var(--bg);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 18px 55px rgba(0,0,0,.28);
+  flex: 0 0 auto;
+}
+
+.biz-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(600px 240px at 50% 105%, rgba(62,181,255,.22), transparent 60%);
+  pointer-events:none;
+}
+
+.biz-overlay{
+  position:absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  display: grid;
+  gap: 6px;
+}
+
+.biz-overlay h3{
+  margin:0;
+  font-size: 16px;
+  font-weight: 950;
+  letter-spacing: .2px;
+}
+
+.biz-overlay p{
+  margin:0;
+  font-size: 13px;
+  line-height: 1.35;
+  opacity: .92;
+}
+
+.biz-card:hover{
+  transform: translateY(-2px);
+  transition: transform 160ms ease;
+}
+
+.biz-pan-hint{
+  text-align:center;
+  opacity:.75;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .2px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 800px){
+  .biz-card{ width: 78vw; }
+  .biz-track{ padding: 0 6vw; }
+}
+
