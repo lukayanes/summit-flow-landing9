@@ -2243,3 +2243,6 @@ html.is-loaded .top-hero::before{
   }
 }
 
+.top-header {
+  background: linear-gradient(135deg, #1F6FE5, #3EB5FF) !important;
+}
