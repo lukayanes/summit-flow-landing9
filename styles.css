@@ -2378,6 +2378,38 @@ html.is-loaded .top-hero::before{
   max-width: 22ch;
 }
 
+/* Make the strip snap one tile at a time */
+.biz-strip{
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 10px 0 6px;
+}
+.biz-strip::-webkit-scrollbar{ display:none; }
+
+/* Each tile snaps */
+.biz-card{
+  scroll-snap-align: start;
+}
+
+/* Square tiles */
+.biz-card{
+  width: clamp(180px, 18vw, 260px);
+  height: clamp(180px, 18vw, 260px);
+  border-radius: 0px;
+  overflow: hidden;
+  flex: 0 0 auto;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.55)),
+    var(--bg);
+  background-size: cover;
+  background-position: center;
+}
+
+
 
 /* Mobile tweaks */
 @media (max-width: 800px){
