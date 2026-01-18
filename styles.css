@@ -2150,3 +2150,96 @@ html.is-loaded .top-hero::before{
     width: auto !important;
   }
 }
+
+/* DEMO SECTION LAYOUT */
+.demo .how-title{
+  text-align:center;
+  margin-bottom:18px;
+}
+
+/* Panel wrapper */
+.clips.panel{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 18px 55px rgba(0,0,0,0.35);
+}
+
+/* Two column layout */
+.clips-columns{
+  display:grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 18px;
+  align-items:start;
+}
+
+/* LEFT column stacks videos */
+.clips-left{
+  display:grid;
+  gap: 16px;
+}
+
+/* Video item */
+.video-item{
+  display:grid;
+  gap: 10px;
+}
+
+/* Responsive iframe container */
+.video-container{
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.25);
+}
+
+.video-container iframe{
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* Titles under each video */
+.video-title{
+  margin:0;
+  font-size: 14px;
+  font-weight: 800;
+  opacity: 0.95;
+}
+
+/* RIGHT column TikTok sizing */
+.clips-right{
+  display:grid;
+  gap: 10px;
+  justify-items:center;
+  text-align:center;
+}
+
+/* TikTok wrapper keeps it centered and not too wide */
+.tiktok-wrap{
+  width: 100%;
+  max-width: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.25);
+  padding: 10px;
+}
+
+/* Mobile stack */
+@media (max-width: 900px){
+  .clips-columns{
+    grid-template-columns: 1fr;
+  }
+
+  .tiktok-wrap{
+    max-width: 420px;
+  }
+}
+
