@@ -373,5 +373,52 @@
   });
 </script>
 
+<script>
+(() => {
+  const strip = document.querySelector(".biz-strip");
+  const track = document.getElementById("bizTrack");
+  if (!strip || !track) return;
+
+  // Duplicate items for seamless looping
+  const items = Array.from(track.children);
+  items.forEach(el => track.appendChild(el.cloneNode(true)));
+
+  let rafId = null;
+  let paused = false;
+  let userInteracting = false;
+
+  const speed = 0.35; // px per frame (increase = faster)
+
+  const tick = () => {
+    if (!paused && !userInteracting) {
+      strip.scrollLeft += speed;
+
+      // When we’ve scrolled past the first set, jump back seamlessly
+      const half = track.scrollWidth / 2;
+      if (strip.scrollLeft >= half) strip.scrollLeft -= half;
+    }
+    rafId = requestAnimationFrame(tick);
+  };
+
+  const pause = () => paused = true;
+  const resume = () => paused = false;
+
+  strip.addEventListener("mouseenter", pause);
+  strip.addEventListener("mouseleave", resume);
+
+  strip.addEventListener("touchstart", () => userInteracting = true, { passive: true });
+  strip.addEventListener("touchend", () => userInteracting = false, { passive: true });
+
+  let scrollTimeout = null;
+  strip.addEventListener("scroll", () => {
+    userInteracting = true;
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => userInteracting = false, 250);
+  }, { passive: true });
+
+  rafId = requestAnimationFrame(tick);
+})();
+</script>
+
 </body>
 </html>
