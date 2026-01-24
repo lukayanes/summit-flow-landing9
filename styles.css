@@ -2420,3 +2420,67 @@ html.is-loaded .top-hero::before{
   .biz-track{ padding: 0 6vw; }
 }
 
+/* TOP CONTACT BAR */
+.top-contact-bar{
+  width: 100%;
+  background: #0b1f33; /* deep navy */
+  color: #fff;
+}
+
+.top-contact-inner{
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.top-contact-item{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.top-contact-item:first-child{
+  border-right: 1px solid rgba(255,255,255,0.18);
+}
+
+.top-contact-icon{
+  font-size: 22px;
+  line-height: 1;
+  opacity: 0.95;
+}
+
+.top-contact-label{
+  display: block;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.92);
+}
+
+.top-contact-value{
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  color: #f7b500; /* Florida Man yellow */
+}
+
+.top-contact-item:hover{
+  background: rgba(255,255,255,0.06);
+}
+
+/* MOBILE */
+@media (max-width: 700px){
+  .top-contact-inner{
+    grid-template-columns: 1fr;
+  }
+
+  .top-contact-item:first-child{
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+  }
+}
