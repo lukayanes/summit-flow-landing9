@@ -2610,3 +2610,50 @@ html.is-loaded .top-hero::before{
   }
 }
 
+/* =========================================
+   SUMMIT FLOW — NAV TEXT UNIFICATION
+   Makes dropdown text match main nav
+   ========================================= */
+
+/* Top-level nav links (already correct, reinforced) */
+.nav-left a,
+.nav-right a,
+.nav-dropbtn {
+  font-family: "Unica One", system-ui;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--nav-text);
+}
+
+/* Dropdown menu links — MATCH TOP NAV */
+.nav-dropmenu a {
+  font-family: "Unica One", system-ui !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.92);
+}
+
+/* Hover states consistent with top nav */
+.nav-dropmenu a:hover,
+.nav-dropmenu a:focus {
+  color: var(--nav-text-strong);
+}
+
+/* Mobile adjustments (keep readable but consistent) */
+@media (max-width: 768px){
+  .nav-left a,
+  .nav-right a,
+  .nav-dropbtn {
+    font-size: 16px;
+  }
+
+  .nav-dropmenu a {
+    font-size: 16px;
+    letter-spacing: 0.8px;
+  }
+}
+
