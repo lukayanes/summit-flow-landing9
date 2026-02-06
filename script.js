@@ -32,3 +32,20 @@ window.addEventListener('message', (e) => {
   modal.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', close));
   document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
 })();
+
+<script>
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".nav-dropbtn");
+  const dropdowns = document.querySelectorAll(".nav-dropdown");
+
+  dropdowns.forEach(d => {
+    if (!d.contains(e.target)) d.classList.remove("is-open");
+  });
+
+  if (btn) {
+    const parent = btn.closest(".nav-dropdown");
+    parent.classList.toggle("is-open");
+    e.preventDefault();
+  }
+});
+</script>
