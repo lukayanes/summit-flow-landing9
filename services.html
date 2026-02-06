@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Services | Summit Flow CRM</title>
-  <meta name="description" content="Summit Flow CRM services including Google Ads management, conversion-focused websites, landing pages, and CRM automation systems.">
+  <meta name="description" content="Summit Flow CRM services including Google Ads management, websites & landing pages, CRM automation, and done-for-you systems.">
 
   <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
@@ -49,189 +49,186 @@
 
   <!-- NAV -->
   <nav class="top-nav">
-  <div class="top-nav-inner">
+    <div class="top-nav-inner">
 
-    <!-- LEFT -->
-    <div class="nav-left">
+      <div class="nav-left">
+        <a href="./about.html">About</a>
 
-      <a href="./about.html">About</a>
-
-      <!-- SERVICES DROPDOWN -->
-      <div class="nav-dropdown">
-        <button
-          class="nav-dropbtn nav-linklike"
-          type="button"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Services <span class="nav-caret" aria-hidden="true">▾</span>
-        </button>
-
-        <div class="nav-dropmenu" role="menu" aria-label="Services submenu">
-          <a role="menuitem" href="./services.html">All Services</a>
-          <a role="menuitem" href="./services.html#google-ads">Google Ads Management</a>
-          <a role="menuitem" href="./services.html#websites">Websites &amp; Landing Pages</a>
-          <a role="menuitem" href="./services.html#crm">CRM Automation</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropbtn nav-linklike" type="button">
+            Services <span class="nav-caret">▾</span>
+          </button>
+          <div class="nav-dropmenu">
+            <a href="./services.html">All Services</a>
+            <a href="#google-ads">Google Ads Management</a>
+            <a href="#websites">Websites & Landing Pages</a>
+            <a href="#crm">CRM Automation</a>
+            <a href="#automation">Automations & Integrations</a>
+            <a href="#done-for-you">Done-For-You Setup</a>
+          </div>
         </div>
       </div>
 
+      <a class="nav-logo" href="./index.html">
+        <img src="assets/summit flow transparent.png" alt="Summit Flow CRM">
+      </a>
+
+      <div class="nav-right">
+        <a href="./consultation.html">Consultation</a>
+        <a href="./pricing.html#pricing">Pricing</a>
+      </div>
+
     </div>
+  </nav>
 
-    <!-- CENTER LOGO -->
-    <a class="nav-logo" href="./index.html" aria-label="Home">
-      <img src="assets/summit flow transparent.png" alt="Summit Flow CRM" />
-    </a>
-
-    <!-- RIGHT -->
-    <div class="nav-right">
-      <a href="./consultation.html">Consultation</a>
-      <a href="./pricing.html#pricing">Pricing</a>
+  <!-- HERO -->
+  <div class="hero-overlay">
+    <div class="hero-content hero-animate">
+      <h1 class="hero-title">SERVICES THAT POWER YOUR BUSINESS</h1>
+      <div class="hero-subs">
+        <p class="hero-sub">GOOGLE ADS · WEBSITES · CRM · AUTOMATION</p>
+        <p class="hero-sub">ONE SYSTEM — BUILT TO SCALE</p>
+      </div>
     </div>
-
   </div>
-</nav>
 
+</header>
 
-<!-- SERVICES GRID (MATCHES FEATURES STYLE) -->
-<section class="features">
-  <div class="container">
-    <h2 class="features-title">Our Core Services</h2>
-
-    <div class="grid-3 features-grid">
-
-      <div class="feature">
-        <div class="feature-icon">
-          <img src="./assets/leads.svg" alt="">
-        </div>
-        <h3>Google Ads Management</h3>
-        <p>
-          High-intent Google Search campaigns built to drive calls,
-          forms, and booked appointments — fully tracked inside your CRM.
-        </p>
+<!-- ===============================
+     GOOGLE ADS
+================================ -->
+<section class="about-split" id="google-ads">
+  <div class="container about-split-grid">
+    <div class="about-split-text">
+      <p class="about-kicker"><span class="about-link">GOOGLE ADS MANAGEMENT</span></p>
+      <h2 class="about-title">High-Intent Traffic That Turns Into Real Leads</h2>
+      <div class="about-underline"></div>
+      <p class="about-body">
+        We build and manage Google Search campaigns designed to drive calls,
+        form submissions, and booked appointments — not wasted clicks.
+      </p>
+      <p class="about-body" style="margin-top:14px;">
+        <strong>Includes:</strong> keyword strategy, conversion tracking,
+        call & form attribution, CRM integration, and ongoing optimization.
+      </p>
+      <div style="margin-top:18px;">
+        <a class="last-cta-phone" href="./consultation.html">Book Ads Strategy Call →</a>
       </div>
-
-      <div class="feature">
-        <div class="feature-icon">
-          <img src="./assets/capture.svg" alt="">
-        </div>
-        <h3>Websites & Landing Pages</h3>
-        <p>
-          Conversion-focused websites and landing pages built specifically
-          for paid traffic and lead generation.
-        </p>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">
-          <img src="./assets/automation.svg" alt="">
-        </div>
-        <h3>CRM Automation</h3>
-        <p>
-          Automated follow-up, pipelines, reminders, and lead routing
-          so no opportunity slips through the cracks.
-        </p>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">
-          <img src="./assets/pipeline.svg" alt="">
-        </div>
-        <h3>Sales Pipelines</h3>
-        <p>
-          Custom pipelines for real estate, home services,
-          and small businesses to track every deal and job.
-        </p>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">
-          <img src="./assets/messages.svg" alt="">
-        </div>
-        <h3>Text & Email Follow-Up</h3>
-        <p>
-          Instant SMS and email sequences that engage leads
-          the moment they reach out.
-        </p>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">
-          <img src="./assets/team.svg" alt="">
-        </div>
-        <h3>Done-For-You Setup</h3>
-        <p>
-          We build and configure everything for you —
-          CRM, automations, ads, and websites.
-        </p>
-      </div>
-
     </div>
-
-    <div class="features-cta">
-      <a class="btn primary" href="./consultation.html">Book a Strategy Call →</a>
-    </div>
+    <div class="about-split-image"></div>
   </div>
 </section>
 
-<!-- HOW IT WORKS (REUSED FROM INDEX) -->
-<section class="section how-works">
-  <div class="container how-wrap">
-    <h2 class="how-title">How Our Services Work</h2>
-
-    <div class="how-steps">
-
-      <div class="how-step">
-        <div class="how-num">1</div>
-        <div class="how-text">
-          <h3>Tell us your business & goals</h3>
-          <p>
-            Whether you need ads, a website, CRM automation,
-            or the full system — we tailor everything to you.
-          </p>
-        </div>
+<!-- ===============================
+     WEBSITES
+================================ -->
+<section class="about-split" id="websites">
+  <div class="container about-split-grid">
+    <div class="about-split-text">
+      <p class="about-kicker"><span class="about-link">WEBSITES & LANDING PAGES</span></p>
+      <h2 class="about-title">Websites Built to Convert Paid Traffic</h2>
+      <div class="about-underline"></div>
+      <p class="about-body">
+        Fast, mobile-first websites and landing pages designed specifically
+        for lead generation and Google Ads traffic.
+      </p>
+      <p class="about-body" style="margin-top:14px;">
+        <strong>Built for:</strong> speed, clarity, conversion,
+        and seamless CRM routing.
+      </p>
+      <div style="margin-top:18px;">
+        <a class="last-cta-phone" href="./consultation.html">View Website Packages →</a>
       </div>
-
-      <div class="how-step">
-        <div class="how-num">2</div>
-        <div class="how-text">
-          <h3>We build your system</h3>
-          <p>
-            Ads, pages, CRM pipelines, automations,
-            and lead routing — built and connected.
-          </p>
-        </div>
-      </div>
-
-      <div class="how-step">
-        <div class="how-num">3</div>
-        <div class="how-text">
-          <h3>Launch & optimize</h3>
-          <p>
-            Once live, we track performance, optimize,
-            and help you scale efficiently.
-          </p>
-        </div>
-      </div>
-
     </div>
+    <div class="about-split-image"></div>
+  </div>
+</section>
 
-    <div class="how-cta">
-      <a class="btn primary" href="./consultation.html">Book Demo</a>
+<!-- ===============================
+     CRM
+================================ -->
+<section class="about-split" id="crm">
+  <div class="container about-split-grid">
+    <div class="about-split-text">
+      <p class="about-kicker"><span class="about-link">SUMMIT FLOW CRM</span></p>
+      <h2 class="about-title">The System That Holds Everything Together</h2>
+      <div class="about-underline"></div>
+      <p class="about-body">
+        Every lead, every conversation, every follow-up — organized and automated
+        so nothing slips through the cracks.
+      </p>
+      <p class="about-body" style="margin-top:14px;">
+        <strong>Core features:</strong> pipelines, automations,
+        SMS & email follow-up, missed-call text back, reporting.
+      </p>
+      <div style="margin-top:18px;">
+        <a class="last-cta-phone" href="./pricing.html#pricing">View CRM Plans →</a>
+      </div>
     </div>
+    <div class="about-split-image"></div>
+  </div>
+</section>
+
+<!-- ===============================
+     AUTOMATION
+================================ -->
+<section class="about-split" id="automation">
+  <div class="container about-split-grid">
+    <div class="about-split-text">
+      <p class="about-kicker"><span class="about-link">AUTOMATION & INTEGRATIONS</span></p>
+      <h2 class="about-title">Follow-Up That Runs Without You</h2>
+      <div class="about-underline"></div>
+      <p class="about-body">
+        From instant text-back to long-term nurture sequences,
+        we automate the entire customer journey.
+      </p>
+      <p class="about-body" style="margin-top:14px;">
+        <strong>Works with:</strong> Google Sheets, Zapier,
+        Make, webhooks, and internal workflows.
+      </p>
+      <div style="margin-top:18px;">
+        <a class="last-cta-phone" href="./consultation.html">Ask About Automations →</a>
+      </div>
+    </div>
+    <div class="about-split-image"></div>
+  </div>
+</section>
+
+<!-- ===============================
+     DONE FOR YOU
+================================ -->
+<section class="about-split" id="done-for-you">
+  <div class="container about-split-grid">
+    <div class="about-split-text">
+      <p class="about-kicker"><span class="about-link">DONE-FOR-YOU SETUP</span></p>
+      <h2 class="about-title">We Build Everything. You Just Run the Business.</h2>
+      <div class="about-underline"></div>
+      <p class="about-body">
+        Don’t want to touch tech? We handle CRM setup,
+        ads, websites, automations, and tracking end-to-end.
+      </p>
+      <p class="about-body" style="margin-top:14px;">
+        <strong>Perfect for:</strong> busy operators who want results fast.
+      </p>
+      <div style="margin-top:18px;">
+        <a class="last-cta-phone" href="./consultation.html">Start Done-For-You Setup →</a>
+      </div>
+    </div>
+    <div class="about-split-image"></div>
   </div>
 </section>
 
 <!-- FINAL CTA -->
-<section class="section demo">
-  <div class="container how-wrap">
-    <h2 class="how-title">Ready to Build Your Growth System?</h2>
-    <p style="text-align:center; max-width:720px; margin:0 auto 24px;">
-      Whether you need Google Ads, a website, CRM automation,
-      or everything together — Summit Flow handles it.
-    </p>
-
-    <div class="how-cta">
-      <a class="btn primary" href="./consultation.html">Get Started</a>
+<section class="last-cta">
+  <div class="last-cta-grid">
+    <div class="last-cta-photo"></div>
+    <div class="last-cta-panel">
+      <h2><span class="cta-orange">READY TO SCALE?</span><br>LET’S BUILD YOUR SYSTEM.</h2>
+      <p class="last-cta-body">
+        Whether you need ads, a website, CRM automation,
+        or the full stack — Summit Flow handles it.
+      </p>
+      <a class="last-cta-phone" href="./consultation.html">Book a Demo</a>
     </div>
   </div>
 </section>
@@ -246,7 +243,6 @@
   </div>
 </footer>
 
-<!-- Page-load animation -->
 <script>
   requestAnimationFrame(() => {
     document.documentElement.classList.add("is-loaded");
