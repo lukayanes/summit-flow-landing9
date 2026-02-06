@@ -2484,3 +2484,26 @@ html.is-loaded .top-hero::before{
     border-bottom: 1px solid rgba(255,255,255,0.18);
   }
 }
+
+
+/* =========================================
+   SUMMIT FLOW — NAV DROPDOWN (MATCH FL MAN)
+   Safe additive styles only
+   ========================================= */
+
+/* Ensure nav containers allow dropdown overflow */
+.top-nav,
+.top-nav-inner,
+.nav-left,
+.nav-right {
+  overflow: visible;
+}
+
+/* Dropdown base */
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Button already styled*
