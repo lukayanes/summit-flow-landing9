@@ -94,3 +94,23 @@ document.addEventListener('click', (e) => {
   }, { passive: true });
 })();
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdown = document.querySelector(".nav-dropdown");
+    const button = document.querySelector(".nav-dropbtn");
+    const menu = document.querySelector(".nav-dropmenu");
+
+    if (!dropdown || !button || !menu) return;
+
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdown.classList.toggle("is-open");
+    });
+
+    document.addEventListener("click", function () {
+      dropdown.classList.remove("is-open");
+    });
+  });
+</script>
+
