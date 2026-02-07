@@ -892,3 +892,10 @@ html.is-loaded .hero-sub{
   }
 }
 
+/* ===============================
+   TOP CONTACT BAR COLOR OVERRIDE
+   =============================== */
+.top-contact-bar{
+  background: #6faed9; /* light blue */
+}
+
