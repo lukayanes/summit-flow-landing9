@@ -1,2430 +1,74 @@
-/* ===== TOP HERO (GBRS-style) ===== */
+/* =========================================
+   SUMMIT FLOW — CLEAN styles.css (NO CONFLICTS)
+   - Single nav system (top-contact-bar + top-nav)
+   - Fixes Done-For-You (last-cta) layout + colors
+   - Fixes footer logo sizing (always sane)
+   - Keeps your legacy sections (pricing/faq/consult/etc.)
+   ========================================= */
 
-/* Font import (same vibe: condensed uppercase heading + clean body) */
+/* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Unica+One&family=Karla:wght@400;600;700&display=swap');
 
 :root{
-  --hero-overlay: rgba(0,0,0,0.45);
-  --nav-text: rgba(255,255,255,0.85);
+  --hero-overlay: rgba(0,0,0,0.55);
+
+  --nav-text: rgba(255,255,255,0.86);
   --nav-text-strong: #ffffff;
+
+  --navy: #0b1f33;
+  --navy-deep: #071427;
+  --orange: #ff6a00;
+
+  /* fixed bars */
+  --contact-bar-h: 56px;
+  --nav-pad-y: 12px;              /* inside nav */
+  --nav-logo-h: 96px;             /* desktop logo height */
 }
 
-/* Full-bleed hero with background image */
-.top-hero{
-  min-height: 92vh;
-  position: relative;
-  background:
-    linear-gradient(var(--hero-overlay), var(--hero-overlay)),
-    url("./assets/summit flow computer.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Nav wrapper */
-.top-nav{
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 5;
-  padding: 26px 24px;
-}
-
-/* 3-column nav: left links, center , right links/icons */
-.top-nav-inner{
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 18px;
-}
-
-/* links */
-.nav-left,
-.nav-right{
-  display: flex;
-  gap: 26px;
-  align-items: center;
-}
-
-.nav-left{
-  justify-content: flex-end;
-}
-
-.nav-right{
-  justify-content: flex-start;
-}
-
-.nav-left a,
-.nav-right a{
-  font-family: "Unica One", system-ui;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-size: 22px;
-  color: var(--nav-text);
-}
-
-.nav-left a:hover,
-.nav-right a:hover{
-  color: var(--nav-text-strong);
-}
-
-/* centered  */
-.nav-logo img{
-  height: 170px;
-  width: auto;
-  display: block;
-  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.35));
-}
-
-/* icon buttons */
-.icon-btn{
-  background: transparent;
-  border: 0;
-  color: var(--nav-text);
-  cursor: pointer;
-  font-size: 18px;
-  padding: 8px 10px;
-}
-
-.icon-btn:hover{
-  color: var(--nav-text-strong);
-}
-
-/* Centered hero text */
-.hero-overlay{
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 120px 18px 60px;
-}
-
-.hero-content{
-  max-width: 980px;
-}
-
-.hero-title{
-  font-family: "Unica One", system-ui;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: clamp(58px, 7vw, 110px);
-  line-height: 1.02;
-  margin: 0 0 14px;
-  color: #ffffff;
-  text-shadow: 0 18px 45px rgba(0,0,0,0.65);
-}
-
-.hero-sub{
-  font-family: "Karla", system-ui;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 20px;
-  color: rgba(255,255,255,0.85);
-  margin: 0;
-}
-
-
-/* Mobile: stack nav rows but keep logo centered */
-@media (max-width: 900px){
-  .top-nav-inner{
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 14px;
-  }
-
-  .nav-left, .nav-right{
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .nav-logo img{
-    height: 52px;
-  }
-
-  .hero-overlay{
-    padding-top: 150px;
-  }
-}
 /* ===============================
-   GLOBAL
+   GLOBAL / RESET
 ================================ */
-body {
+*{ box-sizing: border-box; }
+
+html, body{
   margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body{
   font-family: "Karla", system-ui;
   background: #f6f7f4;
   color: #0f2433;
+
+  /* always keep content below fixed bars */
+  padding-top: calc(var(--contact-bar-h) + (var(--nav-pad-y) * 2) + var(--nav-logo-h));
 }
 
-h1, h2, h3, h4 {
+h1,h2,h3,h4{
   font-family: "Unica One", system-ui;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin: 0;
 }
 
-/* Remove default link styling */
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a{ color: inherit; text-decoration: none; }
 
-.container {
+.container{
+  width: 100%;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   padding: 0 24px;
 }
 
 /* ===============================
-   HEADER / NAV
+   TOP CONTACT BAR (fixed)
 ================================ */
-.header {
-  border-bottom: 1px solid #e0e0e0;
-  background: #fff;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 0;
-}
-
-@media (max-width: 900px) {
-
-  /* Stack and center header content */
-  .nav {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 10px !important;
-  }
-
-  /* Center the nav links row */
-  .links {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    flex-wrap: wrap !important;
-    gap: 12px !important;
-    width: 100%;
-    text-align: center;
-  }
-
-  .links a,
-  .phone {
-    margin: 0 !important;
-  }
-
-  /* Center the Sign Up button */
-  .nav-cta {
-    margin: 6px auto 0 !important;
-  }
-}
-
-
-.logo {
-  height: 140px;
-}
-
-.links a,
-.phone {
-  margin-left: 18px;
-  font-weight: 600;
-}
-
-.nav-cta {
-  display: inline-block;
-  padding: 10px 16px;
-  border-radius: 12px;
-  background: #0b1f33;
-  color: #ffffff;
-  font-weight: 600;
-  border: 1px solid rgba(0,0,0,0.12);
-}
-
-.nav-cta:hover {
-  background: #0f2433;
-}
-
-/* ===============================
-   BANNER
-================================ */
-.banner {
-  text-align: center;
-  padding: 10px;
-  background: rgba(111,174,217,0.15); /* light blue */
-}
-
-/* ===============================
-   HERO
-================================ */
-.hero {
-  padding: 80px 0;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 40px;
-}
-
-.hero h1 {
-  font-family: "Unica One", system-ui;
-}
-
-.hero h1 span {
-  color: #6FAED9;
-}
-
-.lead {
-  font-size: 18px;
-  margin-bottom: 36px;
-}
-
-.states {
-  display: block;
-  margin-top: 48px;
-}
-
-/* ===============================
-   BUTTONS
-================================ */
-.btn {
-  padding: 14px 20px;
-  border-radius: 14px;
-  font-weight: 700;
-}
-
-.btn.primary {
-  background: #0b1f33;
-  color: #ffffff;
-}
-
-.btn.primary:hover {
-  background: #0f2433;
-}
-
-.btn.ghost {
-  border: 1px solid #ccc;
-}
-
-/* ===============================
-   HERO IMAGE
-================================ */
-.sell-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-}
-
-.sell-image {
-  width: 100%;
-  max-width: 520px;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-  display: block;
-}
-
-/* ===============================
-   TRUST / FEATURES
-================================ */
-.trust {
-  padding: 40px 0;
-}
-
-.trust-grid {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.features {
-  background: #eef3f7;
-  padding: 110px 0;
-}
-
-.features .container {
-  max-width: 1400px;
-}
-
-.features-title {
-  font-size: 64px;
-  text-align: center;
-  margin: 0 auto 55px;
-  letter-spacing: 2px;
-  line-height: 1.05;
-}
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-}
-
-.feature {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 22px;
-}
-
-.center {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.dark {
-  background: #0b1f33;
-  color: #ffffff;
-}
-
-/* Feature card spacing */
-.feature {
-  padding: 34px;
-}
-
-/* Title highlight */
-.feature h3 {
-  display: inline-block;
-  background: rgba(111,174,217,0.22);
-  padding: 10px 14px;
-  border-radius: 10px;
-  margin: 14px 0 12px;
-  font-size: 27px;
-  letter-spacing: 1px;
-}
-
-
-
-/* ===============================
-   REVIEWS
-================================ */
-.reviews {
-  padding: 80px 0;
-}
-
-.review-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 24px;
-}
-
-.review {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 22px;
-}
-
-.reviews h2 {
-  font-size: 58px;
-  text-align: center;
-  margin-bottom: 40px;
-  letter-spacing: 2px;
-}
-
-/* REVIEWS background photo */
-.reviews{
-  position: relative;
-  padding: 110px 0;
-  background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("./assets/reviews.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Make the heading + cards readable on dark photo */
-.reviews h2{
-  color: #ffffff;
-}
-
-.review{
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(6px);
-}
-
-
-/* ===============================
-   LISTINGS
-================================ */
-.listings {
-  background: #eef3f7;
-  padding: 80px 0;
-}
-
-.listings-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.logos {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 14px;
-}
-
-/* ===============================
-   CTA SECTION
-================================ */
-.cta-section {
-  padding: 100px 0;
-  text-align: center;
-}
-
-/* ===============================
-   FOOTER
-================================ */
-.footer {
-  text-align: center;
-  padding: 30px;
-  border-top: 1px solid #e0e0e0;
-}
-
-/* ===============================
-   PRICING
-================================ */
-.pricing-wrap {
-  max-width: 980px;
-}
-
-.pricing-title {
-  font-family: "Unica One", system-ui;
-  font-size: 44px;
-  text-align: center;
-  margin: 30px auto 34px;
-}
-
-.pricing-title .accent {
-  color: #6FAED9;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.price-card {
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 18px;
-  border: 1px solid #e6edf3;
-  box-shadow: 0 18px 40px rgba(15,36,51,0.06);
-}
-
-.price-card.featured {
-  border: 2px solid #0b1f33;
-  box-shadow: 0 22px 55px rgba(15,36,51,0.10);
-}
-
-.plan {
-  font-family: "Unica One", system-ui;
-  font-size: 26px;
-}
-
-.fineprint {
-  font-size: 12px;
-  color: #5a6f82;
-}
-
-/* ===============================
-   FAQ
-================================ */
-.faq-wrap {
-  max-width: 860px;
-}
-
-.faq-title {
-  font-family: "Unica One", system-ui;
-  font-size: 46px;
-  text-align: center;
-  margin-bottom: 32px;
-}
-
-.faq-list {
-  border-top: 1px solid #e6edf3;
-}
-
-.faq-item {
-  border-bottom: 1px solid #e6edf3;
-  padding: 16px 0;
-}
-
-.faq-item summary {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  font-size: 20px;
-  color: #0b1f33;
-}
-
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-icon::before {
-  content: "+";
-}
-
-.faq-item[open] .faq-icon::before {
-  content: "−";
-}
-
-/* ===============================
-   CONSULTATION
-================================ */
-.consult-page {
-  padding: 48px 16px 80px;
-}
-
-.consult-wrap {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 32px;
-}
-
-.consult-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 22px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-}
-
-/* ===============================
-   RESPONSIVE
-================================ */
-@media (max-width: 900px) {
-  .hero-grid,
-  .grid-3,
-  .review-grid,
-  .listings-grid,
-  .pricing-grid,
-  .consult-wrap {
-    grid-template-columns: 1fr;
-  }
-}
-
-.listings {
-  background: #eef3f7;
-  padding: 80px 0;
-}
-
-.listings-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 48px;
-  align-items: center;
-}
-
-.listings-image-wrap {
-  display: flex;
-  justify-content: center;
-}
-
-.listings-image {
-  width: 100%;
-  max-width: 520px;
-  border-radius: 18px;
-  box-shadow: 0 20px 40px rgba(15,36,51,0.15);
-  display: block;
-}
-
-@media (max-width: 900px) {
-  .listings-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-}
-/* ===============================
-   HOW IT WORKS (CENTERED + CLEAN)
-================================ */
-.how-works {
-  padding: 96px 0;
-  background: #ffffff; /* keep clean; change to #f6f7f4 if you want off-white */
-}
-
-.how-title {
-  text-align: center;
-  margin: 0 auto 34px;
-  max-width: 760px;
-  font-family: "Unica One", system-ui;
-  font-size: 50px;
-  line-height: 1.1;
-  color: #0b1f33;
-}
-
-/* Center the whole stack */
-.how-steps {
-  max-width: 860px;
-  margin: 0 auto;
-  display: grid;
-  gap: 16px;
-}
-
-/* Make each step feel like a premium card */
-.how-step {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 16px;
-  align-items: start;
-  background: #ffffff;
-  border: 1px solid #e6edf3;
-  border-radius: 18px;
-  padding: 18px 20px;
-  box-shadow: 0 14px 36px rgba(15,36,51,0.08);
-}
-
-/* HOW IT WORKS - bigger step text */
-.how-step h3 {
-  font-size: 26px;
-  margin: 0 0 8px;
-  letter-spacing: 1px;
-}
-
-.how-step p {
-  font-size: 18px;
-  margin: 0;
-  line-height: 1.55;
-}
-
-
-/* Stronger number badge */
-.how-num {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  color: #ffffff;
-  background: #0b1f33; /* navy */
-  border: 1px solid rgba(0,0,0,0.10);
-}
-
-/* Better typography */
-.how-text h3 {
-  margin: 0 0 6px;
-  font-size: 18px;
-  color: #0b1f33;
-}
-
-.how-text p {
-  margin: 0;
-  color: #334b5d;
-  line-height: 1.6;
-  font-size: 15px;
-}
-
-/* CTA centered under steps */
-.how-cta {
-  display: flex;
-  justify-content: center;
-  margin-top: 22px;
-}
-
-.how-cta .btn,
-.how-cta a {
-  display: inline-block;
-  background: #0b1f33;
-  color: #ffffff;
-  padding: 14px 18px;
-  border-radius: 14px;
-  font-weight: 800;
-}
-
-.how-cta .btn:hover,
-.how-cta a:hover {
-  background: #0f2433;
-}
-
-/* Mobile tuning */
-@media (max-width: 900px) {
-  .how-works { padding: 72px 0; }
-  .how-title { font-size: 34px; margin-bottom: 24px; }
-  .how-step { grid-template-columns: 46px 1fr; padding: 16px 16px; }
-  .how-num { width: 38px; height: 38px; border-radius: 12px; }
-}
-
-/* ===============================
-   PRICING PAGE – SPACING FIX
-================================ */
-
-/* Overall page container tightening */
-.pricing-wrap {
-  max-width: 980px;
-  margin: 0 auto;
-  padding-top: 48px;
-  padding-bottom: 64px;
-}
-
-/* Headline spacing */
-.pricing-title {
-  margin-top: 24px;
-  margin-bottom: 32px;
-  line-height: 1.15;
-}
-
-/* Reduce banner → headline gap */
-.banner {
-  margin-bottom: 24px;
-}
-
-/* Cards grid spacing */
-.pricing-grid {
-  margin-top: 24px;
-  margin-bottom: 72px;
-}
-
-/* Individual pricing cards */
-.price-card {
-  padding: 28px 28px 30px;
-}
-
-/* CTA buttons inside cards */
-.plan-btn {
-  margin-top: 14px;
-  margin-bottom: 20px;
-}
-
-/* ===============================
-   FAQ SECTION SPACING FIX
-================================ */
-
-#faq {
-  padding-top: 48px;
-  padding-bottom: 72px;
-}
-
-/* FAQ heading */
-.faq-title {
-  margin-top: 0;
-  margin-bottom: 28px;
-  font-size: 40px;
-  text-align: center;
-}
-
-/* FAQ list container */
-.faq-wrap {
-  max-width: 860px;
-  margin: 0 auto;
-}
-
-/* Individual FAQ items */
-.faq-item {
-  padding: 18px 0;
-}
-
-/* FAQ question text */
-.faq-item summary {
-  font-size: 20px;
-  line-height: 1.3;
-}
-
-/* FAQ answer spacing */
-.faq-body {
-  margin-top: 10px;
-}
-
-/* ===============================
-   MOBILE TUNING
-================================ */
-@media (max-width: 900px) {
-  .pricing-wrap {
-    padding-top: 32px;
-    padding-bottom: 56px;
-  }
-
-  .pricing-grid {
-    margin-bottom: 56px;
-  }
-
-  .faq-title {
-    font-size: 34px;
-    margin-bottom: 22px;
-  }
-}
-
-/* Pricing card internal spacing */
-.price-card .plan { 
-  margin: 0 0 8px !important; 
-}
-
-.price-card .plan-sub { 
-  margin: 0 0 10px !important; 
-}
-
-.price-card .plan-desc { 
-  margin: 0 0 14px !important; 
-}
-
-.price-card .plan-btn { 
-  margin: 10px 0 14px !important; 
-  display: inline-block;
-}
-
-.price-card ul,
-.price-card .plan-list {
-  margin: 0 !important;
-  padding-left: 18px;
-}
-
-.price-card li {
-  margin: 6px 0;
-}
-/* Tighten space AFTER pricing and BEFORE Q&A */
-.pricing-grid {
-  margin-bottom: 36px !important;
-}
-
-/* If your FAQ section is #faq */
-#faq {
-  margin-top: 0 !important;
-  padding-top: 36px !important;
-}
-
-/* FAQ title spacing */
-.faq-title {
-  margin: 0 0 22px !important;
-}
-.features {
-  background: #eef3f7;
-  padding: 96px 0;
-}
-
-.features-title {
-  font-family: "Unica One", system-ui;
-  font-size: 44px;
-  text-align: center;
-  margin: 0 auto 56px;
-  color: #0b1f33;
-  line-height: 1.1;
-}
-
-/* grid */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 54px 70px;
-  align-items: start;
-}
-
-/* feature blocks */
-.feature {
-  text-align: center;
-}
-
-.feature-icon {
-  width: 56px;
-  height: 56px;
-  margin: 0 auto 16px;
-  color: #6FAED9;
-}
-
-.feature-icon img {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.feature h3 {
-  font-family: "Unica One", system-ui;
-  font-size: 20px;
-  margin: 0 0 10px;
-  color: #0b1f33;
-}
-
-.feature p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #334b5d;
-  max-width: 280px;
-  margin: 0 auto;
-}
-
-/* CTA */
-.features-cta {
-  display: flex;
-  justify-content: center;
-  margin-top: 56px;
-}
-
-/* mobile */
-@media (max-width: 900px) {
-  .features {
-    padding: 72px 0;
-  }
-
-  .features-title {
-    font-size: 34px;
-    margin-bottom: 40px;
-  }
-
-  .features-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-}
-
-/* Force SVG icons to Housewell light blue */
-.feature-icon img {
-  filter: invert(63%) sepia(22%) saturate(747%) hue-rotate(168deg) brightness(95%) contrast(92%);
-}
-/* ===============================
-   GHL FORM EMBED — LOOKS NATIVE
-================================ */
-
-/* nice card already exists in your CSS, just refining */
-.consult-card {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.12);
-  border-radius: 16px;
-  padding: 22px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-}
-
-.card-title {
-  margin: 0 0 6px;
-  font-family: "Unica One", system-ui;
-  color: #0b1f33;
-}
-
-.card-sub {
-  margin: 0 0 16px;
-  color: #334b5d;
-  line-height: 1.5;
-}
-
-/* Embed container (prevents weird overflow) */
-.ghl-embed {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid #e6edf3;
-  background: #fff;
-}
-
-/* The iframe itself */
-.ghl-embed iframe {
-  width: 100%;
-  border: 0;
-  display: block;
-  min-height: 760px; /* adjust if your form is taller */
-}
-
-/* Mobile: make sure it doesn't feel cramped */
-@media (max-width: 900px) {
-  .ghl-embed iframe {
-    min-height: 900px;
-  }
-}
-.consult-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 32px;
-  align-items: start;
-}
-
-@media (max-width: 900px) {
-  .consult-wrap {
-    grid-template-columns: 1fr;
-  }
-}
-/* ===============================
-   CONSULTATION — VERTICAL STACK
-================================ */
-
-/* Force single column */
-.consult-wrap {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 48px;
-  max-width: 760px; /* keeps things readable */
-  margin: 0 auto;
-}
-
-/* Center text block */
-.consult-left {
-  max-width: 720px;
-}
-
-/* Improve readability of the copy */
-.consult-left h1,
-.consult-left h2 {
-  font-family: "Unica One", system-ui;
-  font-size: 40px;
-  line-height: 1.1;
-  margin-bottom: 16px;
-  color: #0b1f33;
-}
-
-.consult-left p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #334b5d;
-  margin-bottom: 18px;
-}
-
-.consult-left ul {
-  margin: 0 0 18px;
-  padding-left: 18px;
-}
-
-.consult-left li {
-  margin-bottom: 8px;
-}
-
-/* Card spacing */
-.consult-card {
-  margin-top: 0;
-}
-
-/* Embed height stays sane */
-.ghl-embed iframe {
-  min-height: 760px;
-}
-
-/* Mobile fine-tuning */
-@media (max-width: 768px) {
-  .consult-wrap {
-    gap: 36px;
-    padding-top: 32px;
-  }
-
-  .consult-left h1,
-  .consult-left h2 {
-    font-size: 32px;
-  }
-
-  .ghl-embed iframe {
-    min-height: 900px;
-  }
-}
-
-/* =========================================
-   HOMEPAGE MOBILE FIX (MAIN PAGE)
-========================================= */
-@media (max-width: 900px) {
-
-  /* --- GLOBAL MOBILE SPACING --- */
-  .container { padding: 0 16px !important; }
-  section { padding-top: 56px; padding-bottom: 56px; }
-
-  /* --- HEADER / NAV CLEANUP --- */
-  .nav {
-    padding: 12px 0 !important;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .logo { height: 92px !important; }
-
-  /* keep nav links from stacking awkwardly */
-  .links {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .links a, .phone { margin-left: 0 !important; }
-
-  /* --- BANNER (SAVE 9000 BAR) --- */
-  .banner {
-    padding: 10px 12px !important;
-    font-size: 14px;
-    line-height: 1.25;
-  }
-
-  /* --- HERO: STACK + TIGHTEN --- */
-  .hero { padding: 40px 0 34px !important; }
-
-  .hero-grid {
-    grid-template-columns: 1fr !important;
-    gap: 18px !important;
-    align-items: start;
-  }
-
-  /* headline: avoid weird huge breaks */
-  .hero h1 {
-    font-size: 40px !important;
-    line-height: 1.05 !important;
-    margin: 0 0 12px !important;
-    letter-spacing: -0.2px;
-  }
-
-  .hero h1 br { display: none; } /* prevents awkward breaks on phones */
-
-  .lead {
-    font-size: 16px !important;
-    margin: 0 0 18px !important;
-  }
-
-  /* CTA buttons: centered + stacked nicely */
-  .cta {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-    margin: 0 0 14px !important;
-  }
-
-  .cta a {
-    width: 100%;
-    text-align: center;
-    padding: 14px 16px;
-    border-radius: 14px;
-  }
-
-  .states {
-    margin-top: 10px !important;
-  }
-
-  /* --- HERO IMAGE: FULL WIDTH + NICE RADIUS --- */
-  .sell-right { margin-top: 10px; }
-  .sell-image {
-    max-width: 100% !important;
-    width: 100% !important;
-    border-radius: 18px !important;
-  }
-
-  /* --- FEATURES SECTION: reduce top gap + make title fit --- */
-  .features { padding: 56px 0 !important; }
-
-  .features-title {
-    font-size: 34px !important;
-    margin: 0 auto 28px !important;
-    line-height: 1.1 !important;
-    text-align: center;
-  }
-
-  .features-grid, .grid-3 {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
-
-  .feature p {
-    max-width: 320px;
-  }
-
-  .features-cta { margin-top: 28px !important; }
-
-  /* --- LISTINGS SECTION: tighten --- */
-  .listings { padding: 56px 0 !important; }
-  .listings-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
-  .listings-image { max-width: 100% !important; }
-}
-
-@media (max-width: 900px) {
-
-  /* Force hero CTA buttons to fit screen */
-  .cta a,
-  .btn {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Ensure CTA container doesn't overflow */
-  .cta {
-    padding: 0 !important;
-  }
-}
-.btn,
-.nav-cta,
-button {
-  font-family: "Unica One", system-ui;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Header for non-home pages (same nav, no hero image) */
-.top-header{
-  background: #1F6FE5;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-}
-
-/* Keep banner readable on dark header */
-.top-header .banner{
-  background: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.92);
-}
-
-.top-header .banner a{
-  color: #ffffff;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.top-header .top-nav{
-  position: relative;
-}
-
-/* Remove hero background image on non-home pages */
-.top-header{
-  background: #1F6FE5 !important;
-}
-
-.top-header{
-  background-image: none !important;
-}
-
-.nav-logo img{
-  height: 170px; /* keep your size */
-  width: auto;
-  display: block;
-  filter: brightness(1.25) contrast(1.15) drop-shadow(0 0 18px rgba(255,255,255,0.35));
-}
-
-/* ===============================
-    PAGE HERO
-================================ */
-/* ===============================
-    HERO (background layer)
-================================ */
-.about-hero{
-  min-height: 70vh;
-}
-
-/* Background image goes on the layer now */
-.about-hero .hero-bg{
-  background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("./assets/about-hero.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* ABOUT PAGE: don't scale the entire header */
-.about-hero{
-  transform: none !important;
-}
-
-/* ABOUT PAGE: dramatic zoom only on the bg layer */
-.about-hero .hero-bg{
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-
-  transform: scale(1.22);
-  transition: transform 1100ms cubic-bezier(.2,.9,.2,1);
-  will-change: transform;
-}
-
-/* ensure nav/text sit above bg */
-.about-hero > *:not(.hero-bg){
-  position: relative;
-  z-index: 1;
-}
-
-html.is-loaded .about-hero .hero-bg{
-  transform: scale(1);
-}
-
-
-/* ===============================
-   ABOUT INTRO
-================================ */
-.about-intro{
-  background: #ffffff;
-  padding: 90px 0;
-}
-
-/* About page: push title down so it doesn't overlap the logo */
-.about-hero .hero-overlay{
-  padding-top: 200px !important;
-}
-
-
-.about-intro-wrap{
-  max-width: 900px;
-  text-align: center;
-}
-
-.about-heading{
-  font-size: 44px;
-  margin: 0 0 24px;
-  letter-spacing: 2px;
-}
-
-.about-text{
-  font-size: 18px;
-  line-height: 1.7;
-  color: #0f2433;
-  margin: 0 auto 18px;
-  max-width: 760px;
-}
-
-/* ===============================
-   FOUNDERS
-================================ */
-.founders{
-  background: #ffffff;
-  padding: 80px 0 110px;
-}
-
-.founders-title{
-  text-align: center;
-  font-size: 46px;
-  margin: 0 0 60px;
-  letter-spacing: 2px;
-}
-
-.founder{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  align-items: start;
-  max-width: 980px;
-  margin: 0 auto 90px;
-}
-
-.founder-photo img{
-  width: 100%;
-  max-width: 420px;
-  display: block;
-  border-radius: 0px; /* keep it sharp like GBRS */
-  box-shadow: 0 18px 50px rgba(0,0,0,0.12);
-}
-
-.founder-role{
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin: 0 0 10px;
-  color: #5a6f82;
-}
-
-.founder-name{
-  font-size: 34px;
-  margin: 0 0 16px;
-}
-
-.founder-bio{
-  font-size: 16px;
-  line-height: 1.65;
-  margin: 0 0 22px;
-  max-width: 480px;
-}
-
-/* Mobile */
-@media (max-width: 900px){
-  .founder{
-    grid-template-columns: 1fr;
-    gap: 22px;
-    text-align: center;
-  }
-
-  .founder-photo img{
-    margin: 0 auto;
-  }
-
-  .founder-bio{
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-.about-hero .nav-logo img{
-  height: 170px;
-  width: auto;
-  display: block;
-  filter: brightness(1.35) contrast(1.15) drop-shadow(0 0 18px rgba(255,255,255,0.35));
-}
-
-/* FIX: Hero showing only half width on mobile */
-@media (max-width: 900px){
-  html, body{
-    overflow-x: hidden;
-  }
-
-  .top-hero,
-  .about-hero,
-  .hero-overlay,
-  .hero-content{
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  
-    min-height: 92vh;
-    background-size: cover !important;
-    background-position: center !important;
-  }
-}
-
-/* ABOUT page: make ONLY the nav logo pop */
-.about-hero .nav-logo img{
-  filter: brightness(1.6) contrast(1.25) drop-shadow(0 0 22px rgba(255,255,255,0.55)) !important;
-}
-
-/* =========================
-   MOBILE FIX PACK
-   ========================= */
-@media (max-width: 900px){
-  html, body { overflow-x: hidden; }
-
-  /* Make hero truly full width */
-  .top-hero, .about-hero {
-    width: 100% !important;
-    max-width: 100% !important;
-    background-position: center !important;
-    background-size: cover !important;
-  }
-
-  /* Stack nav: links row, logo, links row */
-  .top-nav { position: relative !important; padding: 14px 14px !important; }
-
-  .top-nav-inner{
-    grid-template-columns: 1fr !important;
-    justify-items: center;
-    gap: 10px !important;
-  }
-
-  .nav-left, .nav-right{
-    justify-content: center !important;
-    flex-wrap: wrap !important;
-    gap: 14px !important;
-  }
-
-  /* CRITICAL: logo cannot be 230px on mobile */
-  .nav-logo img{
-    height: 110px !important;
-    max-height: 110px !important;
-  }
-
-  /* Push hero text below nav so it doesn't collide */
-  .hero-overlay{
-    padding: 170px 14px 60px !important;
-  }
-
-  /* Fix headline cropping */
-  .hero-title{
-    font-size: 44px !important;
-    letter-spacing: 1.5px !important;
-    line-height: 1.05 !important;
-    padding: 0 8px !important;
-    max-width: 95vw !important;
-    white-space: normal !important;
-    text-align: center !important;
-  }
-
-  .hero-sub{
-    font-size: 13px !important;
-    letter-spacing: 1.2px !important;
-    padding: 0 10px !important;
-    max-width: 92vw !important;
-    text-align: center !important;
-  }
-}
-
-/* =========================
-   HERO TEXT FIX (MOBILE)
-   prevents titles from going off screen
-   ========================= */
-@media (max-width: 900px){
-
-  .hero-content{
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 14px !important;
-    box-sizing: border-box !important;
-  }
-
-  .hero-title{
-    width: 100% !important;
-    max-width: 100% !important;
-    font-size: 40px !important;
-    line-height: 1.08 !important;
-
-    /* THESE are the important ones */
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-    word-break: break-word !important;
-
-    /* spacing */
-    letter-spacing: 1px !important;
-    text-align: center !important;
-    margin: 0 auto 12px !important;
-  }
-
-  .hero-sub{
-    width: 100% !important;
-    max-width: 100% !important;
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-    word-break: break-word !important;
-
-    font-size: 13px !important;
-    line-height: 1.4 !important;
-    letter-spacing: 1px !important;
-    text-align: center !important;
-  }
-}
-/* MOBILE: hard-center hero text so it doesn't drift right */
-@media (max-width: 900px){
-
-  /* prevent any tiny overflow from shifting layout */
-  html, body { overflow-x: hidden; }
-
-  /* make overlay + content centered */
-  .hero-overlay{
-    width: 100% !important;
-    left: 0 !important;
-    right: 0 !important;
-    margin: 0 auto !important;
-    text-align: center !important;
-  }
-
-  .hero-content{
-    width: 100% !important;
-    max-width: 520px !important;
-    margin: 0 auto !important;
-    padding: 0 16px !important;
-    box-sizing: border-box !important;
-  }
-
-  .hero-title,
-  .hero-sub{
-    width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-  }
-}
-
-@media (max-width: 900px){
-  .hero-title, .hero-sub{
-    transform: none !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
-
-
-@media (max-width: 900px){
-  .top-hero{ overflow-x: hidden; }
-}
-
-@media (max-width: 900px){
-  .top-hero .hero-content{
-    position: relative !important;
-    left: auto !important;
-    transform: none !important;
-    width: 100% !important;
-    max-width: 520px !important;
-    margin: 0 auto !important;
-    padding: 0 16px !important;
-    box-sizing: border-box !important;
-    text-align: center !important;
-  }
-}
-
-
-/* ================================
-   HERO LOAD ANIMATION (GBRS STYLE)
-   ================================ */
-
-/* HERO BACKGROUND QUICK ZOOM */
-.top-hero{
-  position: relative;
-  overflow: hidden;
-}
-
-html.is-loaded .top-hero{
-  transform: scale(1);
-}
-
-/* TEXT START STATE */
-.hero-title,
-.hero-sub{
-  opacity: 0;
-  transform: translateY(22px); /* slide up from below */
-  will-change: transform, opacity;
-}
-
-/* Title comes in first */
-.hero-title{
-  transition: transform 550ms ease, opacity 550ms ease;
-  transition-delay: 120ms;
-}
-
-/* Subs come after title (staggered) */
-.hero-sub{
-  transition: transform 550ms ease, opacity 550ms ease;
-}
-
-.hero-sub:nth-child(1){ transition-delay: 320ms; }
-.hero-sub:nth-child(2){ transition-delay: 450ms; }
-.hero-sub:nth-child(3){ transition-delay: 580ms; }
-
-/* LOADED STATE */
-html.is-loaded .hero-title,
-html.is-loaded .hero-sub{
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce){
-  .top-hero,
-  .hero-title,
-  .hero-sub{
-    transition: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-  }
-}
-
-/* =========================
-   HERO SPACING FIXES
-   ========================= */
-
-/* HOME page: push hero text below nav/logo */
-.top-hero:not(.about-hero) .hero-overlay{
-  padding-top: 300px !important;  /* was 120px; fixes headline hitting logo */
-  padding-bottom: 70px !important;
-}
-
-/* Mobile HOME: keep it below stacked nav/logo */
-@media (max-width: 900px){
-  .top-hero:not(.about-hero) .hero-overlay{
-    padding-top: 260px !important;
-    padding-bottom: 60px !important;
-  }
-}
-
-/* ABOUT page: put title higher (not vertically centered) */
-.about-hero .hero-overlay{
-  place-items: start center !important; /* instead of center center */
-  padding-top: 190px !important;        /* tweak: 190–240 based on taste */
-  padding-bottom: 60px !important;
-}
-
-/* MOBILE: push the subcopy block down + make it readable */
-@media (max-width: 900px){
-
-  /* Move ONLY the paragraph block down (not the H1) */
-  .top-hero:not(.about-hero) .hero-sub:first-of-type{
-    margin-top: 200px !important; /* tweak: 110–180px until it lines up with water */
-  }
-}
-
-
-/* =========================================
-   MOBILE HERO: HARD CENTER EVERYTHING
-   (house image + title + paragraph)
-========================================= */
-@media (max-width: 900px){
-
-  html, body{
-    overflow-x: hidden !important;
-  }
-
-  /* Make the hero full width and centered */
-  .top-hero{
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-    background-position: center center !important;
-    background-size: cover !important;
-  }
-
-  /* Force overlay to be true center */
-  .hero-overlay{
-    width: 100% !important;
-    left: 0 !important;
-    right: 0 !important;
-    margin: 0 auto !important;
-    display: grid !important;
-    place-items: center !important;
-    text-align: center !important;
-  }
-
-  /* Force content to center and REMOVE all transforms */
-  .hero-content{
-    width: 100% !important;
-    max-width: 520px !important;
-    margin: 0 auto !important;
-    padding: 0 16px !important;
-    box-sizing: border-box !important;
-
-    left: auto !important;
-    right: auto !important;
-    transform: none !important;
-    position: relative !important;
-  }
-
-  /* Center the text blocks */
-  .hero-title,
-  .hero-sub{
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-  }
-
-  /* Remove any weird offsets */
-  .hero-title,
-  .hero-sub{
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
-
-/* =========================================
-   iPHONE HERO: TRUE CENTER + NO CLIPPING
-========================================= */
-@media (max-width: 900px){
-
-  /* 1) Stop the zoom scaling on mobile (it causes drift/clipping) */
-  .top-hero,
-  html.is-loaded .top-hero{
-    transform: none !important;
-  }
-
-  /* 2) Hard-center the background image (house) */
-  .top-hero{
-    background-position: 50% 50% !important;
-    background-size: cover !important;
-  }
-
-  /* 3) Make the H1 fit the screen (THIS fixes "KEEP" clipping) */
-  .hero-title{
-    font-size: 42px !important;      /* drop from 44–58+ */
-    letter-spacing: 1px !important;  /* HUGE fix (yours is big) */
-    padding: 0 18px !important;
-    white-space: normal !important;
-    text-align: center !important;
-    margin: 0 auto 12px !important;
-    max-width: 95vw !important;
-  }
-
-  /* 4) Keep the paragraph block centered and readable */
-  .hero-sub{
-    text-align: center !important;
-    max-width: 92vw !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    letter-spacing: 1px !important;
-  }
-}
-
-.mobile-break{ display:none; }
-
-@media (max-width: 900px){
-  .mobile-break{ display:inline; }
-}
-
-/* Small banner under hero (same bg as next section) */
-.housewell-banner{
-  width: 100%;
-  background: #eef3f7; /* SAME as your next section */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 14px 16px;  /* small height */
-}
-
-.housewell-banner img{
-  width: auto;
-  height: 26px;        /* WAY smaller */
-  display: block;
-  opacity: 0.9;
-}
-
-/* =========================================
-   MOBILE: CENTER EVERYTHING OFF THE LOGO
-   (nav + logo + title + subs)
-========================================= */
-@media (max-width: 900px){
-
-  /* 1) Make the nav a true centered stack */
-  .top-nav{
-    position: absolute !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    padding: 14px 12px !important;
-  }
-
-  .top-nav-inner{
-    width: 100% !important;
-    max-width: 520px !important;
-    margin: 0 auto !important;
-
-    display: grid !important;
-    grid-template-columns: 1fr !important;  /* ONE column */
-    justify-items: center !important;
-    align-items: center !important;
-    gap: 12px !important;
-  }
-
-  /* kill the left/right push */
-  .nav-left, .nav-right{
-    width: 100% !important;
-    justify-content: center !important;
-    gap: 18px !important;
-    margin: 0 !important;
-  }
-
-  /* logo centered */
-  .nav-logo{
-    display: flex !important;
-    justify-content: center !important;
-    width: 100% !important;
-  }
-
-  .nav-logo img{
-    height: 110px !important;
-    width: auto !important;
-    display: block !important;
-    margin: 0 auto !important;
-  }
-
-  /* 2) Center hero text container exactly under the logo */
-  .hero-overlay{
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    margin: 0 auto !important;
-
-    display: flex !important;
-    justify-content: center !important;
-    text-align: center !important;
-
-    padding: 250px 14px 70px !important; /* below the stacked nav/logo */
-    box-sizing: border-box !important;
-  }
-
-  .hero-content{
-    width: 100% !important;
-    max-width: 520px !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-
-    /* remove any centering hacks from earlier */
-    position: relative !important;
-    left: auto !important;
-    right: auto !important;
-    transform: none !important;
-  }
-
-  .hero-title, .hero-sub{
-    width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-  }
-}
-
-/* =========================================
-   HERO ZOOM (RIGHT WAY): zoom ONLY the background
-   Keeps logo + text perfectly centered
-========================================= */
-.top-hero{
-  position: relative;
-  overflow: hidden;
-  transform: none !important;   /* NEVER scale the whole header */
-}
-
-/* Create a background layer using the same backgrounds you already set */
-.top-hero::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-
-  /* Inherit your existing background from .top-hero / .about-hero */
-  background: inherit;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  transform: scale(1.18);  /* dramatic start */
-  transition: transform 1100ms cubic-bezier(.2,.9,.2,1);
-  will-change: transform;
-}
-
-/* Make sure nav + overlay sit above the background layer */
-.top-hero > *{
-  position: relative;
-  z-index: 1;
-}
-
-/* Animate in */
-html.is-loaded .top-hero::before{
-  transform: scale(1);
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .top-hero::before{
-    transition: none !important;
-    transform: none !important;
-  }
-}
-
-/* =========================================
-   HOME HERO MOBILE CENTER PATCH (SAFE)
-   - does NOT touch .housewell-banner
-   - does NOT touch pricing/consult brightness
-   - does NOT touch features chips or how-it-works
-========================================= */
-@media (max-width: 900px){
-
-  /* Kill any leftover horizontal drift */
-  html, body { overflow-x: hidden; }
-
-  /* Ensure nav stack is truly centered */
-  .top-nav{
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-  }
-
-  .top-nav-inner{
-    width: 100% !important;
-    max-width: 520px !important;
-    margin: 0 auto !important;
-    justify-items: center !important;
-  }
-
-  .nav-left, .nav-right{
-    width: 100% !important;
-    justify-content: center !important;
-    text-align: center !important;
-  }
-
-  /* Center the hero overlay + content block */
-  .top-hero .hero-overlay{
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    margin: 0 auto !important;
-    text-align: center !important;
-  }
-
-  .top-hero .hero-content{
-    width: 100% !important;
-    max-width: 520px !important;
-    margin: 0 auto !important;
-    padding: 0 16px !important;
-    box-sizing: border-box !important;
-    text-align: center !important;
-  }
-
-  /* Critical: allow title to wrap and stay centered */
-  .top-hero .hero-title{
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-    word-break: break-word !important;
-    max-width: 95vw !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-  }
-
-  .top-hero .hero-sub{
-    max-width: 92vw !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-  }
-}
-
-/* FIX: banner links not clickable (something is overlaying them) */
-.banner{
-  position: relative !important;
-  z-index: 9999 !important;
-}
-
-.banner a{
-  position: relative !important;
-  z-index: 10000 !important;
-  pointer-events: auto !important;
-}
-
-/* make sure hero overlay/background can't steal clicks */
-.top-hero::before{
-  pointer-events: none !important;
-}
-.hero-overlay{
-  pointer-events: none !important;
-}
-.hero-overlay a{
-  pointer-events: auto !important;
-}
-
-/* ================================
-   FIX: PRICING + CONSULT PAGES LOOKING LIKE HOME HERO
-   Requires <header class="top-header"> on those pages
-================================ */
-.top-header{
-  background: #0b1f33 !important;
-  background-image: none !important;
-}
-
-.top-header .top-nav{
-  position: relative !important;  /* stop absolute hero nav */
-  padding: 18px 16px !important;
-}
-
-.top-header .hero-overlay{
-  display: none !important;       /* prevent hero spacing from applying */
-}
-
-/* Mobile: keep logo sane */
-@media (max-width: 900px){
-  .top-header .nav-logo img{
-    height: 92px !important;
-  }
-}
-
-/* =========================================
-   ABOUT HERO: put title back where it was
-   (wins over the 58 other padding rules)
-========================================= */
-.about-hero .hero-overlay{
-  place-items: center !important;         /* puts it back in the middle */
-  padding-top: 190px !important;          /* adjust to your old sweet spot */
-  padding-bottom: 60px !important;
-}
-
-@media (max-width: 900px){
-  .about-hero .hero-overlay{
-    padding-top: 240px !important;        /* same on mobile */
-  }
-}
-
-
-/* ABOUT page: control where the title sits */
-.top-hero.about-hero .hero-overlay{
-  place-items: center !important;
-  padding-top: 240px !important;   /* increase = moves DOWN */
-  padding-bottom: 60px !important;
-}
-
-@media (max-width: 900px){
-  .top-hero.about-hero .hero-overlay{
-    padding-top: 320px !important; /* tweak 220–320 */
-  }
-}
-
-/* =========================================
-   MATCH LOGO SIZE ON PRICING + CONSULT PAGES
-========================================= */
-
-/* Desktop */
-.top-header .nav-logo img{
-  height: 170px !important; /* match home/about */
-  width: auto !important;
-}
-
-/* Mobile */
-@media (max-width: 900px){
-  .top-header .nav-logo img{
-    height: 110px !important; /* match home/about mobile */
-    width: auto !important;
-  }
-}
-
-/* =========================================
-   FORCE NAV LOGO SIZE TO MATCH (ALL PAGES)
-   Mobile: about/index/pricing/consult = same
-========================================= */
-@media (max-width: 900px){
-
-  /* override the old "52px" mobile logo rule */
-  .nav-logo img{
-    height: 110px !important;
-    max-height: 110px !important;
-    width: auto !important;
-  }
-}
-
-/* DEMO SECTION LAYOUT */
-.demo .how-title{
-  text-align:center;
-  margin-bottom:18px;
-}
-
-/* Panel wrapper */
-.clips.panel{
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 18px 55px rgba(0,0,0,0.35);
-}
-
-/* Two column layout */
-.clips-columns{
-  display:grid;
-  grid-template-columns: 1.35fr 0.65fr;
-  gap: 18px;
-  align-items:start;
-}
-
-/* LEFT column stacks videos */
-.clips-left{
-  display:grid;
-  gap: 16px;
-}
-
-/* Video item */
-.video-item{
-  display:grid;
-  gap: 10px;
-}
-
-/* Responsive iframe container */
-.video-container{
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 */
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(0,0,0,0.25);
-}
-
-.video-container iframe{
-  position:absolute;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-/* Titles under each video */
-.video-title{
-  margin:0;
-  font-size: 14px;
-  font-weight: 800;
-  opacity: 0.95;
-}
-
-/* RIGHT column TikTok sizing */
-.clips-right{
-  display:grid;
-  gap: 10px;
-  justify-items:center;
-  text-align:center;
-}
-
-/* TikTok wrapper keeps it centered and not too wide */
-.tiktok-wrap{
-  width: 100%;
-  max-width: 360px;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(0,0,0,0.25);
-  padding: 10px;
-}
-
-/* Mobile stack */
-@media (max-width: 900px){
-  .clips-columns{
-    grid-template-columns: 1fr;
-  }
-
-  .tiktok-wrap{
-    max-width: 420px;
-  }
-}
-
-.top-header {
-  background: linear-gradient(135deg, #6FAED9, #3EB5FF) !important;
-}
-
-/* ===== Business Pan Carousel ===== */
-
-.biz-pan {
-  padding: 54px 0;
-}
-
-.biz-pan-title {
-  text-align: center;
-  margin: 0 0 10px;
-  font-size: clamp(24px, 3vw, 34px);
-  font-weight: 900;
-}
-
-.biz-pan-sub {
-  text-align: center;
-  margin: 0 auto 18px;
-  max-width: 78ch;
-  opacity: .9;
-  line-height: 1.55;
-}
-
-.biz-strip {
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-  padding: 10px 0 6px;
-  mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
-}
-.biz-strip::-webkit-scrollbar { display: none; }
-
-.biz-track {
-  display: flex;
-  gap: 14px;
-  padding: 0 4vw;
-  align-items: stretch;
-  width: max-content;
-}
-
-.biz-card{
-  position: relative;
-  width: clamp(180px, 18vw, 260px);
-  height: clamp(180px, 18vw, 260px); /* makes it SQUARE */
-  border-radius: 0px; /* GBRS style is sharp corners */
-  overflow: hidden;
-  text-decoration: none;
-  border: 0; /* cleaner like the example */
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.55)),
-    var(--bg);
-  background-size: cover;
-  background-position: center;
-  box-shadow: none;
-  flex: 0 0 auto;
-}
-
-
-.biz-card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: radial-gradient(600px 240px at 50% 105%, rgba(62,181,255,.22), transparent 60%);
-  pointer-events:none;
-}
-
-.biz-overlay{
-  position:absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 14px;
-  display: grid;
-  gap: 6px;
-}
-
-.biz-overlay h3{
-  margin:0;
-  font-size: 16px;
-  font-weight: 950;
-  letter-spacing: .2px;
-}
-
-.biz-overlay p{
-  margin:0;
-  font-size: 13px;
-  line-height: 1.35;
-  opacity: .92;
-}
-
-.biz-card:hover{
-  transform: translateY(-2px);
-  transition: transform 160ms ease;
-}
-
-.biz-pan-hint{
-  text-align:center;
-  opacity:.75;
-  margin-top: 10px;
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: .2px;
-}
-
-.biz-overlay{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:16px;
-  gap:8px;
-}
-
-.biz-overlay h3{
-  margin:0;
-  font-size: 14px;
-  font-weight: 950;
-  letter-spacing: .2px;
-  text-transform: uppercase;
-}
-
-.biz-overlay p{
-  margin:0;
-  font-size: 12px;
-  line-height: 1.35;
-  opacity: .92;
-  max-width: 22ch;
-}
-
-/* Make the strip snap one tile at a time */
-.biz-strip{
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  padding: 10px 0 6px;
-}
-.biz-strip::-webkit-scrollbar{ display:none; }
-
-/* Each tile snaps */
-.biz-card{
-  scroll-snap-align: start;
-}
-
-/* Square tiles */
-.biz-card{
-  width: clamp(180px, 18vw, 260px);
-  height: clamp(180px, 18vw, 260px);
-  border-radius: 0px;
-  overflow: hidden;
-  flex: 0 0 auto;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.55)),
-    var(--bg);
-  background-size: cover;
-  background-position: center;
-}
-
-.biz-overlay h3,
-.biz-overlay p{
-  color: #ffffff !important;
-}
-
-/* Mobile tweaks */
-@media (max-width: 800px){
-  .biz-card{ width: 78vw; }
-  .biz-track{ padding: 0 6vw; }
-}
-
-/* TOP CONTACT BAR */
 .top-contact-bar{
-  width: 100%;
-  background: #0b1f33; /* deep navy */
-  color: #fff;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10000;
+  background: var(--orange);
 }
 
 .top-contact-inner{
@@ -2439,16 +83,24 @@ html.is-loaded .top-hero::before{
   align-items: center;
   gap: 14px;
   padding: 12px 18px;
-  text-decoration: none;
   color: #fff;
 }
 
 .top-contact-item:first-child{
-  border-right: 1px solid rgba(255,255,255,0.18);
+  border-right: 1px solid rgba(255,255,255,0.25);
+  justify-content: flex-end;
+  text-align: right;
+  padding-right: 22px;
+}
+
+.top-contact-item:last-child{
+  justify-content: flex-start;
+  text-align: left;
+  padding-left: 22px;
 }
 
 .top-contact-icon{
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1;
   opacity: 0.95;
 }
@@ -2457,7 +109,7 @@ html.is-loaded .top-hero::before{
   display: block;
   font-weight: 800;
   letter-spacing: 0.8px;
-  font-size: 13px;
+  font-size: 12px;
   text-transform: uppercase;
   color: rgba(255,255,255,0.92);
 }
@@ -2465,90 +117,116 @@ html.is-loaded .top-hero::before{
 .top-contact-value{
   display: block;
   font-weight: 700;
-  font-size: 16px;
-  color: #f7b500; /* Florida Man yellow */
+  font-size: 15px;
+  color: #fff;
 }
 
-.top-contact-item:hover{
-  background: rgba(255,255,255,0.06);
+/* ===============================
+   NAV (fixed under contact bar)
+================================ */
+.top-nav{
+  position: fixed;
+  top: var(--contact-bar-h);
+  left: 0; right: 0;
+  z-index: 9999;
+
+  padding: var(--nav-pad-y) 24px;
+  background: rgba(0,0,0,0.40);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-/* MOBILE */
-@media (max-width: 700px){
-  .top-contact-inner{
-    grid-template-columns: 1fr;
-  }
+.top-nav-inner{
+  width: min(1200px, 92%);
+  margin: 0 auto;
 
-  .top-contact-item:first-child{
-    border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.18);
-  }
-}
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 18px;
 
-/* =========================================
-   SUMMIT FLOW — NAV DROPDOWN (MATCH FL MAN)
-   Safe additive styles only
-   ========================================= */
-
-/* Ensure nav containers allow dropdown overflow */
-.top-nav,
-.top-nav-inner,
-.nav-left,
-.nav-right {
   overflow: visible;
 }
 
-/* Dropdown base */
-.nav-dropdown {
-  position: relative;
-  display: inline-flex;
+.nav-left, .nav-right{
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-left{ justify-content: flex-end; }
+.nav-right{ justify-content: flex-start; }
+
+.nav-left a,
+.nav-right a,
+.nav-dropbtn{
+  font-family: "Unica One", system-ui;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 22px;
+  color: var(--nav-text);
+}
+
+.nav-left a:hover,
+.nav-right a:hover,
+.nav-dropbtn:hover{
+  color: var(--nav-text-strong);
+}
+
+.nav-logo{
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-/* Button already styled — ensure clickability */
-.nav-dropbtn {
+.nav-logo img{
+  height: var(--nav-logo-h);
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.35));
+}
+
+/* Dropdown */
+.nav-dropdown{ position: relative; display: inline-flex; align-items: center; }
+
+.nav-dropbtn{
   background: none;
   border: 0;
+  padding: 0;
+  margin: 0;
   cursor: pointer;
 }
 
-/* Dropdown menu (hidden by default) */
-.nav-dropmenu {
+.nav-caret{ margin-left: 6px; font-size: 0.9em; opacity: 0.9; }
+
+.nav-dropmenu{
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
   min-width: 260px;
-  z-index: 20000;
+  z-index: 10001;
 
-  background: rgba(10, 18, 30, 0.98);
+  background: rgba(10,18,30,0.98);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 14px;
   padding: 10px;
-
   box-shadow: 0 18px 50px rgba(0,0,0,0.35);
 
   opacity: 0;
   transform: translateY(6px);
   pointer-events: none;
-
-  transition: opacity 180ms ease, transform 180ms ease;
+  transition: 180ms ease;
 }
 
-/* Links inside dropdown */
-.nav-dropmenu a {
+.nav-dropmenu a{
   display: block;
-  padding: 12px 14px;
+  padding: 10px 12px;
   border-radius: 10px;
   color: rgba(255,255,255,0.92);
-  font-family: "Karla", system-ui;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: 14px;
 }
 
 .nav-dropmenu a:hover,
-.nav-dropmenu a:focus {
+.nav-dropmenu a:focus{
   background: rgba(255,255,255,0.08);
   outline: none;
 }
@@ -2561,637 +239,290 @@ html.is-loaded .top-hero::before{
     transform: translateY(0);
     pointer-events: auto;
   }
-
-  /* Prevent hover flicker gap */
   .nav-dropdown::after{
     content:"";
     position:absolute;
-    left:0;
-    right:0;
+    left:0; right:0;
     top:100%;
     height:12px;
   }
 }
 
-/* Mobile / touch open via JS */
-.nav-dropdown.is-open .nav-dropmenu {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+/* ===============================
+   HERO (services hero)
+================================ */
+.top-hero{
+  min-height: 70vh;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(var(--hero-overlay), var(--hero-overlay)),
+    url("./assets/summit flow computer.webp") center/cover no-repeat;
+
+  /* header already handled by body padding; keep hero tight */
+  display: flex;
+  align-items: center;
 }
 
-/* =========================================
-   MOBILE DROPDOWN — CENTERED & FULL-WIDTH
-   ========================================= */
-@media (max-width: 768px){
-
-  .nav-dropmenu{
-    left: 50%;
-    transform: translateX(-50%) translateY(6px);
-    width: min(92vw, 520px);
-    max-height: 65vh;
-    overflow-y: auto;
-
-    border-radius: 12px;
-  }
-
-  .nav-dropdown.is-open .nav-dropmenu{
-    transform: translateX(-50%) translateY(0);
-  }
-
-  .nav-dropmenu a{
-    padding: 14px 16px;
-    font-size: 16px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .nav-dropmenu a:last-child{
-    border-bottom: none;
-  }
+.hero-overlay{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 64px 18px;
 }
 
-/* =========================================
-   SUMMIT FLOW — NAV TEXT UNIFICATION
-   Makes dropdown text match main nav
-   ========================================= */
+.hero-content{ width: min(1200px, 92%); }
 
-/* Top-level nav links (already correct, reinforced) */
-.nav-left a,
-.nav-right a,
-.nav-dropbtn {
+.hero-title{
   font-family: "Unica One", system-ui;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 22px;
-  font-weight: 400;
-  color: var(--nav-text);
+  letter-spacing: 3px;
+  font-size: clamp(44px, 6vw, 90px);
+  line-height: 1.02;
+  margin: 0 0 14px;
+  color: #fff;
+  text-shadow: 0 18px 45px rgba(0,0,0,0.65);
 }
 
-/* Dropdown menu links — MATCH TOP NAV */
-.nav-dropmenu a {
-  font-family: "Unica One", system-ui !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1px !important;
+.hero-subs{ display: grid; gap: 10px; }
+
+.hero-sub{
+  font-family: "Karla", system-ui;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   font-size: 18px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.92);
+  color: rgba(255,255,255,0.85);
+  margin: 0;
 }
 
-/* Hover states consistent with top nav */
-.nav-dropmenu a:hover,
-.nav-dropmenu a:focus {
-  color: var(--nav-text-strong);
+/* Entrance */
+.hero-title, .hero-sub{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: transform 550ms ease, opacity 550ms ease;
+}
+.hero-sub:nth-child(1){ transition-delay: 250ms; }
+.hero-sub:nth-child(2){ transition-delay: 350ms; }
+html.is-loaded .hero-title,
+html.is-loaded .hero-sub{
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Mobile adjustments (keep readable but consistent) */
-@media (max-width: 768px){
-  .nav-left a,
-  .nav-right a,
-  .nav-dropbtn {
-    font-size: 16px;
-  }
-
-  .nav-dropmenu a {
-    font-size: 16px;
-    letter-spacing: 0.8px;
-  }
+/* CTA button style reused */
+.last-cta-phone{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-weight: 900;
+  font-size: 18px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.10);
+}
+.last-cta-phone:hover{
+  background: rgba(255,255,255,0.16);
 }
 
-/* =====================================================
-   SUMMIT FLOW — SERVICES PAGE (FL MAN QUALITY UPGRADE)
-   Scoped to .page-services
-   ===================================================== */
-
-/* -------------------------------
-   HERO — stronger presence
--------------------------------- */
-.page-services .top-hero,
-.page-services .services-hero {
-  background:
-    linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
-    url("./assets/sf computer dashbord.webp") center/cover no-repeat;
-}
-
-/* Increase hero breathing room */
-.page-services .top-hero {
-  min-height: 90vh;
-}
-
-/* -------------------------------
-   SECTION RHYTHM
--------------------------------- */
-.page-services .about-split {
-  padding: 110px 0;
-}
-
-/* Alternate dark tones for depth */
-.page-services .about-split:nth-of-type(even) {
-  background: #071427;
-}
-
-.page-services .about-split:nth-of-type(odd) {
+/* ===============================
+   ABOUT SPLIT (your service blocks)
+================================ */
+.about-split{
+  padding: 80px 0;
   background: var(--navy);
 }
 
-/* -------------------------------
-   SERVICE TEXT — more premium
--------------------------------- */
-.page-services .about-title {
-  font-size: clamp(32px, 3.4vw, 46px);
-  letter-spacing: 0.04em;
+.about-split-grid{
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 48px;
+  align-items: center;
 }
 
-.page-services .about-body {
-  font-size: 16.5px;
-  line-height: 1.8;
-  max-width: 60ch;
-}
+.about-kicker{ margin: 0 0 14px; }
 
-/* -------------------------------
-   SERVICE IMAGES — depth + polish
--------------------------------- */
-.page-services .about-split-image {
-  box-shadow: 0 28px 65px rgba(0,0,0,0.45);
-  border-radius: 18px;
-  overflow: hidden;
-}
-
-.page-services .about-split-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transform: scale(1.03);
-  transition: transform 600ms ease;
-}
-
-.page-services .about-split:hover .about-split-image img {
-  transform: scale(1);
-}
-
-/* -------------------------------
-   SERVICES CAROUSEL — stronger
--------------------------------- */
-.page-services .biz-pan {
-  padding: 90px 0;
-}
-
-.page-services .biz-pan-title {
-  font-size: clamp(30px, 3vw, 44px);
-  letter-spacing: 0.06em;
-}
-
-.page-services .biz-card {
-  border-radius: 6px;
-}
-
-.page-services .biz-overlay h3 {
-  font-size: 15px;
-  letter-spacing: 0.12em;
-}
-
-.page-services .biz-overlay p {
-  font-size: 13px;
-  opacity: 0.9;
-}
-
-/* -------------------------------
-   CTA EMPHASIS
--------------------------------- */
-.page-services .last-cta-phone {
-  font-size: 22px;
-  letter-spacing: 0.04em;
-}
-
-/* -------------------------------
-   MOBILE POLISH
--------------------------------- */
-@media (max-width: 900px) {
-  .page-services .about-split {
-    padding: 70px 0;
-  }
-
-  .page-services .about-title {
-    font-size: 30px;
-  }
-
-  .page-services .about-split-image {
-    margin-top: 24px;
-  }
-}
-
-/* =====================================================
-   SERVICES PAGE — TEXT POP FIX (GOOGLE ADS + CRM)
-   Scoped to .page-services
-   ===================================================== */
-
-/* Make service headings brighter + stronger */
-.page-services #google-ads .about-title,
-.page-services #crm .about-title {
-  color: #ffffff;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.65);
-}
-
-/* Make body copy TRUE white (not muted gray) */
-.page-services #google-ads .about-body,
-.page-services #crm .about-body {
-  color: rgba(255,255,255,0.95);
-  font-weight: 500;
-}
-
-/* Slight emphasis on kicker labels */
-.page-services #google-ads .about-link,
-.page-services #crm .about-link {
-  color: var(--orange);
-  font-weight: 900;
-  letter-spacing: 0.12em;
-}
-
-/* Underline pop */
-.page-services #google-ads .about-underline,
-.page-services #crm .about-underline {
-  background: var(--orange);
-  height: 4px;
-}
-
-/* CTA contrast */
-.page-services #google-ads .last-cta-phone,
-.page-services #crm .last-cta-phone {
-  color: #ffffff;
-  font-weight: 900;
-}
-
-.page-services #google-ads .last-cta-phone:hover,
-.page-services #crm .last-cta-phone:hover {
-  color: var(--orange);
-}
-
-/* Mobile readability bump */
-@media (max-width: 900px) {
-  .page-services #google-ads .about-body,
-  .page-services #crm .about-body {
-    font-size: 16px;
-  }
-}
-
-/* =====================================================
-   SERVICES PAGE — WEBSITE PREVIEW GRID
-   Scoped to .page-services #websites
-   ===================================================== */
-
-.page-services #websites .website-preview-wrap {
-  margin-top: 48px;
-}
-
-/* Section label */
-.page-services #websites .website-preview-title {
-  font-family: "Unica One", system-ui;
-  font-size: 22px;
-  letter-spacing: 0.12em;
+.about-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  font-size: 12px;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--orange);
+}
+
+.about-title{
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.15;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 18px;
+}
+
+.about-underline{
+  width: 44px;
+  height: 3px;
+  background: var(--orange);
+  border-radius: 999px;
   margin: 0 0 22px;
 }
 
-/* Grid */
-.page-services #websites .website-preview-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 26px;
-}
-
-/* Card */
-.page-services #websites .website-preview-card {
-  display: block;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform 220ms ease, box-shadow 220ms ease;
-}
-
-.page-services #websites .website-preview-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 26px 60px rgba(0,0,0,0.45);
-}
-
-/* Image */
-.page-services #websites .website-preview-image {
-  position: relative;
-  overflow: hidden;
-}
-
-.page-services #websites .website-preview-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transform: scale(1.02);
-  transition: transform 500ms ease;
-}
-
-.page-services #websites .website-preview-card:hover img {
-  transform: scale(1);
-}
-
-/* Meta */
-.page-services #websites .website-preview-meta {
-  padding: 16px 18px;
-  background: rgba(0,0,0,0.35);
-}
-
-.page-services #websites .website-preview-name {
-  display: block;
-  font-weight: 800;
-  color: #ffffff;
-  font-size: 15px;
-  margin-bottom: 4px;
-}
-
-.page-services #websites .website-preview-type {
-  display: block;
-  font-size: 13px;
-  color: rgba(255,255,255,0.75);
-  letter-spacing: 0.04em;
-}
-
-/* Mobile */
-@media (max-width: 900px) {
-  .page-services #websites .website-preview-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-}
-
-/* =====================================================
-   SERVICES PAGE — INTENTIONAL TEXT CONTRAST
-   Google Ads + CRM = NAVY
-   Websites + Done For You = WHITE & BOLD
-   ===================================================== */
-
-/* ---------- GOOGLE ADS + CRM (NAVY TEXT) ---------- */
-
-.page-services #google-ads,
-.page-services #crm {
-  color: var(--navy);
-}
-
-.page-services #google-ads .about-title,
-.page-services #crm .about-title {
-  color: var(--navy);
-  text-shadow: none;
-}
-
-.page-services #google-ads .about-body,
-.page-services #crm .about-body {
-  color: rgba(11, 31, 51, 0.9);
-  font-weight: 500;
-}
-
-.page-services #google-ads .about-link,
-.page-services #crm .about-link {
-  color: var(--orange);
-  font-weight: 900;
-}
-
-.page-services #google-ads .last-cta-phone,
-.page-services #crm .last-cta-phone {
-  color: var(--navy);
-  font-weight: 900;
-}
-
-.page-services #google-ads .last-cta-phone:hover,
-.page-services #crm .last-cta-phone:hover {
-  color: var(--orange);
-}
-
-
-/* ---------- WEBSITES + DONE FOR YOU (WHITE & BOLD) ---------- */
-
-.page-services #websites,
-.page-services #done-for-you {
-  color: #ffffff;
-}
-
-.page-services #websites .about-title,
-.page-services #done-for-you .about-title {
-  color: #ffffff;
-  font-weight: 900;
-  text-shadow: 0 12px 30px rgba(0,0,0,0.65);
-}
-
-.page-services #websites .about-body,
-.page-services #done-for-you .about-body {
-  color: rgba(255,255,255,0.95);
-  font-weight: 600;
-}
-
-.page-services #websites .about-link,
-.page-services #done-for-you .about-link {
-  color: var(--orange);
-  font-weight: 900;
-  letter-spacing: 0.12em;
-}
-
-.page-services #websites .last-cta-phone,
-.page-services #done-for-you .last-cta-phone {
-  color: #ffffff;
-  font-weight: 900;
-}
-
-.page-services #websites .last-cta-phone:hover,
-.page-services #done-for-you .last-cta-phone:hover {
-  color: var(--orange);
-}
-
-
-/* ---------- MOBILE READABILITY ---------- */
-
-@media (max-width: 900px) {
-  .page-services #websites .about-body,
-  .page-services #done-for-you .about-body {
-    font-size: 16px;
-  }
-
-  .page-services #google-ads .about-body,
-  .page-services #crm .about-body {
-    font-size: 16px;
-  }
-}
-
-/* =====================================================
-   SERVICES PAGE — CTA ↔ IMAGE SPACING FIX
-   Google Ads + CRM only
-   ===================================================== */
-
-/* Increase vertical spacing below CTAs */
-.page-services #google-ads .last-cta-phone,
-.page-services #crm .last-cta-phone {
-  margin-bottom: 32px;
-  display: inline-flex;
-}
-
-/* Add top spacing to images for visual separation */
-.page-services #google-ads .about-split-image,
-.page-services #crm .about-split-image {
-  margin-top: 28px;
-}
-
-/* Mobile: slightly tighter but still intentional */
-@media (max-width: 900px) {
-  .page-services #google-ads .last-cta-phone,
-  .page-services #crm .last-cta-phone {
-    margin-bottom: 22px;
-  }
-
-  .page-services #google-ads .about-split-image,
-  .page-services #crm .about-split-image {
-    margin-top: 22px;
-  }
-}
-
-/* =====================================================
-   SERVICES PAGE — DONE FOR YOU LAYOUT REFINEMENT
-   Smaller image, right-aligned
-   ===================================================== */
-
-/* Force text-left / image-right layout */
-.page-services #done-for-you .about-split-grid {
-  grid-template-columns: 1.25fr 0.75fr;
-  align-items: center;
-}
-
-/* Make image visually smaller + lighter */
-.page-services #done-for-you .about-split-image {
-  max-width: 420px;
-  margin-left: auto;        /* push image to the right */
-  margin-top: 0;
-  box-shadow: 0 22px 48px rgba(0,0,0,0.35);
-}
-
-/* Slightly reduce image scale */
-.page-services #done-for-you .about-split-image img {
-  transform: scale(0.96);
-}
-
-/* Desktop breathing room */
-.page-services #done-for-you .about-split-text {
-  padding-right: 40px;
-}
-
-/* -------------------------------
-   MOBILE — stack cleanly
--------------------------------- */
-@media (max-width: 900px) {
-  .page-services #done-for-you .about-split-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .page-services #done-for-you .about-split-image {
-    max-width: 100%;
-    margin: 28px auto 0;
-  }
-
-  .page-services #done-for-you .about-split-text {
-    padding-right: 0;
-  }
-}
-
-/* =====================================================
-   SERVICES PAGE — DONE FOR YOU (TEXT LEFT, LARGE IMAGE RIGHT)
-   ===================================================== */
-
-/* Explicit left-text / right-image layout */
-.page-services #done-for-you .about-split-grid {
-  grid-template-columns: 1.1fr 1fr; /* text slightly dominant */
-  align-items: center;
-}
-
-/* Ensure text block stays fully left */
-.page-services #done-for-you .about-split-text {
-  order: 1;
-  padding-right: 48px;
-}
-
-/* Make image larger and clearly right-aligned */
-.page-services #done-for-you .about-split-image {
-  order: 2;
-  max-width: 560px;      /* LARGER image */
-  width: 100%;
-  margin-left: auto;     /* push to right */
-  box-shadow: 0 30px 70px rgba(0,0,0,0.45);
-}
-
-/* Slight upscale for presence */
-.page-services #done-for-you .about-split-image img {
-  width: 100%;
-  height: auto;
-  transform: scale(1.04);
-}
-
-/* --------------------------------
-   MOBILE — stack cleanly
--------------------------------- */
-@media (max-width: 900px) {
-  .page-services #done-for-you .about-split-grid {
-    grid-template-columns: 1fr;
-  }
-
-
-/* =====================================================
-   SERVICES PAGE — DONE FOR YOU
-   Clean LEFT / RIGHT grid layout
-   ===================================================== */
-
-.page-services #done-for-you .about-split-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* true left / right */
-  gap: 64px;
-  align-items: center;
-}
-
-/* LEFT: all text */
-.page-services #done-for-you .about-split-text {
-  order: 1;
-  padding-right: 32px;
-}
-
-/* RIGHT: large image */
-.page-services #done-for-you .about-split-image {
-  order: 2;
-  width: 100%;
-  max-width: none;          /* remove previous caps */
+.about-body{
+  color: rgba(255,255,255,0.85);
+  line-height: 1.75;
+  font-size: 15.5px;
+  max-width: 560px;
   margin: 0;
-  box-shadow: 0 32px 72px rgba(0,0,0,0.45);
 }
 
-/* Make image feel intentional + premium */
-.page-services #done-for-you .about-split-image img {
+.about-split-image{
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+.about-split-image img{
   width: 100%;
   height: auto;
   display: block;
-  transform: scale(1.05);
+  object-fit: cover;
 }
-
-/* --------------------------------
-   MOBILE — stack naturally
--------------------------------- */
-@media (max-width: 900px) {
-  .page-services #done-for-you .about-split-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .page-services #done-for-you .about-split-text {
-    padding-right: 0;
-  }
-
-  .page-services #done-for-you .about-split-image img {
-    transform: scale(1);
-  }
-}
-
 
 /* ===============================
-   FOOTER (Summit Flow)
+   WEBSITE PREVIEW GRID (services)
+================================ */
+.website-preview-wrap{ margin-top: 28px; }
+
+.website-preview-title{
+  font-size: 18px;
+  color: #fff;
+  letter-spacing: 1px;
+  margin: 0 0 14px;
+}
+
+.website-preview-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.website-preview-card{
+  display: block;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+
+.website-preview-image img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.website-preview-meta{
+  padding: 12px 12px 14px;
+}
+.website-preview-name{
+  display: block;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.website-preview-type{
+  display: block;
+  margin-top: 4px;
+  color: rgba(255,255,255,0.78);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* ===============================
+   DONE-FOR-YOU (LAST CTA) — FIXED
+   - Navy background behind the section
+   - Photo shows on left (background image)
+   - Panel is white with navy text
+================================ */
+.last-cta{
+  width: 100%;
+  background: var(--navy);
+}
+
+.last-cta-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+}
+
+.last-cta-photo{
+  background: url("./assets/summit flow computer.webp") center/cover no-repeat;
+  filter: grayscale(12%);
+}
+
+.last-cta-panel{
+  background: #fff;
+  padding: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.last-cta-title{
+  margin: 0 0 18px;
+  color: var(--navy);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  font-size: clamp(22px, 2.2vw, 34px);
+}
+
+.last-cta-title .cta-orange{ color: var(--orange); }
+
+.last-cta-sub{
+  margin: 0 0 18px;
+  color: rgba(11,31,51,0.75);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+}
+
+.last-cta-line{
+  width: 44px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--orange);
+  margin: 0 0 22px;
+}
+
+.last-cta-body{
+  margin: 0 0 26px;
+  color: rgba(11,31,51,0.85);
+  line-height: 1.7;
+  max-width: 520px;
+  font-size: 15px;
+}
+
+/* Make the DFY button look like a CTA on white panel */
+.last-cta-panel .last-cta-phone{
+  background: var(--navy);
+  border: 1px solid rgba(0,0,0,0.12);
+  color: #fff;
+  width: fit-content;
+}
+.last-cta-panel .last-cta-phone:hover{
+  background: #0f2433;
+}
+
+/* ===============================
+   FOOTER — FIXED (logo not massive)
 ================================ */
 .site-footer{
   background: var(--navy-deep);
@@ -3210,12 +541,15 @@ html.is-loaded .top-hero::before{
   display: flex;
   align-items: flex-start;
   gap: 16px;
+  min-width: 0;
 }
 
 .footer-logo{
-  width: 86px;
+  width: 84px;          /* hard cap */
+  max-width: 84px;
   height: auto;
-  flex: 0 0 86px;
+  flex: 0 0 84px;
+  display: block;
   object-fit: contain;
 }
 
@@ -3235,36 +569,13 @@ html.is-loaded .top-hero::before{
   color: #fff;
 }
 
-.site-footer a{
-  color: rgba(255,255,255,0.85);
-}
+.site-footer a{ color: rgba(255,255,255,0.85); }
+.site-footer a:hover{ color: var(--orange); text-decoration: underline; }
 
-.site-footer a:hover{
-  color: var(--orange);
-  text-decoration: underline;
-}
-
-/* Mobile */
-@media (max-width: 700px){
-  .footer-grid{
-    grid-template-columns: 1fr;
-    gap: 34px;
-  }
-
-  .footer-brand-row{
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .footer-logo{
-    width: 150px;
-  }
-}
-
-/* Copyright bar */
 .copyright-bar{
   background: var(--navy-deep);
-  padding: 16px 0;
+  margin: 0;
+  padding: 16px 0 18px;
   text-align: center;
 }
 
@@ -3277,452 +588,146 @@ html.is-loaded .top-hero::before{
   font-weight: 700;
 }
 
-
-/* DONE FOR YOU SPLIT HERO */
-.dfy-hero {
-  background: radial-gradient(
-    circle at top left,
-    #0e2a47,
-    var(--navy)
-  );
-  padding: 160px 24px 120px;
+/* ===============================
+   LEGACY SECTIONS (keep your other pages)
+   - These are neutral and won’t fight the new nav system.
+================================ */
+.banner{
+  text-align: center;
+  padding: 10px;
+  background: rgba(111,174,217,0.15);
 }
 
-.dfy-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 64px;
-  align-items: center;
-}
-
-.dfy-eyebrow {
-  letter-spacing: 0.14em;
-  font-size: 12px;
+.btn{
+  padding: 14px 20px;
+  border-radius: 14px;
   font-weight: 700;
-  color: rgba(255,255,255,0.7);
 }
+.btn.primary{ background: var(--navy); color: #fff; }
+.btn.primary:hover{ background: #0f2433; }
+.btn.ghost{ border: 1px solid #ccc; }
 
-.dfy-content h1 {
-  font-size: 48px;
-  line-height: 1.15;
-  margin: 16px 0 20px;
-  color: #fff;
+/* pricing */
+.pricing-wrap{ max-width: 980px; margin: 0 auto; padding: 48px 24px 64px; }
+.pricing-title{
+  font-family: "Unica One", system-ui;
+  font-size: 44px;
+  text-align: center;
+  margin: 24px auto 34px;
 }
-
-.dfy-content h1 span {
-  color: var(--orange);
-}
-
-.dfy-sub {
-  font-size: 18px;
-  max-width: 520px;
-  color: rgba(255,255,255,0.85);
-}
-
-.dfy-primary-cta {
-  display: inline-block;
-  margin-top: 28px;
-  padding: 16px 28px;
-  background: var(--orange);
-  color: #fff;
-  font-weight: 700;
-  border-radius: 10px;
-  text-decoration: none;
-}
-
-.dfy-primary-cta:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 30px rgba(255,106,0,0.35);
-}
-
-/* RIGHT */
-.dfy-visual {
-  background: rgba(255,255,255,0.04);
-  padding: 28px;
+.pricing-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.price-card{
+  background: #fff;
+  padding: 30px;
   border-radius: 18px;
+  border: 1px solid #e6edf3;
+  box-shadow: 0 18px 40px rgba(15,36,51,0.06);
+}
+.price-card.featured{
+  border: 2px solid var(--navy);
+  box-shadow: 0 22px 55px rgba(15,36,51,0.10);
 }
 
-.dfy-visual img {
-  width: 100%;
-  border-radius: 12px;
-  display: block;
+/* faq */
+.faq-wrap{ max-width: 860px; margin: 0 auto; padding: 0 24px; }
+.faq-title{
+  font-family: "Unica One", system-ui;
+  font-size: 40px;
+  text-align: center;
+  margin: 0 0 28px;
 }
-
-.dfy-proof {
-  margin-top: 18px;
-  padding: 0;
-  list-style: none;
+.faq-item{ border-bottom: 1px solid #e6edf3; padding: 16px 0; }
+.faq-item summary{
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  color: var(--navy);
 }
+.faq-item summary::-webkit-details-marker{ display: none; }
 
-.dfy-proof li {
-  margin-top: 10px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.9);
-}
-
-/* MOBILE */
-@media (max-width: 900px) {
-  .dfy-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .dfy-content h1 {
-    font-size: 38px;
-  }
-}
-
-/* FOOTER RESET */
-.site-footer {
-  background: #f7f7f4;
-  padding: 64px 24px 24px;
-  color: #0b1f33;
-}
-
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
+/* consult embed */
+.consult-page{ padding: 48px 16px 80px; }
+.consult-wrap{
+  max-width: 1100px;
+  margin: auto;
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 32px;
   align-items: start;
 }
-
-/* LOGO FIX */
-.footer-logo {
-  max-width: 220px;   /* THIS is the key */
-  width: 100%;
-  height: auto;
-  margin-bottom: 16px;
-}
-
-/* ENSURE IT NEVER BLOWS UP */
-.site-footer img {
-  max-height: 240px;
-}
-
-/* TEXT */
-.footer-desc {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #2b3a4a;
-  max-width: 420px;
-}
-
-.footer-col h4 {
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.footer-col p {
-  font-size: 14px;
-  margin-bottom: 8px;
-  line-height: 1.5;
-}
-
-/* BOTTOM BAR */
-.footer-bottom {
-  margin-top: 40px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(0,0,0,0.1);
-  font-size: 13px;
-  text-align: center;
-  color: #4a5a6a;
-}
-
-/* MOBILE */
-@media (max-width: 900px) {
-  .footer-inner {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .footer-logo {
-    max-width: 180px;
-  }
-}
-
-  /* ===============================
-   DONE-FOR-YOU CTA IMAGE
-   =============================== */
-
-.page-services .last-cta-photo{
-  background:
-    linear-gradient(
-      rgba(11,31,51,0.25),
-      rgba(11,31,51,0.45)
-    ),
-    url("./assets/summit flow computer.webp") center / cover no-repeat;
-}
-
-  /* ===============================
-   SERVICES PAGE — DFY VISIBILITY FIX
-   =============================== */
-
-/* Force contrast so the section is obvious */
-.page-services .last-cta{
-  border-top: 1px solid rgba(0,0,0,0.08);
-}
-
-/* GIVE THE PHOTO A REAL IMAGE */
-.page-services .last-cta-photo{
-  min-height: 520px;
-  background:
-    linear-gradient(
-      rgba(11,31,51,0.25),
-      rgba(11,31,51,0.45)
-    ),
-    url("./assets/dfy-cta.webp") center / cover no-repeat;
-}
-
-  /* ===============================
-   SERVICES PAGE — DFY BACKGROUND
-   =============================== */
-
-.page-services .last-cta{
-  background: var(--navy);
-}
-
-/* keep the right panel readable */
-.page-services .last-cta-panel{
-  background: #ffffff;
-}
-
-  /* ===============================
-   DONE-FOR-YOU — HARD FIX
-   =============================== */
-
-.dfy-section{
-  width: 100%;
-  background: var(--navy);
-  color: #fff;
-}
-
-.dfy-wrap{
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 520px;
-}
-
-/* IMAGE SIDE */
-.dfy-image{
-  background:
-    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.55)),
-    url("./assets/dfy-cta.webp") center / cover no-repeat;
-}
-
-/* CONTENT SIDE */
-.dfy-content{
-  padding: 72px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.dfy-title{
-  margin: 0 0 16px;
-  font-size: clamp(26px, 3vw, 36px);
-  line-height: 1.15;
-  color: #fff;
-}
-
-.dfy-accent{
-  color: var(--orange);
-}
-
-.dfy-sub{
-  margin: 0 0 18px;
-  font-size: 13px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0.9;
-}
-
-.dfy-line{
-  width: 44px;
-  height: 3px;
-  background: var(--orange);
-  border-radius: 999px;
-  margin: 0 0 22px;
-}
-
-.dfy-body{
-  max-width: 520px;
-  line-height: 1.7;
-  opacity: 0.9;
-  margin-bottom: 26px;
-}
-
-.dfy-cta{
-  font-weight: 900;
-  font-size: 18px;
-  color: #fff;
-}
-
-.dfy-cta:hover{
-  color: var(--orange);
-  text-decoration: underline;
-}
-
-/* MOBILE */
-@media (max-width: 900px){
-  .dfy-wrap{
-    grid-template-columns: 1fr;
-  }
-
-  .dfy-image{
-    min-height: 260px;
-  }
-
-  .dfy-content{
-    padding: 46px 22px;
-  }
-}
-
-/* ===============================
-   SERVICES PAGE — DFY HARD FIX
-   =============================== */
-
-/* 1. Ensure full-width navy background */
-.page-services .last-cta{
-  background: var(--navy);
-}
-
-/* 2. Reassert the split grid (it was being overridden) */
-.page-services .last-cta-grid{
-  grid-template-columns: 1fr 1fr;
-  max-width: 100%;
-}
-
-/* 3. Fix the image column so it actually shows */
-.page-services .last-cta-photo{
-  min-height: 520px;
-  background:
-    linear-gradient(
-      rgba(0,0,0,0.35),
-      rgba(0,0,0,0.55)
-    ),
-    url("./assets/summit flow computer.webp") center / cover no-repeat;
-}
-
-/* 4. Fix white-on-white + alignment issues */
-.page-services .last-cta-panel{
+.consult-card{
   background: #fff;
-  color: var(--navy);
+  border-radius: 16px;
+  padding: 22px;
+  border: 1px solid rgba(0,0,0,0.12);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
-
-/* 5. Ensure text colors are correct */
-.page-services .last-cta-panel h2,
-.page-services .last-cta-panel p{
-  color: var(--navy);
+.ghl-embed{
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e6edf3;
+  background: #fff;
 }
-
-/* 6. Mobile stack (explicit so it doesn’t collapse left) */
-@media (max-width: 900px){
-  .page-services .last-cta-grid{
-    grid-template-columns: 1fr;
-  }
+.ghl-embed iframe{
+  width: 100%;
+  border: 0;
+  display: block;
+  min-height: 760px;
 }
 
 /* ===============================
-   FOOTER LOGO — HARD STOP
-   =============================== */
-
-.site-footer .footer-logo{
-  width: 86px !important;
-  max-width: 86px !important;
-  height: auto !important;
-  flex: 0 0 86px !important;
-}
-
-  /* =====================================================
-   🔒 SUMMIT FLOW — SERVICES PAGE STABILIZATION PATCH
-   Does NOT affect other pages
-   ===================================================== */
-
-/* -------------------------
-   DONE-FOR-YOU SECTION
--------------------------- */
-
-/* Force navy background + proper layout */
-.page-services .last-cta{
-  background: var(--navy);
-}
-
-/* Re-assert the grid (it was being overridden) */
-.page-services .last-cta-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: stretch;
-  min-height: 520px;
-}
-
-/* Image column (left) */
-.page-services .last-cta-photo{
-  min-height: 520px;
-  background:
-    linear-gradient(
-      rgba(0,0,0,0.35),
-      rgba(0,0,0,0.6)
-    ),
-    url("./assets/dfy-cta.webp") center / cover no-repeat;
-}
-
-/* Content panel (right) */
-.page-services .last-cta-panel{
-  background: var(--navy);
-  color: #ffffff;
-  padding: 72px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Text color safety */
-.page-services .last-cta-panel h2,
-.page-services .last-cta-panel p,
-.page-services .last-cta-panel a{
-  color: #ffffff;
-}
-
-.page-services .last-cta-panel .cta-orange{
-  color: var(--orange);
-}
-
-/* Mobile stacking */
+   RESPONSIVE (single system)
+================================ */
 @media (max-width: 900px){
-  .page-services .last-cta-grid{
+  :root{
+    --nav-logo-h: 58px;
+    --nav-pad-y: 10px;
+  }
+
+  body{
+    padding-top: calc(var(--contact-bar-h) + (var(--nav-pad-y) * 2) + var(--nav-logo-h) + 14px);
+  }
+
+  .top-nav{ padding: var(--nav-pad-y) 12px; }
+
+  .top-nav-inner{
     grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 10px;
   }
 
-  .page-services .last-cta-photo{
-    min-height: 260px;
+  .nav-left, .nav-right{
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
-  .page-services .last-cta-panel{
-    padding: 48px 22px;
+  .nav-left a, .nav-right a, .nav-dropbtn{
+    font-size: 16px;
   }
+
+  .top-contact-inner{ grid-template-columns: 1fr; }
+  .top-contact-item:first-child{
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+    justify-content: flex-start;
+    text-align: left;
+    padding-right: 18px;
+  }
+  .top-contact-item:last-child{ padding-left: 18px; }
+
+  .about-split{ padding: 60px 0; }
+  .about-split-grid{ grid-template-columns: 1fr; gap: 22px; }
+
+  .website-preview-grid{ grid-template-columns: 1fr; }
+
+  .last-cta-grid{ grid-template-columns: 1fr; }
+  .last-cta-panel{ padding: 50px 22px; }
+
+  .footer-grid{ grid-template-columns: 1fr; gap: 34px; }
+  .footer-brand-row{ flex-direction: column; gap: 12px; }
+  .footer-logo{ width: 140px; max-width: 140px; flex: 0 0 auto; }
+
+  .pricing-grid, .consult-wrap{ grid-template-columns: 1fr; }
 }
-
-/* -------------------------
-   FOOTER LOGO HARD LOCK
--------------------------- */
-
-.site-footer .footer-logo{
-  width: 86px;
-  max-width: 86px;
-  height: auto;
-  flex: 0 0 86px;
-  display: block;
-}
-
-/* Prevent footer text stretch */
-.site-footer .footer-text{
-  max-width: 520px;
-}
-
