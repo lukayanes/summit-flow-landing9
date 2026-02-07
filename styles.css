@@ -908,3 +908,109 @@ html.is-loaded .hero-sub{
   background: rgba(0,0,0,0.55);
   backdrop-filter: blur(8px);
 }
+
+/* =====================================================
+   🔧 HOW IT WORKS — RESTORE (INDEX ONLY)
+   ===================================================== */
+
+.section.how-works{
+  padding: 90px 0;
+  background: #fff;
+}
+
+.how-wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.how-title{
+  font-family: "Unica One", system-ui;
+  font-size: clamp(34px, 4vw, 46px);
+  margin: 0 0 48px;
+  letter-spacing: 1px;
+  color: var(--navy);
+}
+
+/* Steps container */
+.how-steps{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+  margin-bottom: 46px;
+}
+
+/* Individual step */
+.how-step{
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+
+  text-align: left;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid rgba(11,31,51,0.12);
+  border-radius: 18px;
+
+  box-shadow: 0 14px 34px rgba(15,36,51,0.06);
+}
+
+/* Number circle */
+.how-num{
+  flex: 0 0 40px;
+  height: 40px;
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 900;
+  font-size: 16px;
+
+  color: var(--navy);
+  border: 2px solid var(--navy);
+}
+
+/* Text */
+.how-text h3{
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+}
+
+.how-text p{
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(15,36,51,0.85);
+}
+
+/* CTA */
+.how-cta{
+  margin-top: 14px;
+}
+
+.how-cta .btn{
+  font-size: 16px;
+  padding: 14px 22px;
+}
+
+/* Mobile */
+@media (max-width: 1000px){
+  .how-steps{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px){
+  .how-steps{
+    grid-template-columns: 1fr;
+  }
+
+  .section.how-works{
+    padding: 70px 0;
+  }
+}
