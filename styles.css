@@ -1555,3 +1555,54 @@ html.is-loaded .hero-sub{
   overflow: visible !important;
   max-width: none;
 }
+
+/* =====================================
+   MOBILE CONTACT BAR FIX (LIKE FL MAN)
+===================================== */
+@media (max-width: 768px){
+
+  /* Compact contact bar */
+  .top-contact-bar{
+    position: fixed;
+    top: 0;
+    height: auto;
+    padding: 6px 0;
+  }
+
+  .top-contact-inner{
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .top-contact-item{
+    justify-content: flex-start;
+    padding: 6px 14px;
+    gap: 10px;
+  }
+
+  .top-contact-item:first-child{
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    padding-bottom: 8px;
+  }
+
+  .top-contact-label{
+    font-size: 11px;
+  }
+
+  .top-contact-value{
+    font-size: 14px;
+  }
+
+  /* NAV POSITION FIX */
+  .top-nav{
+    top: auto;
+    position: relative;
+    margin-top: calc(var(--contact-bar-h) + 6px);
+  }
+
+  /* BODY OFFSET FIX */
+  body{
+    padding-top: calc(var(--contact-bar-h) + 64px);
+  }
+}
