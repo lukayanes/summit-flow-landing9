@@ -918,3 +918,30 @@ html.is-loaded .hero-sub{
   }
 }
 
+/* ===============================
+   GOOGLE ADS PRICING FIX
+   =============================== */
+
+.price-card{
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.price-card .pricing-title{
+  color: var(--navy);
+}
+
+.price-card .about-body,
+.price-card ul,
+.price-card li{
+  color: rgba(11,31,51,0.85);
+}
+
+.price-card.featured{
+  border: 2px solid #6fb0d9; /* your light blue */
+}
+
+.price-card.featured .about-link{
+  color: #6fb0d9;
+}
+
