@@ -3017,4 +3017,34 @@ html.is-loaded .top-hero::before{
   }
 }
 
+/* =====================================================
+   SERVICES PAGE — CTA ↔ IMAGE SPACING FIX
+   Google Ads + CRM only
+   ===================================================== */
+
+/* Increase vertical spacing below CTAs */
+.page-services #google-ads .last-cta-phone,
+.page-services #crm .last-cta-phone {
+  margin-bottom: 32px;
+  display: inline-flex;
+}
+
+/* Add top spacing to images for visual separation */
+.page-services #google-ads .about-split-image,
+.page-services #crm .about-split-image {
+  margin-top: 28px;
+}
+
+/* Mobile: slightly tighter but still intentional */
+@media (max-width: 900px) {
+  .page-services #google-ads .last-cta-phone,
+  .page-services #crm .last-cta-phone {
+    margin-bottom: 22px;
+  }
+
+  .page-services #google-ads .about-split-image,
+  .page-services #crm .about-split-image {
+    margin-top: 22px;
+  }
+}
 
