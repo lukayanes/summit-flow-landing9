@@ -1,41 +1,114 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6WBKW6YVZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms & Conditions | Summit Flow CRM</title>
+  <meta name="description" content="Terms and Conditions for Summit Flow CRM.">
 
-  gtag('config', 'G-G6WBKW6YVZ');
-</script>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Terms of Service • Summit Flow CRM</title>
-<link rel="icon" href="assets/favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<style>.wrap{max-width:800px}</style>
+  <link rel="icon" href="./assets/favicon.png">
+  <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
-<header class="site-header"><div class="wrap nav">
-  <a class="brand" href="index.html"><img src="assets/logo.png" alt=""><span>Summit Flow CRM</span></a>
-</div></header>
-<main class="wrap" style="padding:40px 0 60px">
-  <h1>Terms of Service</h1>
-  <p>By using Summit Flow CRM, you agree to these terms.</p>
-  <h3>Subscriptions</h3>
-  <p>Founder pricing of $49/mo applies to the first 20 paying customers and remains active while the subscription is active.</p>
-  <h3>Acceptable Use</h3>
-  <p>No spam, abuse, or unlawful activity. We may suspend accounts violating these rules.</p>
-  <h3>Liability</h3>
-  <p>Service is provided “as‑is.” We are not liable for indirect or consequential damages.</p>
-  <h3>Changes</h3>
-  <p>We may update these terms. Continued use constitutes acceptance.</p>
-  <h3>Contact</h3>
-  <p>Email: aubrey@summitgroupacq.com</p>
-</main>
-<footer class="site-footer"><div class="wrap">
-  <p>© <span id="year"></span> Summit Flow CRM</p>
-</div></footer>
-<script src="script.js"></script>
-</body></html>
+
+<!-- TOP CONTACT BAR -->
+<div class="top-contact-bar">
+  <div class="top-contact-inner">
+    <a class="top-contact-item" href="mailto:aubrey@summitgroupacq.com">
+      <span class="top-contact-icon">✉</span>
+      <div class="top-contact-text">
+        <span class="top-contact-label">EMAIL</span>
+        <span class="top-contact-value">aubrey@summitgroupacq.com</span>
+      </div>
+    </a>
+    <a class="top-contact-item" href="tel:19137044880">
+      <span class="top-contact-icon">📞</span>
+      <div class="top-contact-text">
+        <span class="top-contact-label">CALL</span>
+        <span class="top-contact-value">(913) 704-4880</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <div class="nav-left">
+      <a href="./about.html">About</a>
+    </div>
+
+    <a class="nav-logo" href="./index.html">
+      <img src="./assets/summit flow transparent.webp" alt="Summit Flow CRM">
+    </a>
+
+    <div class="nav-right">
+      <a href="./consultation.html">Consultation</a>
+      <a href="./pricing.html#pricing">Pricing</a>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<section class="about-split">
+  <div class="container">
+    <p class="about-kicker"><span class="about-link">LEGAL</span></p>
+    <h1 class="about-title">Terms & Conditions</h1>
+    <div class="about-underline"></div>
+
+    <p class="about-body">
+      By accessing or using the Summit Flow CRM website and services, you agree
+      to be bound by these Terms and Conditions.
+    </p>
+
+    <p class="about-body" style="margin-top:14px;">
+      All services provided are offered on a best-effort basis. Results are not guaranteed,
+      as performance depends on market conditions, ad spend, and client participation.
+    </p>
+
+    <p class="about-body" style="margin-top:14px;">
+      You agree not to misuse the website, software, or services, and to provide
+      accurate information when requested.
+    </p>
+
+    <p class="about-body" style="margin-top:14px;">
+      Summit Flow CRM is not liable for indirect or consequential damages arising
+      from the use of our services.
+    </p>
+
+    <p class="about-body" style="margin-top:14px;">
+      These terms may be updated at any time. Continued use of the site constitutes
+      acceptance of the current Terms and Conditions.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col footer-brand">
+      <div class="footer-brand-row">
+        <img class="footer-logo" src="./assets/summit flow transparent.webp" alt="Summit Flow CRM">
+        <p class="footer-text">
+          Summit Flow CRM builds websites, Google Ads, and automation systems for growing businesses.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<section class="copyright-bar">
+  <div class="container">
+    <p>© <span id="year"></span> Summit Flow CRM. All Rights Reserved.</p>
+  </div>
+</section>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script src="./script.js"></script>
+
+</body>
+</html>
