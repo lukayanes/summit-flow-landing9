@@ -84,31 +84,13 @@ document.addEventListener('click', (e) => {
   }
 });
 
-/* ===============================
-   NAV STATE CONTROLLER (FINAL)
-   =============================== */
-document.addEventListener('DOMContentLoaded', () => {
-  const nav = document.querySelector('.top-nav');
-  const hero = document.querySelector('.top-hero');
+// Nav scroll background (FL Man Plumbing behavior)
+(() => {
+  const nav = document.querySelector(".top-nav");
   if (!nav) return;
 
-  const updateNav = () => {
-    const y = window.scrollY;
-    const scrolled = y > 40;
+  window.addEventListener("scroll", () => {
+    nav.classList.toggle("is-scrolled", window.scrollY > 20);
+  }, { passive: true });
+})();
 
-    // Scrolled background
-    nav.classList.toggle('is-scrolled', scrolled);
-
-    // Hero vs light sections
-    if (hero && y < hero.offsetHeight - 80) {
-      document.body.classList.add('nav-hero');
-      document.body.classList.remove('nav-light');
-    } else {
-      document.body.classList.remove('nav-hero');
-      document.body.classList.add('nav-light');
-    }
-  };
-
-  updateNav();
-  window.addEventListener('scroll', updateNav, { passive: true });
-});
