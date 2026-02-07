@@ -1556,16 +1556,15 @@ html.is-loaded .hero-sub{
   max-width: none;
 }
 
-/* =====================================
-   MOBILE CONTACT BAR FIX (LIKE FL MAN)
-===================================== */
+/* =====================================================
+   MOBILE CONTACT BAR FIX — SUMMIT FLOW
+   Matches FL Man Plumbing behavior
+===================================================== */
 @media (max-width: 768px){
 
-  /* Compact contact bar */
+  /* Make contact bar compact */
   .top-contact-bar{
-    position: fixed;
-    top: 0;
-    height: auto;
+    position: relative;      /* 🔑 key difference */
     padding: 6px 0;
   }
 
@@ -1575,9 +1574,9 @@ html.is-loaded .hero-sub{
   }
 
   .top-contact-item{
-    justify-content: flex-start;
     padding: 6px 14px;
     gap: 10px;
+    justify-content: flex-start;
   }
 
   .top-contact-item:first-child{
@@ -1594,15 +1593,21 @@ html.is-loaded .hero-sub{
     font-size: 14px;
   }
 
-  /* NAV POSITION FIX */
+  /* NAV — prevent overlap */
   .top-nav{
-    top: auto;
-    position: relative;
-    margin-top: calc(var(--contact-bar-h) + 6px);
+    position: relative;      /* 🔑 stop stacking fight */
+    top: 0;
+    margin-top: 0;
   }
 
-  /* BODY OFFSET FIX */
+  /* HERO — ensure content not hidden */
+  .top-hero{
+    padding-top: 0;
+  }
+
+  /* BODY — remove large fixed offset */
   body{
-    padding-top: calc(var(--contact-bar-h) + 64px);
+    padding-top: 0;
   }
 }
+
