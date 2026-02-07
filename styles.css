@@ -3491,4 +3491,97 @@ html.is-loaded .top-hero::before{
   background: #ffffff;
 }
 
+  /* ===============================
+   DONE-FOR-YOU — HARD FIX
+   =============================== */
+
+.dfy-section{
+  width: 100%;
+  background: var(--navy);
+  color: #fff;
+}
+
+.dfy-wrap{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+}
+
+/* IMAGE SIDE */
+.dfy-image{
+  background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.55)),
+    url("./assets/dfy-cta.webp") center / cover no-repeat;
+}
+
+/* CONTENT SIDE */
+.dfy-content{
+  padding: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dfy-title{
+  margin: 0 0 16px;
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.15;
+  color: #fff;
+}
+
+.dfy-accent{
+  color: var(--orange);
+}
+
+.dfy-sub{
+  margin: 0 0 18px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.dfy-line{
+  width: 44px;
+  height: 3px;
+  background: var(--orange);
+  border-radius: 999px;
+  margin: 0 0 22px;
+}
+
+.dfy-body{
+  max-width: 520px;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 26px;
+}
+
+.dfy-cta{
+  font-weight: 900;
+  font-size: 18px;
+  color: #fff;
+}
+
+.dfy-cta:hover{
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+/* MOBILE */
+@media (max-width: 900px){
+  .dfy-wrap{
+    grid-template-columns: 1fr;
+  }
+
+  .dfy-image{
+    min-height: 260px;
+  }
+
+  .dfy-content{
+    padding: 46px 22px;
+  }
+}
+
 
