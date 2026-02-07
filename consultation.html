@@ -1,105 +1,255 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6WBKW6YVZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6WBKW6YVZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G6WBKW6YVZ');
+  </script>
 
-  gtag('config', 'G-G6WBKW6YVZ');
-</script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book Consultation | Summit Flow CRM</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a Consultation | Summit Flow CRM</title>
+  <meta name="description" content="Book a free strategy consultation with Summit Flow. Websites, Google Ads, CRM automation, and tracking — done-for-you systems built to scale revenue.">
 
-  <!-- Use your existing stylesheet -->
-  <link rel="stylesheet" href="./styles.css" />
-  <link rel="icon" href="assets/favicon.png">
-
-  <!-- If you don’t have a global stylesheet, paste the CSS from the section below into a <style> tag -->
+  <link rel="icon" href="./assets/favicon.png">
+  <link rel="stylesheet" href="./styles.css">
 </head>
-<body>
 
-  <!-- Reuse your existing nav markup here (copy from index.html) -->
-  <!-- Header -->
-  <header class="top-header">
-  <nav class="top-nav">
-    <div class="top-nav-inner">
+<body class="page-consultation">
 
-      <!-- LEFT -->
-      <div class="nav-left">
-        <a href="./about.html">About</a>
-        <a href="./pricing.html#faq">FAQ</a>
-      </div>
+<!-- ===============================
+     TOP CONTACT BAR
+================================ -->
+<div class="top-contact-bar">
+  <div class="top-contact-inner">
+    <a class="top-contact-item" href="mailto:aubrey@summitgroupacq.com">
+      <span class="top-contact-icon">✉</span>
+      <span>
+        <span class="top-contact-label">EMAIL</span>
+        <span class="top-contact-value">aubrey@summitgroupacq.com</span>
+      </span>
+    </a>
 
-      <!-- CENTER LOGO -->
-      <a class="nav-logo" href="./index.html" aria-label="Home">
-        <img src="assets/summit flow transparent.png" alt="The Summit Group" />
-      </a>
-
-      <!-- RIGHT -->
-      <div class="nav-right">
-        <a href="./consultation.html">Consultation</a>
-        <a href="./pricing.html#pricing">Pricing</a>
-      </div>
-
-    </div>
-  </nav>
-</header>
-
-
-  <main class="consult-page">
-    <section class="consult-wrap">
-      <!-- Left: text -->
-      <div class="consult-left">
-
-        <h1 class="consult-title">Plan your next move with a dedicated small business professional.</h1>
-
-        <p class="consult-sub">
-          In one 30-minute call, we’ll show you key features and map out your strategy, pricing, and timeline so you know exactly
-          how we help you take your business to the next level.
-        </p>
-
-        <ul class="consult-bullets">
-          <li>A pricing game plan tailored to your business needs.</li>
-          <li>Support options based on your goals and timeline.</li>
-        </ul>
-
-        <p class="consult-contact">
-          Questions now? Call <a href="tel:19137044880">+1 913-704-4880</a> or email
-          <a href="mailto:aubrey@summitgroupacq.com">aubrey@summitgroupacq.com</a>.
-        </p>
-      </div>
-
-      <!-- Right: form -->
-      <div class="consult-card">
-  <h2 class="card-title">Book Consultation</h2>
-  <p class="card-sub">
-    Share a few details and we’ll reach out within one business day to schedule your call.
-  </p>
-
-  <div class="ghl-embed">
-    <iframe
-      src="https://links.summitflowcrm.com/widget/form/IbTfZqJ8dRohIZuzXWFC"
-      id="inline-IbTfZqJ8dRohIZuzXWFCF"
-      title="Book Consultation"
-      loading="lazy"
-    ></iframe>
+    <a class="top-contact-item" href="tel:19137044880">
+      <span class="top-contact-icon">📞</span>
+      <span>
+        <span class="top-contact-label">CALL</span>
+        <span class="top-contact-value">(913) 704-4880</span>
+      </span>
+    </a>
   </div>
 </div>
 
-<script src="https://links.summitflowcrm.com/js/form_embed.js"></script>
+<!-- ===============================
+     NAV
+================================ -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
 
- <footer class="site-footer">
-    <div class="container">
-      <p><p>© 2026 Summit Flow CRM</p></p>
-      <nav>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-      </nav>
+    <div class="nav-left">
+      <a href="./about.html">About</a>
+
+      <div class="nav-dropdown">
+        <button class="nav-dropbtn nav-linklike" type="button">
+          Services <span class="nav-caret">▾</span>
+        </button>
+        <div class="nav-dropmenu">
+          <a href="./services.html">All Services</a>
+          <a href="./services/google-ads.html">Google Ads</a>
+          <a href="./services/websites.html">Websites</a>
+          <a href="./services/crm-automation.html">CRM Automation</a>
+        </div>
+      </div>
     </div>
-  </footer>
+
+    <a class="nav-logo" href="./index.html">
+      <img src="./assets/summit flow transparent.png" alt="Summit Flow CRM">
+    </a>
+
+    <div class="nav-right">
+      <a href="./consultation.html">Consultation</a>
+      <a href="./pricing.html#pricing">Pricing</a>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ===============================
+     HERO
+================================ -->
+<header class="top-hero services-hero">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1 class="hero-title">BOOK A STRATEGY CONSULTATION</h1>
+
+      <div class="hero-subs">
+        <p class="hero-sub">WEBSITES · GOOGLE ADS · CRM AUTOMATION</p>
+        <p class="hero-sub">DONE-FOR-YOU SYSTEMS BUILT TO SCALE</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===============================
+     CONSULTATION SECTION
+================================ -->
+<section class="about-split">
+  <div class="container about-split-grid">
+
+    <!-- LEFT: COPY -->
+    <div class="about-split-text">
+      <p class="about-kicker">
+        <span class="about-link">FREE STRATEGY CALL</span>
+      </p>
+
+      <h2 class="about-title">Let’s Build a System That Actually Produces Revenue</h2>
+      <div class="about-underline"></div>
+
+      <p class="about-body">
+        This consultation is not a sales pitch or a demo.
+        It’s a working strategy call to evaluate your current setup and identify
+        where revenue is being lost — whether that’s traffic, follow-up, or tracking.
+      </p>
+
+      <p class="about-body" style="margin-top:14px;">
+        We’ll walk through your website, ads (if applicable), lead flow,
+        and follow-up process — then outline exactly what needs to be built
+        to increase booked calls and closed deals.
+      </p>
+
+      <p class="about-body" style="margin-top:14px;">
+        <strong>This call is best for:</strong><br>
+        Service businesses, real estate operators, and teams actively investing
+        in marketing who want predictable lead flow — not more software.
+      </p>
+    </div>
+
+    <!-- RIGHT: INLINE FORM (UNCHANGED STRUCTURE) -->
+    <div class="about-split-image" style="padding:0; box-shadow:none;">
+      <div class="consult-card">
+
+        <!-- 🔒 KEEP YOUR EXISTING EMBED HERE -->
+        <div class="ghl-embed">
+          <!-- PASTE YOUR EXISTING INLINE FORM IFRAME HERE -->
+          <!-- Example: -->
+          <!--
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/booking/XXXXX"
+            style="width:100%; border:none;"
+            loading="lazy">
+          </iframe>
+          -->
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===============================
+     WHAT TO EXPECT
+================================ -->
+<section class="about-split" style="background:#071427;">
+  <div class="container about-split-grid">
+
+    <div class="about-split-text">
+      <p class="about-kicker"><span class="about-link">WHAT TO EXPECT</span></p>
+      <h2 class="about-title">Clear Answers. No Guesswork.</h2>
+      <div class="about-underline"></div>
+
+      <ul class="about-body" style="margin-top:18px;">
+        <li>✔ Review of your website and conversion flow</li>
+        <li>✔ Evaluation of ad traffic quality (if applicable)</li>
+        <li>✔ Lead follow-up & CRM gap analysis</li>
+        <li>✔ Clear recommendations and next steps</li>
+        <li>✔ Honest fit assessment (we’ll say no if needed)</li>
+      </ul>
+    </div>
+
+    <div class="about-split-image">
+      <img src="./assets/summit flow computer.webp" alt="Summit Flow CRM Strategy Call">
+    </div>
+
+  </div>
+</section>
+
+<!-- ===============================
+     FINAL CTA
+================================ -->
+<section class="last-cta">
+  <div class="last-cta-grid">
+    <div class="last-cta-photo"></div>
+
+    <div class="last-cta-panel">
+      <h2 class="last-cta-title">
+        <span class="cta-orange">DONE-FOR-YOU SYSTEMS</span><br>
+        WE BUILD IT. YOU SCALE IT.
+      </h2>
+
+      <p class="last-cta-body">
+        If you’re serious about growth and want a system that actually works,
+        book a strategy call and let’s map it out.
+      </p>
+
+      <a class="last-cta-phone" href="#top">
+        Book Strategy Call →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===============================
+     FOOTER
+================================ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+
+    <div class="footer-col footer-brand">
+      <div class="footer-brand-row">
+        <img class="footer-logo" src="./assets/summit flow transparent.png" alt="Summit Flow CRM Logo">
+        <p class="footer-text">
+          Summit Flow CRM builds and manages websites, Google Ads, CRM automation,
+          and tracking systems designed to scale revenue — fully done-for-you.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h3>CONTACT INFO</h3>
+      <p class="footer-text">
+        United States<br>
+        <a href="mailto:aubrey@summitgroupacq.com">aubrey@summitgroupacq.com</a><br>
+        <a href="tel:19137044880">(913) 704-4880</a>
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h3>SERVICES</h3>
+      <p class="footer-text">
+        Websites · Google Ads · CRM Automation · Tracking & Attribution
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<section class="copyright-bar">
+  <div class="container">
+    <p>© <span id="year"></span> Summit Flow CRM. All Rights Reserved.</p>
+  </div>
+</section>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  requestAnimationFrame(() => document.documentElement.classList.add("is-loaded"));
+</script>
+
+<script src="./script.js"></script>
+
 </body>
 </html>
