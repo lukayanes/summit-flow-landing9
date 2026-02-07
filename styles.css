@@ -2657,3 +2657,125 @@ html.is-loaded .top-hero::before{
   }
 }
 
+/* =====================================================
+   SUMMIT FLOW — SERVICES PAGE (FL MAN QUALITY UPGRADE)
+   Scoped to .page-services
+   ===================================================== */
+
+/* -------------------------------
+   HERO — stronger presence
+-------------------------------- */
+.page-services .top-hero,
+.page-services .services-hero {
+  background:
+    linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
+    url("./assets/services-hero.webp") center/cover no-repeat;
+}
+
+/* Increase hero breathing room */
+.page-services .top-hero {
+  min-height: 90vh;
+}
+
+/* -------------------------------
+   SECTION RHYTHM
+-------------------------------- */
+.page-services .about-split {
+  padding: 110px 0;
+}
+
+/* Alternate dark tones for depth */
+.page-services .about-split:nth-of-type(even) {
+  background: #071427;
+}
+
+.page-services .about-split:nth-of-type(odd) {
+  background: var(--navy);
+}
+
+/* -------------------------------
+   SERVICE TEXT — more premium
+-------------------------------- */
+.page-services .about-title {
+  font-size: clamp(32px, 3.4vw, 46px);
+  letter-spacing: 0.04em;
+}
+
+.page-services .about-body {
+  font-size: 16.5px;
+  line-height: 1.8;
+  max-width: 60ch;
+}
+
+/* -------------------------------
+   SERVICE IMAGES — depth + polish
+-------------------------------- */
+.page-services .about-split-image {
+  box-shadow: 0 28px 65px rgba(0,0,0,0.45);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.page-services .about-split-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: scale(1.03);
+  transition: transform 600ms ease;
+}
+
+.page-services .about-split:hover .about-split-image img {
+  transform: scale(1);
+}
+
+/* -------------------------------
+   SERVICES CAROUSEL — stronger
+-------------------------------- */
+.page-services .biz-pan {
+  padding: 90px 0;
+}
+
+.page-services .biz-pan-title {
+  font-size: clamp(30px, 3vw, 44px);
+  letter-spacing: 0.06em;
+}
+
+.page-services .biz-card {
+  border-radius: 6px;
+}
+
+.page-services .biz-overlay h3 {
+  font-size: 15px;
+  letter-spacing: 0.12em;
+}
+
+.page-services .biz-overlay p {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* -------------------------------
+   CTA EMPHASIS
+-------------------------------- */
+.page-services .last-cta-phone {
+  font-size: 22px;
+  letter-spacing: 0.04em;
+}
+
+/* -------------------------------
+   MOBILE POLISH
+-------------------------------- */
+@media (max-width: 900px) {
+  .page-services .about-split {
+    padding: 70px 0;
+  }
+
+  .page-services .about-title {
+    font-size: 30px;
+  }
+
+  .page-services .about-split-image {
+    margin-top: 24px;
+  }
+}
+
