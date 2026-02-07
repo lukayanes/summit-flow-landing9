@@ -1289,3 +1289,64 @@ body.nav-hero .top-nav .nav-dropbtn{
 .nav-logo img{
   filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45)) !important;
 }
+
+/* =====================================================
+   SUMMIT FLOW — FINAL HERO + NAV ALIGNMENT FIX
+   ADD ONLY — does NOT break existing CSS
+   ===================================================== */
+
+/* 1️⃣ NAV + CONTACT BAR MUST LOOK LIKE ONE CONNECTED UNIT */
+.top-contact-bar{
+  margin-bottom: 0 !important;
+}
+
+.top-nav{
+  top: var(--contact-bar-h) !important;
+  width: 100vw !important;          /* span full page */
+  left: 0 !important;
+  right: 0 !important;
+  border-radius: 0 !important;      /* remove floating look */
+}
+
+/* Remove any inner centering backgrounds */
+.top-nav-inner{
+  background: transparent !important;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 2️⃣ HERO IMAGE NEEDS FULL VISIBILITY (NOT CROPPED BY NAV) */
+.top-hero,
+.services-hero{
+  /* pull hero fully behind nav + contact bar */
+  margin-top: calc(-1 * var(--contact-bar-h)) !important;
+
+  /* give hero MORE vertical room so full image shows */
+  min-height: 92vh !important;
+
+  /* ensure image anchors top like FL Man */
+  background-position: center top !important;
+}
+
+/* Keep hero content readable */
+.hero-overlay{
+  padding-top: calc(var(--contact-bar-h) + 140px) !important;
+}
+
+/* 3️⃣ NAV MUST NEVER FLOAT SEPARATE FROM HERO */
+.top-nav{
+  box-shadow: none !important;
+}
+
+/* Optional: slightly stronger contrast without blocking hero */
+.top-nav{
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.35)
+  ) !important;
+}
+
+.top-nav.is-scrolled{
+  background: rgba(0,0,0,0.65) !important;
+}
