@@ -1835,3 +1835,19 @@ html.is-loaded .hero-sub{
     z-index: 30000;
   }
 }
+
+/* ===============================
+   SERVICES DROPDOWN — FORCE OPEN WHEN .is-open
+================================ */
+.nav-dropmenu{
+  display: none;               /* default closed */
+}
+
+.nav-dropdown.is-open .nav-dropmenu{
+  display: block !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+  z-index: 30000 !important;
+}
