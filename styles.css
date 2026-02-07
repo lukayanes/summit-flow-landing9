@@ -19,7 +19,7 @@
   --navy-deep: #071427;
   --orange: #6ec1e4;
 
-  --contact-bar-h: 72px;
+  --contact-bar-h: 56px;
   --nav-pad-y: 6px;
   --nav-logo-h: 69px;
   --nav-h: calc((var(--nav-pad-y) * 2) + var(--nav-logo-h));
