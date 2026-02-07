@@ -2779,3 +2779,57 @@ html.is-loaded .top-hero::before{
   }
 }
 
+/* =====================================================
+   SERVICES PAGE — TEXT POP FIX (GOOGLE ADS + CRM)
+   Scoped to .page-services
+   ===================================================== */
+
+/* Make service headings brighter + stronger */
+.page-services #google-ads .about-title,
+.page-services #crm .about-title {
+  color: #ffffff;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.65);
+}
+
+/* Make body copy TRUE white (not muted gray) */
+.page-services #google-ads .about-body,
+.page-services #crm .about-body {
+  color: rgba(255,255,255,0.95);
+  font-weight: 500;
+}
+
+/* Slight emphasis on kicker labels */
+.page-services #google-ads .about-link,
+.page-services #crm .about-link {
+  color: var(--orange);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+/* Underline pop */
+.page-services #google-ads .about-underline,
+.page-services #crm .about-underline {
+  background: var(--orange);
+  height: 4px;
+}
+
+/* CTA contrast */
+.page-services #google-ads .last-cta-phone,
+.page-services #crm .last-cta-phone {
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.page-services #google-ads .last-cta-phone:hover,
+.page-services #crm .last-cta-phone:hover {
+  color: var(--orange);
+}
+
+/* Mobile readability bump */
+@media (max-width: 900px) {
+  .page-services #google-ads .about-body,
+  .page-services #crm .about-body {
+    font-size: 16px;
+  }
+}
+
