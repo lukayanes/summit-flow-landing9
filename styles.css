@@ -1044,3 +1044,19 @@ html.is-loaded .hero-sub{
 .top-nav.is-scrolled .nav-dropbtn{
   color: #ffffff;
 }
+
+/* ===============================
+   FORCE TRANSPARENT NAV AT TOP
+   =============================== */
+
+/* Default top-of-page state */
+body:not(.scrolled) .top-nav{
+  background: transparent !important;
+}
+
+/* When JS adds class */
+.top-nav.is-scrolled{
+  background: rgba(11,31,51,0.75) !important;
+  backdrop-filter: blur(8px);
+}
+
