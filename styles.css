@@ -354,10 +354,11 @@ html.is-loaded .hero-sub{
 
 .about-split-grid{
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 48px;
+  grid-template-columns: 0.9fr 1.1fr; /* image smaller, text bigger */
+  gap: 64px;
   align-items: center;
 }
+
 
 .about-kicker{ margin: 0 0 14px; }
 
