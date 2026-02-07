@@ -1005,3 +1005,101 @@ html.is-loaded .hero-sub{
   font-weight: 900;
   letter-spacing: 0.12em;
 }
+
+/* ===============================
+   SUMMIT FLOW – REVIEWS + HOW
+================================ */
+
+.sf-reviews,
+.sf-how {
+  padding: 110px 20px;
+  background: #0b1f33;
+  color: #ffffff;
+}
+
+.sf-reviews {
+  background: #081827;
+}
+
+.sf-kicker {
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #ff6a00;
+}
+
+.sf-title {
+  font-size: clamp(30px, 4vw, 42px);
+  max-width: 720px;
+  margin-top: 10px;
+}
+
+.sf-underline {
+  width: 80px;
+  height: 4px;
+  background: #ff6a00;
+  margin: 18px 0 46px;
+}
+
+/* REVIEWS */
+.sf-review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.sf-review-card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 32px;
+}
+
+.sf-review-card h4 {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.sf-review-card p {
+  line-height: 1.6;
+  margin-bottom: 14px;
+  color: rgba(255,255,255,0.9);
+}
+
+.sf-review-card span {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* HOW IT WORKS */
+.sf-how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.sf-how-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 14px;
+  padding: 34px;
+}
+
+.sf-step {
+  font-weight: 800;
+  color: #ff6a00;
+  font-size: 14px;
+}
+
+.sf-how-card h3 {
+  margin: 12px 0;
+  font-size: 20px;
+}
+
+.sf-how-card p {
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+}
+
+.sf-how-cta {
+  margin-top: 46px;
+}
+
