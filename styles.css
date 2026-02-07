@@ -229,7 +229,6 @@ a{ color: inherit; text-decoration: none; }
 
   opacity: 0;
   transform: translateY(6px);
-  pointer-events: none;
   transition: 180ms ease;
 }
 
@@ -859,7 +858,6 @@ html.is-loaded .hero-sub{
       rgba(255,106,0,0.22),
       transparent 60%
     );
-  pointer-events:none;
 }
 
 /* Overlay */
@@ -1775,7 +1773,6 @@ html.is-loaded .hero-sub{
 }
 @media (max-width: 768px) {
   .hero-overlay {
-    pointer-events: none;
   }
 
   .hero-overlay * {
