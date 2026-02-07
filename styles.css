@@ -15,7 +15,7 @@
   position: relative;
   background:
     linear-gradient(var(--hero-overlay), var(--hero-overlay)),
-    url("./assets/summit flow computer.png");
+    url("./assets/summit flow computer.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
