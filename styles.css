@@ -19,11 +19,12 @@
   --navy-deep: #071427;
   --orange: #ff6a00;
 
-  /* fixed bars */
   --contact-bar-h: 56px;
-  --nav-pad-y: 12px;              /* inside nav */
-  --nav-logo-h: 96px;             /* desktop logo height */
+  --nav-pad-y: 12px;
+  --nav-logo-h: 96px;
+  --nav-h: calc((var(--nav-pad-y) * 2) + var(--nav-logo-h));
 }
+
 
 /* ===============================
    GLOBAL / RESET
