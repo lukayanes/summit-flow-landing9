@@ -23,6 +23,7 @@
   --nav-pad-y: 6px;
   --nav-logo-h: 69px;
   --nav-h: calc((var(--nav-pad-y) * 2) + var(--nav-logo-h));
+  --accent: #4da3ff; /* light blue */
 }
 
 
@@ -1025,7 +1026,7 @@ html.is-loaded .hero-sub{
   font-size: 13px;
   letter-spacing: 2px;
   font-weight: 700;
-  color: #ff6a00;
+  color: --accent;
 }
 
 .sf-title {
@@ -1037,7 +1038,7 @@ html.is-loaded .hero-sub{
 .sf-underline {
   width: 80px;
   height: 4px;
-  background: #ff6a00;
+  background: --accent;
   margin: 18px 0 46px;
 }
 
@@ -1085,7 +1086,7 @@ html.is-loaded .hero-sub{
 
 .sf-step {
   font-weight: 800;
-  color: #ff6a00;
+  color: --accent;
   font-size: 14px;
 }
 
