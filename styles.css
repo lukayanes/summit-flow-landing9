@@ -3136,3 +3136,55 @@ html.is-loaded .top-hero::before{
   }
 
 
+/* =====================================================
+   SERVICES PAGE — DONE FOR YOU
+   Clean LEFT / RIGHT grid layout
+   ===================================================== */
+
+.page-services #done-for-you .about-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* true left / right */
+  gap: 64px;
+  align-items: center;
+}
+
+/* LEFT: all text */
+.page-services #done-for-you .about-split-text {
+  order: 1;
+  padding-right: 32px;
+}
+
+/* RIGHT: large image */
+.page-services #done-for-you .about-split-image {
+  order: 2;
+  width: 100%;
+  max-width: none;          /* remove previous caps */
+  margin: 0;
+  box-shadow: 0 32px 72px rgba(0,0,0,0.45);
+}
+
+/* Make image feel intentional + premium */
+.page-services #done-for-you .about-split-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: scale(1.05);
+}
+
+/* --------------------------------
+   MOBILE — stack naturally
+-------------------------------- */
+@media (max-width: 900px) {
+  .page-services #done-for-you .about-split-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .page-services #done-for-you .about-split-text {
+    padding-right: 0;
+  }
+
+  .page-services #done-for-you .about-split-image img {
+    transform: scale(1);
+  }
+}
