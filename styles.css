@@ -2921,3 +2921,100 @@ html.is-loaded .top-hero::before{
   }
 }
 
+/* =====================================================
+   SERVICES PAGE — INTENTIONAL TEXT CONTRAST
+   Google Ads + CRM = NAVY
+   Websites + Done For You = WHITE & BOLD
+   ===================================================== */
+
+/* ---------- GOOGLE ADS + CRM (NAVY TEXT) ---------- */
+
+.page-services #google-ads,
+.page-services #crm {
+  color: var(--navy);
+}
+
+.page-services #google-ads .about-title,
+.page-services #crm .about-title {
+  color: var(--navy);
+  text-shadow: none;
+}
+
+.page-services #google-ads .about-body,
+.page-services #crm .about-body {
+  color: rgba(11, 31, 51, 0.9);
+  font-weight: 500;
+}
+
+.page-services #google-ads .about-link,
+.page-services #crm .about-link {
+  color: var(--orange);
+  font-weight: 900;
+}
+
+.page-services #google-ads .last-cta-phone,
+.page-services #crm .last-cta-phone {
+  color: var(--navy);
+  font-weight: 900;
+}
+
+.page-services #google-ads .last-cta-phone:hover,
+.page-services #crm .last-cta-phone:hover {
+  color: var(--orange);
+}
+
+
+/* ---------- WEBSITES + DONE FOR YOU (WHITE & BOLD) ---------- */
+
+.page-services #websites,
+.page-services #done-for-you {
+  color: #ffffff;
+}
+
+.page-services #websites .about-title,
+.page-services #done-for-you .about-title {
+  color: #ffffff;
+  font-weight: 900;
+  text-shadow: 0 12px 30px rgba(0,0,0,0.65);
+}
+
+.page-services #websites .about-body,
+.page-services #done-for-you .about-body {
+  color: rgba(255,255,255,0.95);
+  font-weight: 600;
+}
+
+.page-services #websites .about-link,
+.page-services #done-for-you .about-link {
+  color: var(--orange);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.page-services #websites .last-cta-phone,
+.page-services #done-for-you .last-cta-phone {
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.page-services #websites .last-cta-phone:hover,
+.page-services #done-for-you .last-cta-phone:hover {
+  color: var(--orange);
+}
+
+
+/* ---------- MOBILE READABILITY ---------- */
+
+@media (max-width: 900px) {
+  .page-services #websites .about-body,
+  .page-services #done-for-you .about-body {
+    font-size: 16px;
+  }
+
+  .page-services #google-ads .about-body,
+  .page-services #crm .about-body {
+    font-size: 16px;
+  }
+}
+
+
