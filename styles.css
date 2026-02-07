@@ -1541,3 +1541,17 @@ html.is-loaded .hero-sub{
 #demo .clips.panel {
   background: rgba(255,255,255,0.06);
 }
+
+
+/* ===============================
+   FIX GHL INLINE FORM EMBEDS
+================================ */
+.ghl-embed,
+.ghl-embed iframe{
+  overflow: visible !important;
+}
+
+.about-split-image{
+  overflow: visible !important;
+  max-width: none;
+}
