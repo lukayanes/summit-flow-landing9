@@ -1350,3 +1350,58 @@ body.nav-hero .top-nav .nav-dropbtn{
 .top-nav.is-scrolled{
   background: rgba(0,0,0,0.65) !important;
 }
+
+/* =====================================================
+   FINAL SUMMIT HERO + NAV FIX (ADD ONLY)
+   ===================================================== */
+
+/* 1️⃣ CONNECT NAV TO CONTACT BAR + FULL WIDTH */
+.top-nav{
+  top: var(--contact-bar-h) !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Remove the "floating card" look */
+.top-nav::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.38);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index:-1;
+}
+
+/* Keep inner content centered WITHOUT shrinking the bar */
+.top-nav-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  background: transparent !important;
+}
+
+/* Darker only after scroll */
+.top-nav.is-scrolled::before{
+  background: rgba(0,0,0,0.6);
+}
+
+/* 2️⃣ HERO IMAGE — SHOW THE FULL PHOTO */
+.top-hero{
+  min-height: 95vh !important;
+
+  /* THIS is the key difference from your current setup */
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center top !important;
+
+  /* Pull hero under nav + contact bar */
+  margin-top: calc(-1 * var(--contact-bar-h)) !important;
+}
+
+/* 3️⃣ HERO CONTENT POSITIONING (TEXT STAYS LOW) */
+.hero-overlay{
+  padding-top: calc(var(--contact-bar-h) + 160px) !important;
+}
