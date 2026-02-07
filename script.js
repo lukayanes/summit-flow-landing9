@@ -1,66 +1,114 @@
-document.getElementById('year').textContent = new Date().getFullYear();
+/* ===============================
+   FOOTER YEAR
+   =============================== */
+document.getElementById('year') &&
+  (document.getElementById('year').textContent = new Date().getFullYear());
 
-// Founder seats (demo using localStorage)
+/* ===============================
+   FOUNDER SEATS (LOCAL DEMO)
+   =============================== */
 const startSeats = 20;
 const key = 'sf_seats_min';
+
 let seats = parseInt(localStorage.getItem(key) || startSeats, 10);
-const setSeats = v => {
+
+const setSeats = (v) => {
   seats = Math.max(1, v);
   localStorage.setItem(key, String(seats));
-  const els = [document.getElementById('seatsLeft'), document.getElementById('seatsLeft2')];
-  els.forEach(el => el && (el.textContent = seats));
+  ['seatsLeft', 'seatsLeft2'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = seats;
+  });
 };
+
 setSeats(seats);
 
-// Decrement seats on form submit if provider posts a message
+// Listen for form success events
 window.addEventListener('message', (e) => {
-  if (e && e.data && (e.data.type === 'leadconnector-form-success' || e.data.type === 'form-submitted')){
+  if (!e || !e.data) return;
+  if (e.data.type === 'leadconnector-form-success' || e.data.type === 'form-submitted') {
     setSeats(seats - 1);
   }
 });
 
-// Modal video player
-(function(){
+/* ===============================
+   MODAL VIDEO PLAYER
+   =============================== */
+(() => {
   const modal = document.getElementById('videoModal');
   const player = document.getElementById('modalVideo');
+  if (!modal || !player) return;
+
   const open = (src) => {
-    player.src = src; player.setAttribute('playsinline',''); player.muted = true;
-    player.play().catch(()=>{}); modal.setAttribute('aria-hidden','false');
+    player.src = src;
+    player.setAttribute('playsinline', '');
+    player.muted = true;
+    player.play().catch(() => {});
+    modal.setAttribute('aria-hidden', 'false');
   };
-  const close = () => { player.pause(); player.removeAttribute('src'); player.load(); modal.setAttribute('aria-hidden','true'); };
-  document.querySelectorAll('.vthumb').forEach(el => el.addEventListener('click', ()=> open(el.dataset.src)));
-  modal.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', close));
-  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
+
+  const close = () => {
+    player.pause();
+    player.removeAttribute('src');
+    player.load();
+    modal.setAttribute('aria-hidden', 'true');
+  };
+
+  document.querySelectorAll('.vthumb').forEach(el =>
+    el.addEventListener('click', () => open(el.dataset.src))
+  );
+
+  modal.querySelectorAll('[data-close]').forEach(el =>
+    el.addEventListener('click', close)
+  );
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
 })();
 
-<script>
-document.addEventListener("click", (e) => {
-  const btn = e.target.closest(".nav-dropbtn");
-  const dropdowns = document.querySelectorAll(".nav-dropdown");
+/* ===============================
+   NAV DROPDOWN (CLICK, NOT HOVER)
+   =============================== */
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.nav-dropbtn');
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
 
   dropdowns.forEach(d => {
-    if (!d.contains(e.target)) d.classList.remove("is-open");
+    if (!d.contains(e.target)) d.classList.remove('is-open');
   });
 
   if (btn) {
-    const parent = btn.closest(".nav-dropdown");
-    parent.classList.toggle("is-open");
+    btn.closest('.nav-dropdown')?.classList.toggle('is-open');
     e.preventDefault();
   }
 });
-</script>
 
-document.addEventListener("DOMContentLoaded", () => {
-  const nav = document.querySelector(".top-nav");
+/* ===============================
+   NAV STATE CONTROLLER (FINAL)
+   =============================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.querySelector('.top-nav');
+  const hero = document.querySelector('.top-hero');
   if (!nav) return;
 
   const updateNav = () => {
-    const scrolled = window.scrollY > 40;
-    nav.classList.toggle("is-scrolled", scrolled);
-    document.body.classList.toggle("scrolled", scrolled);
+    const y = window.scrollY;
+    const scrolled = y > 40;
+
+    // Scrolled background
+    nav.classList.toggle('is-scrolled', scrolled);
+
+    // Hero vs light sections
+    if (hero && y < hero.offsetHeight - 80) {
+      document.body.classList.add('nav-hero');
+      document.body.classList.remove('nav-light');
+    } else {
+      document.body.classList.remove('nav-hero');
+      document.body.classList.add('nav-light');
+    }
   };
 
   updateNav();
-  window.addEventListener("scroll", updateNav);
+  window.addEventListener('scroll', updateNav, { passive: true });
 });
-
