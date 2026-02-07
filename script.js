@@ -50,15 +50,17 @@ document.addEventListener("click", (e) => {
 });
 </script>
 
-
-<script>
+document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".top-nav");
+  if (!nav) return;
 
   const updateNav = () => {
-    nav.classList.toggle("is-scrolled", window.scrollY > 40);
+    const scrolled = window.scrollY > 40;
+    nav.classList.toggle("is-scrolled", scrolled);
+    document.body.classList.toggle("scrolled", scrolled);
   };
 
   updateNav();
   window.addEventListener("scroll", updateNav);
-</script>
+});
 
