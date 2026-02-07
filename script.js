@@ -67,22 +67,7 @@ window.addEventListener('message', (e) => {
   });
 })();
 
-/* ===============================
-   NAV DROPDOWN (CLICK, NOT HOVER)
-   =============================== */
-document.addEventListener('click', (e) => {
-  const btn = e.target.closest('.nav-dropbtn');
-  const dropdowns = document.querySelectorAll('.nav-dropdown');
 
-  dropdowns.forEach(d => {
-    if (!d.contains(e.target)) d.classList.remove('is-open');
-  });
-
-  if (btn) {
-    btn.closest('.nav-dropdown')?.classList.toggle('is-open');
-    e.preventDefault();
-  }
-});
 
 // Nav scroll background (FL Man Plumbing behavior)
 (() => {
