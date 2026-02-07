@@ -899,3 +899,11 @@ html.is-loaded .hero-sub{
   background: #6faed9; /* light blue */
 }
 
+/* ===============================
+   TRANSPARENT NAV OVER HERO
+   =============================== */
+.top-nav{
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
