@@ -3629,3 +3629,13 @@ html.is-loaded .top-hero::before{
   }
 }
 
+/* ===============================
+   FOOTER LOGO — HARD STOP
+   =============================== */
+
+.site-footer .footer-logo{
+  width: 86px !important;
+  max-width: 86px !important;
+  height: auto !important;
+  flex: 0 0 86px !important;
+}
