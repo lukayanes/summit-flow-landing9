@@ -946,108 +946,62 @@ html.is-loaded .hero-sub{
 }
 
 /* ===============================
-   GOOGLE ADS PRICING — VISUAL UPGRADE
+   GOOGLE ADS PRICING — LIGHT BLUE CARDS
 ================================ */
 
-/* Grid spacing */
-.pricing-grid{
-  gap: 32px;
-}
-
-/* Base card */
 .price-card{
   background: linear-gradient(
     180deg,
-    #ffffff 0%,
-    #f7fafc 100%
+    #eaf6fd 0%,
+    #d9eef9 100%
   );
   border-radius: 20px;
   padding: 36px 32px;
   box-shadow:
-    0 18px 40px rgba(11,31,51,0.12),
-    inset 0 1px 0 rgba(255,255,255,0.6);
+    0 18px 40px rgba(11,31,51,0.18);
+  color: var(--navy);
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
-/* Hover lift */
+/* Hover */
 .price-card:hover{
   transform: translateY(-6px);
   box-shadow:
-    0 28px 65px rgba(11,31,51,0.22),
-    inset 0 1px 0 rgba(255,255,255,0.7);
+    0 28px 65px rgba(11,31,51,0.28);
 }
 
 /* Titles */
 .price-card .pricing-title{
   color: var(--navy);
-  font-size: 22px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
 /* Body text */
 .price-card .about-body,
 .price-card li{
-  color: rgba(11,31,51,0.82);
-  line-height: 1.6;
+  color: rgba(11,31,51,0.85);
 }
 
-/* Divider line */
-.price-card::after{
-  content:"";
-  display:block;
-  width: 44px;
-  height: 3px;
-  background: #6fb0d9;
-  border-radius: 999px;
-  margin: 18px 0 22px;
-}
-
-/* ===== FEATURED (MOST POPULAR) ===== */
+/* Featured (Most Popular) */
 .price-card.featured{
   background: linear-gradient(
     180deg,
-    #ffffff 0%,
-    #eef7fd 100%
+    #d4ecfb 0%,
+    #c2e4f7 100%
   );
   border: 2px solid #6fb0d9;
   transform: translateY(-10px);
   box-shadow:
-    0 35px 80px rgba(11,31,51,0.30),
-    0 0 0 1px rgba(111,176,217,0.35);
+    0 35px 80px rgba(11,31,51,0.35);
 }
 
-/* Prevent hover jump on featured */
 .price-card.featured:hover{
   transform: translateY(-10px);
 }
 
-/* Most popular label */
+/* MOST POPULAR label */
 .price-card.featured .about-link{
   color: #6fb0d9;
   font-weight: 900;
   letter-spacing: 0.12em;
 }
-
-/* Price emphasis */
-.price-card strong{
-  font-size: 20px;
-  color: var(--navy);
-}
-
-/* Bullet list cleanup */
-.price-card ul{
-  padding-left: 0;
-  list-style: none;
-}
-.price-card li{
-  padding-left: 22px;
-  position: relative;
-}
-.price-card li::before{
-  content:"✓";
-  position:absolute;
-  left:0;
-  color:#6fb0d9;
-  font-weight:900;
-}
-
