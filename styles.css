@@ -1014,3 +1014,33 @@ html.is-loaded .hero-sub{
     padding: 70px 0;
   }
 }
+
+/* ===============================
+   NAV — VISIBLE OVER HERO
+   =============================== */
+
+/* Default (top of page) */
+.top-nav{
+  background: transparent;
+}
+
+.top-nav a,
+.top-nav .nav-dropbtn{
+  color: #ffffff;
+}
+
+/* Logo visibility */
+.nav-logo img{
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.55));
+}
+
+/* Scrolled state */
+.top-nav.is-scrolled{
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+}
+
+.top-nav.is-scrolled a,
+.top-nav.is-scrolled .nav-dropbtn{
+  color: #ffffff;
+}
