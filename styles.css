@@ -1201,3 +1201,15 @@ html.is-loaded .hero-sub{
 }
 
 
+/* ACCENT RESTORE */
+.sf-kicker,
+.sf-service-cta,
+.cta-orange,
+.nav a:hover {
+  color: var(--accent);
+}
+
+.sf-underline,
+.btn.primary {
+  background: var(--accent);
+}
