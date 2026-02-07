@@ -1732,3 +1732,31 @@ html.is-loaded .hero-sub{
   }
 }
 
+/* ===============================
+   MOBILE CONTACT BAR — ICON ONLY
+   =============================== */
+@media (max-width: 768px) {
+
+  .top-contact-bar {
+    height: 44px;
+  }
+
+  .top-contact-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+  }
+
+  /* hide text everywhere on mobile */
+  .top-contact-text,
+  .top-contact-label,
+  .top-contact-value {
+    display: none !important;
+  }
+
+  /* icon sizing */
+  .top-contact-icon {
+    font-size: 18px;
+  }
+}
