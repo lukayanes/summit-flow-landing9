@@ -1189,3 +1189,49 @@ body.nav-light .nav-logo img{
   color: #ffffff !important;
 }
 
+/* =====================================================
+   NAV VISIBILITY FIX — ADD ONLY
+   Paste this at the VERY BOTTOM of styles.css
+   Does NOT remove or alter any existing working CSS
+   ===================================================== */
+
+/* Always-visible nav with hero showing behind it */
+.top-nav{
+  background: rgba(0,0,0,0.35) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Darken slightly on scroll */
+.top-nav.is-scrolled{
+  background: rgba(0,0,0,0.55) !important;
+}
+
+/* Force nav text to stay readable on ALL backgrounds */
+.top-nav a,
+.top-nav .nav-dropbtn{
+  color: rgba(255,255,255,0.88) !important;
+}
+
+.top-nav a:hover,
+.top-nav .nav-dropbtn:hover{
+  color: #ffffff !important;
+}
+
+/* Neutralize any section-based color switching */
+body.nav-light .top-nav,
+body.nav-hero .top-nav{
+  background: rgba(0,0,0,0.35) !important;
+}
+
+body.nav-light .top-nav a,
+body.nav-light .nav-dropbtn,
+body.nav-hero .top-nav a,
+body.nav-hero .nav-dropbtn{
+  color: rgba(255,255,255,0.88) !important;
+}
+
+/* Ensure logo contrast everywhere */
+.nav-logo img{
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45)) !important;
+}
