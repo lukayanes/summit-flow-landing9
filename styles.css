@@ -3444,3 +3444,17 @@ html.is-loaded .top-hero::before{
     max-width: 180px;
   }
 }
+
+  /* ===============================
+   DONE-FOR-YOU CTA IMAGE
+   =============================== */
+
+.page-services .last-cta-photo{
+  background:
+    linear-gradient(
+      rgba(11,31,51,0.25),
+      rgba(11,31,51,0.45)
+    ),
+    url("./assets/summit flow computer.webp") center / cover no-repeat;
+}
+
