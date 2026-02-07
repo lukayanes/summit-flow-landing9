@@ -12,11 +12,80 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CRM Automation | Summit Flow</title>
-  <meta name="description" content="Summit Flow CRM — a done-for-you system for automating follow-up, organizing leads, and tracking ROI.">
+  <title>CRM Automation | Summit Flow CRM</title>
+  <meta name="description" content="Summit Flow CRM — done-for-you CRM automation with instant follow-up, pipelines, and ROI tracking for real businesses.">
 
   <link rel="icon" href="../assets/favicon.png">
   <link rel="stylesheet" href="../styles.css">
+
+  <!-- Page-specific polish (keeps things visible + clean even if older CSS changed) -->
+  <style>
+    /* ACCENT RESTORE */
+    .sf-kicker,
+    .sf-service-cta,
+    .cta-orange,
+    .nav a:hover {
+      color: var(--accent);
+    }
+
+    .sf-underline,
+    .btn.primary {
+      background: var(--accent);
+    }
+
+    /* Demo embeds (safe, minimal) */
+    .clips.panel{
+      background: rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 28px;
+    }
+    .clips-columns{
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 26px;
+      align-items: start;
+    }
+    .video-container{
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+    }
+    .video-container iframe{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-item{ margin-bottom: 22px; }
+    .video-title{
+      margin-top: 10px;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+    .tiktok-wrap{
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+      padding: 10px;
+    }
+    @media (max-width: 980px){
+      .clips-columns{ grid-template-columns: 1fr; }
+    }
+
+    /* Make pricing image crisp + readable */
+    .crm-price-img{
+      width: 100%;
+      max-width: 520px;
+      margin-left: auto;
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+    }
+  </style>
 </head>
 
 <body class="page-services">
@@ -50,27 +119,36 @@
 <nav class="top-nav">
   <div class="top-nav-inner">
 
+    <!-- LEFT -->
     <div class="nav-left">
       <a href="../about.html">About</a>
 
+      <!-- SERVICES DROPDOWN -->
       <div class="nav-dropdown">
-        <button class="nav-dropbtn nav-linklike" type="button">
-          Services <span class="nav-caret">▾</span>
+        <button
+          class="nav-dropbtn nav-linklike"
+          type="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Services <span class="nav-caret" aria-hidden="true">▾</span>
         </button>
 
-        <div class="nav-dropmenu">
-          <a href="../services.html">All Services</a>
-          <a href="./google-ads.html">Google Ads Management</a>
-          <a href="./websites.html">Websites & Landing Pages</a>
-          <a href="./crm-automation.html">CRM Automation</a>
+        <div class="nav-dropmenu" role="menu" aria-label="Services submenu">
+          <a role="menuitem" href="../services.html">All Services</a>
+          <a role="menuitem" href="./google-ads.html">Google Ads Management</a>
+          <a role="menuitem" href="./websites.html">Websites &amp; Landing Pages</a>
+          <a role="menuitem" href="./crm-automation.html">CRM Automation</a>
         </div>
       </div>
     </div>
 
-    <a class="nav-logo" href="../index.html">
-      <img src="../assets/summit flow transparent.png" alt="Summit Flow">
+    <!-- CENTER LOGO -->
+    <a class="nav-logo" href="../index.html" aria-label="Home">
+      <img src="../assets/summit flow transparent.png" alt="Summit Flow CRM" />
     </a>
 
+    <!-- RIGHT -->
     <div class="nav-right">
       <a href="../consultation.html">Consultation</a>
       <a href="../pricing.html#pricing">Pricing</a>
@@ -85,11 +163,11 @@
 <header class="top-hero services-hero">
   <div class="hero-overlay">
     <div class="hero-content">
-      <h1 class="hero-title">CRM BUILT FOR REAL BUSINESSES</h1>
+      <h1 class="hero-title">CRM AUTOMATION THAT CLOSES LEADS</h1>
 
       <div class="hero-subs">
-        <p class="hero-sub">AUTOMATION · FOLLOW-UP · PIPELINES</p>
-        <p class="hero-sub">DONE-FOR-YOU — NOT DIY SOFTWARE</p>
+        <p class="hero-sub">INSTANT FOLLOW-UP · PIPELINES · TRACKING</p>
+        <p class="hero-sub">DONE-FOR-YOU SETUP — NOT DIY SOFTWARE</p>
       </div>
 
       <div style="margin-top:28px;">
@@ -102,32 +180,26 @@
 </header>
 
 <!-- ===============================
-     CRM OVERVIEW + PRICING
+     CRM (OVERVIEW + PRICING) — SAME FORMAT AS GOOGLE ADS
 ================================ -->
 <section class="about-split" id="crm">
   <div class="container about-split-grid">
 
     <!-- LEFT -->
     <div class="about-split-text">
-      <p class="about-kicker">
-        <span class="about-link">SUMMIT FLOW CRM</span>
-      </p>
+      <p class="about-kicker"><span class="about-link">CRM AUTOMATION</span></p>
 
-      <h2 class="about-title">
-        One CRM. Built Specifically for Your Business.
-      </h2>
-
+      <h2 class="about-title">One System That Keeps Up With Your Leads</h2>
       <div class="about-underline"></div>
 
       <p class="about-body">
-        Summit Flow is not a template CRM or a generic login.
-        We build a fully customized system around how your business
-        captures leads, follows up, and closes deals.
+        Summit Flow CRM centralizes every lead, conversation, and follow-up —
+        and automates the actions that actually drive booked calls and closed deals.
+        This is built around <strong>your</strong> business, not a blank template.
       </p>
 
       <p class="about-body" style="margin-top:14px;">
-        Automations, pipelines, SMS & email follow-up,
-        invoicing, and ROI tracking — all in one place.
+        Instant SMS/email follow-up · pipelines · tasks · invoicing · ROI tracking
       </p>
 
       <a class="last-cta-phone btn primary" href="../consultation.html">
@@ -135,42 +207,126 @@
       </a>
     </div>
 
-    <!-- RIGHT: SINGLE PRICE CARD -->
+    <!-- RIGHT (IMAGE) — MATCHES GOOGLE ADS STYLE -->
     <div class="about-split-image">
-      <div class="crm-price-card">
+      <!-- Save your pricing image as: /assets/crm-pricing.webp -->
+      <img class="crm-price-img" src="../assets/crm-pricing.webp" alt="Summit Flow CRM Pricing: $500 one-time, $197/month">
+    </div>
 
-        <h3 class="crm-price-title">
-          CRM Solution for Small Businesses
-        </h3>
+  </div>
+</section>
 
-        <div class="crm-price-stack">
-          <div class="crm-price-setup">
-            <span class="price">$500</span>
-            <span class="label">one-time setup</span>
+<!-- ===============================
+     SUMMIT FLOW DEMO (ADDED)
+================================ -->
+<section class="section demo" id="demo">
+  <div class="container how-wrap">
+    <h2 class="how-title">Summit Flow CRM Demo</h2>
+
+    <div class="clips panel">
+      <div class="clips-columns">
+
+        <!-- LEFT: YouTube videos -->
+        <div class="clips-left">
+          <div class="video-item">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/Cj-lytZJ1Z4?si=VFdopV9hq63-rNBE"
+                title="Summit Flow - New Leads Workflow"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <h3 class="video-title">New Leads Workflow</h3>
           </div>
 
-          <div class="crm-price-monthly">
-            $197 <span>/ month</span>
+          <div class="video-item">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/dyTLCLwZpJY?si=AV5s4JY4MHE2Urkd"
+                title="Summit Flow - Opportunity Pipelines"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <h3 class="video-title">Opportunity Pipelines</h3>
+          </div>
+
+          <div class="video-item">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/uR2GAMOhfn4?si=p9bCAXSkP590AEhr"
+                title="Summit Flow - Send a Contract"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <h3 class="video-title">Send a Contract</h3>
           </div>
         </div>
 
-        <ul class="crm-price-features">
-          <li>Automated customer responses via SMS & email</li>
-          <li>Integration with landing pages & ads</li>
-          <li>Completely customized workflows (not a template)</li>
-          <li>Tap-to-send invoices on the go</li>
-          <li>Clear ROI tracking for local campaigns</li>
-          <li>Centralized dashboard for all leads & conversations</li>
-        </ul>
+        <!-- RIGHT: TikTok -->
+        <div class="clips-right">
+          <div class="tiktok-wrap">
+            <blockquote
+              class="tiktok-embed"
+              cite="https://www.tiktok.com/@aubrey.evans11/video/7567807490537147678"
+              data-video-id="7567807490537147678"
+              style="margin:0;">
+              <section>
+                <a target="_blank"
+                   title="Summit Flow TikTok"
+                   href="https://www.tiktok.com/@aubrey.evans11/video/7567807490537147678">
+                  View on TikTok
+                </a>
+              </section>
+            </blockquote>
+          </div>
 
-        <div class="crm-price-footer">
-          <strong>Get started for $197/month</strong>
-          <span class="note">(CRM + hosting)</span>
+          <h3 class="video-title">CRM Walkthrough (TikTok)</h3>
+          <script async src="https://www.tiktok.com/embed.js"></script>
         </div>
 
       </div>
     </div>
 
+    <div style="margin-top:28px;">
+      <a class="last-cta-phone btn primary" href="../consultation.html">
+        Book Strategy Call →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===============================
+     DONE-FOR-YOU CTA (SAME AS SERVICES)
+================================ -->
+<section class="last-cta" id="done-for-you">
+  <div class="last-cta-grid">
+    <div class="last-cta-photo" aria-hidden="true"></div>
+
+    <div class="last-cta-panel">
+      <h2 class="last-cta-title">
+        <span class="cta-orange">DONE-FOR-YOU SYSTEMS</span><br />
+        WE BUILD IT. YOU SCALE IT.
+      </h2>
+
+      <p class="last-cta-sub">CRM · AUTOMATION · WEBSITES · GOOGLE ADS</p>
+
+      <div class="last-cta-line"></div>
+
+      <p class="last-cta-body">
+        Summit Flow manages your entire growth stack: ads, websites, CRM, automation, and tracking —
+        fully done-for-you so you can focus on revenue, not software.
+      </p>
+
+      <a class="last-cta-phone" href="../consultation.html">
+        Book Strategy Call →
+      </a>
+    </div>
   </div>
 </section>
 
@@ -181,18 +337,20 @@
   <div class="container footer-grid">
 
     <div class="footer-col footer-brand">
-      <img class="footer-logo" src="../assets/summit flow transparent.png" alt="Summit Flow">
-      <p class="footer-text">
-        Summit Flow is a done-for-you growth platform.
-        We build and manage CRMs, automations, websites,
-        and ad systems that scale revenue.
-      </p>
+      <div class="footer-brand-row">
+        <img class="footer-logo" src="../assets/summit flow transparent.png" alt="Summit Flow CRM Logo" />
+        <p class="footer-text">
+          Summit Flow CRM is a done-for-you growth platform for service businesses and real estate operators.
+          We build and manage websites, CRMs, automations, and ad systems designed to scale revenue.
+        </p>
+      </div>
     </div>
 
     <div class="footer-col">
-      <h3>CONTACT</h3>
+      <h3>CONTACT INFO</h3>
       <p class="footer-text">
-        <a href="mailto:aubrey@summitgroupacq.com">aubrey@summitgroupacq.com</a><br>
+        United States<br />
+        <a href="mailto:aubrey@summitgroupacq.com">aubrey@summitgroupacq.com</a><br />
         <a href="tel:19137044880">(913) 704-4880</a>
       </p>
     </div>
@@ -200,7 +358,7 @@
     <div class="footer-col">
       <h3>DONE-FOR-YOU</h3>
       <p class="footer-text">
-        CRM · Automation · Websites · Google Ads
+        Summit Flow manages your entire growth stack: ads, websites, CRM, automation, and tracking — fully done-for-you so you can focus on revenue, not software.
       </p>
     </div>
 
@@ -209,7 +367,7 @@
 
 <section class="copyright-bar">
   <div class="container">
-    <p>© <span id="year"></span> Summit Flow. All Rights Reserved.</p>
+    <p>© <span id="year"></span> Summit Flow CRM. All Rights Reserved.</p>
   </div>
 </section>
 
@@ -222,4 +380,3 @@
 
 </body>
 </html>
-
