@@ -49,3 +49,16 @@ document.addEventListener("click", (e) => {
   }
 });
 </script>
+
+
+<script>
+  const nav = document.querySelector(".top-nav");
+
+  const updateNav = () => {
+    nav.classList.toggle("is-scrolled", window.scrollY > 40);
+  };
+
+  updateNav();
+  window.addEventListener("scroll", updateNav);
+</script>
+
