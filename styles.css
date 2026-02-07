@@ -1760,3 +1760,26 @@ html.is-loaded .hero-sub{
     font-size: 18px;
   }
 }
+
+/* ===============================
+   MOBILE NAV CLICK FIX
+   =============================== */
+@media (max-width: 768px) {
+  .top-nav {
+    z-index: 20000 !important;
+  }
+
+  .top-contact-bar {
+    z-index: 20001 !important;
+  }
+}
+@media (max-width: 768px) {
+  .hero-overlay {
+    pointer-events: none;
+  }
+
+  .hero-overlay * {
+    pointer-events: auto;
+  }
+}
+
