@@ -3048,3 +3048,50 @@ html.is-loaded .top-hero::before{
   }
 }
 
+/* =====================================================
+   SERVICES PAGE — DONE FOR YOU LAYOUT REFINEMENT
+   Smaller image, right-aligned
+   ===================================================== */
+
+/* Force text-left / image-right layout */
+.page-services #done-for-you .about-split-grid {
+  grid-template-columns: 1.25fr 0.75fr;
+  align-items: center;
+}
+
+/* Make image visually smaller + lighter */
+.page-services #done-for-you .about-split-image {
+  max-width: 420px;
+  margin-left: auto;        /* push image to the right */
+  margin-top: 0;
+  box-shadow: 0 22px 48px rgba(0,0,0,0.35);
+}
+
+/* Slightly reduce image scale */
+.page-services #done-for-you .about-split-image img {
+  transform: scale(0.96);
+}
+
+/* Desktop breathing room */
+.page-services #done-for-you .about-split-text {
+  padding-right: 40px;
+}
+
+/* -------------------------------
+   MOBILE — stack cleanly
+-------------------------------- */
+@media (max-width: 900px) {
+  .page-services #done-for-you .about-split-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-services #done-for-you .about-split-image {
+    max-width: 100%;
+    margin: 28px auto 0;
+  }
+
+  .page-services #done-for-you .about-split-text {
+    padding-right: 0;
+  }
+}
+
