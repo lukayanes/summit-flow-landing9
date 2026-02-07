@@ -21,7 +21,7 @@
 
   --contact-bar-h: 56px;
   --nav-pad-y: 6px;
-  --nav-logo-h: 78px;
+  --nav-logo-h: 60px;
   --nav-h: calc((var(--nav-pad-y) * 2) + var(--nav-logo-h));
 }
 
