@@ -1346,3 +1346,82 @@ html.is-loaded .hero-sub{
   text-align: center;
 }
 
+/* ===============================
+   CRM PRICING CARD — VISIBLE
+   MATCHES GOOGLE ADS STYLE
+================================ */
+
+.crm-price-card {
+  background: #e9f3ff;              /* SOLID light blue card */
+  color: #0b1f33;                   /* Dark text like Google Ads */
+  border-radius: 20px;
+  padding: 44px;
+  max-width: 480px;
+  margin-left: auto;
+
+  /* Strong separation from dark background */
+  box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+  border: none;
+}
+
+/* Title */
+.crm-price-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+/* Price block */
+.crm-price-main {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.crm-price-setup .price {
+  font-size: 56px;
+  font-weight: 900;
+  display: block;
+}
+
+.crm-price-setup .label {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* Monthly price */
+.crm-price-monthly {
+  margin-top: 14px;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+/* Feature list */
+.crm-price-features {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0 36px;
+}
+
+.crm-price-features li {
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 22px;
+}
+
+/* Light blue checkmarks (same accent) */
+.crm-price-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #4da3ff;                   /* light blue accent */
+  font-weight: 900;
+}
+
+/* CTA button spacing */
+.crm-price-cta {
+  text-align: center;
+}
+
