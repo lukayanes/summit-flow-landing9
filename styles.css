@@ -1589,3 +1589,55 @@ html.is-loaded .hero-sub{
 }
 
 
+/* =========================================
+   MOBILE CONTACT BAR — ONE LINE (ICONS ONLY)
+   Fixes overlap with nav without touching desktop
+========================================= */
+@media (max-width: 768px){
+
+  /* Mobile-only contact bar height (safe: doesn't affect desktop) */
+  :root{
+    --contact-bar-h: 38px;
+  }
+
+  /* Force the bar into ONE row with two items */
+  .top-contact-inner{
+    display: grid !important;
+    grid-template-columns: auto auto !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 18px !important;
+    width: min(1200px, 92%) !important;
+  }
+
+  /* Make each item compact */
+  .top-contact-item{
+    padding: 6px 10px !important;
+    gap: 10px !important;
+    border: 0 !important;                 /* remove the vertical divider */
+  }
+
+  .top-contact-item:first-child{
+    border-right: 0 !important;           /* kills desktop divider rule on mobile */
+    padding-right: 10px !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .top-contact-item:last-child{
+    padding-left: 10px !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* Hide the actual email + phone text on mobile */
+  .top-contact-text{
+    display: none !important;
+  }
+
+  /* Keep icons visible + tappable */
+  .top-contact-icon{
+    font-size: 18px !important;
+    line-height: 1 !important;
+  }
+}
