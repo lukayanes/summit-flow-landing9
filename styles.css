@@ -635,7 +635,13 @@ html.is-loaded .hero-sub{
   text-align: center;
   margin: 24px auto 34px;
 }
-.pricing-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.pricing-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
 .price-card{
   background: #fff;
   padding: 30px;
