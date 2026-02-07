@@ -1235,3 +1235,57 @@ body.nav-hero .nav-dropbtn{
 .nav-logo img{
   filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45)) !important;
 }
+
+/* =====================================================
+   SUMMIT FLOW — NAV FIX (DOES NOT BREAK OTHER CSS)
+   Paste this at the VERY BOTTOM of styles.css
+   - Pulls HERO up behind fixed bars (like FL Man)
+   - Forces nav visible over WHITE sections
+   - Overrides the existing "transparent nav" + nav-light/nav-hero logic
+   ===================================================== */
+
+/* 1) HERO BEHIND NAV (without touching your global body padding system) */
+.top-hero,
+.services-hero{
+  /* cancel the body padding-top ONLY for the hero so the image sits behind nav */
+  margin-top: calc(-1 * (var(--contact-bar-h) + (var(--nav-pad-y) * 2) + var(--nav-logo-h))) !important;
+
+  /* add internal top padding so hero content still clears the fixed bars */
+  padding-top: calc(var(--contact-bar-h) + (var(--nav-pad-y) * 2) + var(--nav-logo-h) + 80px) !important;
+}
+
+/* 2) NAV MUST NEVER BE TRANSPARENT (your CSS currently forces transparent !important) */
+.top-nav,
+.top-nav-inner{
+  background: rgba(0,0,0,0.35) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* 3) DARKER ON SCROLL */
+.top-nav.is-scrolled,
+.top-nav.is-scrolled .top-nav-inner{
+  background: rgba(0,0,0,0.55) !important;
+}
+
+/* 4) FORCE WHITE LINKS ALWAYS (kills nav-light/nav-hero text color swaps) */
+.top-nav a,
+.top-nav .nav-dropbtn,
+.top-nav.is-scrolled a,
+.top-nav.is-scrolled .nav-dropbtn,
+body.nav-light .top-nav a,
+body.nav-light .top-nav .nav-dropbtn,
+body.nav-hero .top-nav a,
+body.nav-hero .top-nav .nav-dropbtn{
+  color: rgba(255,255,255,0.88) !important;
+}
+
+.top-nav a:hover,
+.top-nav .nav-dropbtn:hover{
+  color: #fff !important;
+}
+
+/* 5) LOGO CONTRAST */
+.nav-logo img{
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45)) !important;
+}
