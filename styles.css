@@ -3607,7 +3607,7 @@ html.is-loaded .top-hero::before{
       rgba(0,0,0,0.35),
       rgba(0,0,0,0.55)
     ),
-    url("./assets/dfy-cta.webp") center / cover no-repeat;
+    url("./assets/summit flow computer.webp") center / cover no-repeat;
 }
 
 /* 4. Fix white-on-white + alignment issues */
