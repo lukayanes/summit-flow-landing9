@@ -3095,3 +3095,44 @@ html.is-loaded .top-hero::before{
   }
 }
 
+/* =====================================================
+   SERVICES PAGE — DONE FOR YOU (TEXT LEFT, LARGE IMAGE RIGHT)
+   ===================================================== */
+
+/* Explicit left-text / right-image layout */
+.page-services #done-for-you .about-split-grid {
+  grid-template-columns: 1.1fr 1fr; /* text slightly dominant */
+  align-items: center;
+}
+
+/* Ensure text block stays fully left */
+.page-services #done-for-you .about-split-text {
+  order: 1;
+  padding-right: 48px;
+}
+
+/* Make image larger and clearly right-aligned */
+.page-services #done-for-you .about-split-image {
+  order: 2;
+  max-width: 560px;      /* LARGER image */
+  width: 100%;
+  margin-left: auto;     /* push to right */
+  box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+}
+
+/* Slight upscale for presence */
+.page-services #done-for-you .about-split-image img {
+  width: 100%;
+  height: auto;
+  transform: scale(1.04);
+}
+
+/* --------------------------------
+   MOBILE — stack cleanly
+-------------------------------- */
+@media (max-width: 900px) {
+  .page-services #done-for-you .about-split-grid {
+    grid-template-columns: 1fr;
+  }
+
+
