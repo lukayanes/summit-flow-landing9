@@ -2833,3 +2833,91 @@ html.is-loaded .top-hero::before{
   }
 }
 
+/* =====================================================
+   SERVICES PAGE — WEBSITE PREVIEW GRID
+   Scoped to .page-services #websites
+   ===================================================== */
+
+.page-services #websites .website-preview-wrap {
+  margin-top: 48px;
+}
+
+/* Section label */
+.page-services #websites .website-preview-title {
+  font-family: "Unica One", system-ui;
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 22px;
+}
+
+/* Grid */
+.page-services #websites .website-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+/* Card */
+.page-services #websites .website-preview-card {
+  display: block;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.page-services #websites .website-preview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 60px rgba(0,0,0,0.45);
+}
+
+/* Image */
+.page-services #websites .website-preview-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-services #websites .website-preview-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 500ms ease;
+}
+
+.page-services #websites .website-preview-card:hover img {
+  transform: scale(1);
+}
+
+/* Meta */
+.page-services #websites .website-preview-meta {
+  padding: 16px 18px;
+  background: rgba(0,0,0,0.35);
+}
+
+.page-services #websites .website-preview-name {
+  display: block;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.page-services #websites .website-preview-type {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.04em;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .page-services #websites .website-preview-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
