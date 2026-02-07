@@ -3584,4 +3584,48 @@ html.is-loaded .top-hero::before{
   }
 }
 
+/* ===============================
+   SERVICES PAGE — DFY HARD FIX
+   =============================== */
+
+/* 1. Ensure full-width navy background */
+.page-services .last-cta{
+  background: var(--navy);
+}
+
+/* 2. Reassert the split grid (it was being overridden) */
+.page-services .last-cta-grid{
+  grid-template-columns: 1fr 1fr;
+  max-width: 100%;
+}
+
+/* 3. Fix the image column so it actually shows */
+.page-services .last-cta-photo{
+  min-height: 520px;
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.55)
+    ),
+    url("./assets/dfy-cta.webp") center / cover no-repeat;
+}
+
+/* 4. Fix white-on-white + alignment issues */
+.page-services .last-cta-panel{
+  background: #fff;
+  color: var(--navy);
+}
+
+/* 5. Ensure text colors are correct */
+.page-services .last-cta-panel h2,
+.page-services .last-cta-panel p{
+  color: var(--navy);
+}
+
+/* 6. Mobile stack (explicit so it doesn’t collapse left) */
+@media (max-width: 900px){
+  .page-services .last-cta-grid{
+    grid-template-columns: 1fr;
+  }
+}
 
