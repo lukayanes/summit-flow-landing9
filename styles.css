@@ -3639,3 +3639,90 @@ html.is-loaded .top-hero::before{
   height: auto !important;
   flex: 0 0 86px !important;
 }
+
+  /* =====================================================
+   🔒 SUMMIT FLOW — SERVICES PAGE STABILIZATION PATCH
+   Does NOT affect other pages
+   ===================================================== */
+
+/* -------------------------
+   DONE-FOR-YOU SECTION
+-------------------------- */
+
+/* Force navy background + proper layout */
+.page-services .last-cta{
+  background: var(--navy);
+}
+
+/* Re-assert the grid (it was being overridden) */
+.page-services .last-cta-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  min-height: 520px;
+}
+
+/* Image column (left) */
+.page-services .last-cta-photo{
+  min-height: 520px;
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.6)
+    ),
+    url("./assets/dfy-cta.webp") center / cover no-repeat;
+}
+
+/* Content panel (right) */
+.page-services .last-cta-panel{
+  background: var(--navy);
+  color: #ffffff;
+  padding: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Text color safety */
+.page-services .last-cta-panel h2,
+.page-services .last-cta-panel p,
+.page-services .last-cta-panel a{
+  color: #ffffff;
+}
+
+.page-services .last-cta-panel .cta-orange{
+  color: var(--orange);
+}
+
+/* Mobile stacking */
+@media (max-width: 900px){
+  .page-services .last-cta-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .page-services .last-cta-photo{
+    min-height: 260px;
+  }
+
+  .page-services .last-cta-panel{
+    padding: 48px 22px;
+  }
+}
+
+/* -------------------------
+   FOOTER LOGO HARD LOCK
+-------------------------- */
+
+.site-footer .footer-logo{
+  width: 86px;
+  max-width: 86px;
+  height: auto;
+  flex: 0 0 86px;
+  display: block;
+}
+
+/* Prevent footer text stretch */
+.site-footer .footer-text{
+  max-width: 520px;
+}
+
