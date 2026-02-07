@@ -3458,3 +3458,23 @@ html.is-loaded .top-hero::before{
     url("./assets/summit flow computer.webp") center / cover no-repeat;
 }
 
+  /* ===============================
+   SERVICES PAGE — DFY VISIBILITY FIX
+   =============================== */
+
+/* Force contrast so the section is obvious */
+.page-services .last-cta{
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+/* GIVE THE PHOTO A REAL IMAGE */
+.page-services .last-cta-photo{
+  min-height: 520px;
+  background:
+    linear-gradient(
+      rgba(11,31,51,0.25),
+      rgba(11,31,51,0.45)
+    ),
+    url("./assets/dfy-cta.webp") center / cover no-repeat;
+}
+
