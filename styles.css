@@ -1782,4 +1782,14 @@ html.is-loaded .hero-sub{
     pointer-events: auto;
   }
 }
+@media (max-width: 768px) {
+  .top-nav {
+    height: auto;
+    padding: 10px 0 12px;
+  }
+
+  .top-nav-inner {
+    row-gap: 10px;
+  }
+}
 
