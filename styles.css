@@ -69,7 +69,7 @@ a{ color: inherit; text-decoration: none; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 10000;
-  background: var(--orange);
+  background: #6ec1e4;
 }
 
 .top-contact-inner{
