@@ -550,12 +550,16 @@ html.is-loaded .hero-sub{
   padding: 70px 0 0;
 }
 
+/* ===============================
+   FOOTER — 4 COLUMN LAYOUT
+================================ */
 .footer-grid{
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr; /* brand + 3 equal columns */
   gap: 46px;
   align-items: start;
 }
+
 
 .footer-brand-row{
   display: flex;
