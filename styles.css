@@ -1694,3 +1694,41 @@ html.is-loaded .hero-sub{
     line-height: 1 !important;
   }
 }
+
+/* ===============================
+   MOBILE NAV HEIGHT FIX
+   =============================== */
+@media (max-width: 768px) {
+  .top-nav {
+    height: auto;               /* allow nav to grow */
+    padding-top: 10px;
+    padding-bottom: 12px;
+  }
+
+  .top-nav-inner {
+    row-gap: 10px;              /* space between rows */
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-left,
+  .nav-right {
+    flex-wrap: wrap;            /* allow wrapping */
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .nav-left a,
+  .nav-right a,
+  .nav-dropbtn {
+    font-size: 15px;            /* slightly smaller for fit */
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: calc(var(--contact-bar-h) + 92px);
+  }
+}
+
