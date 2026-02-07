@@ -3478,3 +3478,17 @@ html.is-loaded .top-hero::before{
     url("./assets/dfy-cta.webp") center / cover no-repeat;
 }
 
+  /* ===============================
+   SERVICES PAGE — DFY BACKGROUND
+   =============================== */
+
+.page-services .last-cta{
+  background: var(--navy);
+}
+
+/* keep the right panel readable */
+.page-services .last-cta-panel{
+  background: #ffffff;
+}
+
+
