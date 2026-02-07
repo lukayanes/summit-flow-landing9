@@ -12,90 +12,103 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Growth Services | Summit Flow CRM</title>
+  <title>Services | Summit Flow CRM</title>
   <meta name="description" content="Google Ads, websites, CRM automation, and done-for-you growth systems built for serious businesses.">
 
   <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
-
-  <style>
-    /* Services hero image — REPLACE with your real asset */
-    .about-split:first-of-type{
-      background:
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("./assets/services-hero.webp") center/cover no-repeat;
-    }
-  </style>
 </head>
 
-<body>
+<body class="page-services">
 
-<header class="top-hero">
+<!-- ===============================
+     TOP CONTACT BAR
+================================ -->
+<div class="top-contact-bar">
+  <div class="top-contact-inner">
+    <a class="top-contact-item" href="mailto:aubrey@summitgroupacq.com">
+      <span class="top-contact-icon">✉</span>
+      <span>
+        <span class="top-contact-label">EMAIL</span>
+        <span class="top-contact-value">aubrey@summitgroupacq.com</span>
+      </span>
+    </a>
 
-  <!-- CONTACT BAR -->
-  <div class="top-contact-bar">
-    <div class="top-contact-inner">
-      <a class="top-contact-item" href="mailto:aubrey@summitgroupacq.com">
-        <span class="top-contact-icon">✉</span>
-        <span>
-          <span class="top-contact-label">EMAIL</span>
-          <span class="top-contact-value">aubrey@summitgroupacq.com</span>
-        </span>
-      </a>
+    <a class="top-contact-item" href="tel:19137044880">
+      <span class="top-contact-icon">📞</span>
+      <span>
+        <span class="top-contact-label">CALL</span>
+        <span class="top-contact-value">(913) 704-4880</span>
+      </span>
+    </a>
+  </div>
+</div>
 
-      <a class="top-contact-item" href="tel:19137044880">
-        <span class="top-contact-icon">📞</span>
-        <span>
-          <span class="top-contact-label">CALL</span>
-          <span class="top-contact-value">(913) 704-4880</span>
-        </span>
-      </a>
+<!-- ===============================
+     NAV (FINAL)
+================================ -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+
+    <div class="nav-left">
+      <a href="./about.html">About</a>
+
+      <div class="nav-dropdown">
+        <button class="nav-dropbtn" type="button">
+          Services <span class="nav-caret">▾</span>
+        </button>
+        <div class="nav-dropmenu">
+          <a href="#google-ads">Google Ads</a>
+          <a href="#websites">Websites</a>
+          <a href="#crm">CRM Automation</a>
+          <a href="#done-for-you">Done-For-You</a>
+        </div>
+      </div>
+    </div>
+
+    <a class="nav-logo" href="./index.html">
+      <img src="assets/summit flow transparent.png" alt="Summit Flow CRM">
+    </a>
+
+    <div class="nav-right">
+      <a href="./consultation.html">Consultation</a>
+      <a href="./pricing.html#pricing">Pricing</a>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ===============================
+     HERO
+================================ -->
+<header class="top-hero services-hero">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1 class="hero-title">SYSTEMS THAT SCALE REVENUE</h1>
+
+      <div class="hero-subs">
+        <p class="hero-sub">GOOGLE ADS · WEBSITES · CRM · AUTOMATION</p>
+        <p class="hero-sub">BUILT FOR OPERATORS — NOT HOBBYISTS</p>
+      </div>
+
+      <div style="margin-top:28px;">
+        <a class="last-cta-phone" href="./consultation.html">
+          Book Strategy Call
+        </a>
+      </div>
     </div>
   </div>
-
-  <!-- NAV (unchanged from index) -->
-  <!-- paste your rebuilt nav here -->
-
 </header>
 
-<!-- ======================================
-     HERO
-====================================== -->
-<section class="about-split">
-  <div class="container">
-    <p class="about-kicker">
-      <a class="about-link" href="./index.html">HOME ›</a>
-    </p>
-
-    <h1 class="about-title" style="max-width:800px;">
-      GROWTH SYSTEMS THAT ACTUALLY CONVERT
-    </h1>
-
-    <div class="about-underline"></div>
-
-    <p class="about-body" style="max-width:900px;">
-      We don’t just sell software. We build the full system behind your growth —
-      from Google Ads and high-converting websites to CRM automation that ensures
-      no lead is ever wasted.
-    </p>
-
-    <div style="margin-top:22px;">
-      <a class="last-cta-phone" href="./consultation.html">
-        Book a Strategy Call
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ======================================
-     SERVICES CAROUSEL (LIKE FL MAN)
-====================================== -->
+<!-- ===============================
+     SERVICES CAROUSEL
+================================ -->
 <section class="biz-pan">
   <div class="container">
     <h2 class="biz-pan-title">Our Core Services</h2>
     <div class="about-underline"></div>
     <p class="biz-pan-sub">
-      Click any service below to learn how we help businesses scale faster.
+      Everything you need to generate, convert, and track leads in one system.
     </p>
   </div>
 
@@ -103,35 +116,31 @@
     <div class="biz-strip">
       <div class="biz-track">
 
-        <a class="biz-card" href="#google-ads"
-           style="--bg:url('./assets/google-ads.webp')">
+        <a class="biz-card" href="#google-ads" style="--bg:url('./assets/google-ads.webp')">
           <div class="biz-overlay">
             <h3>Google Ads</h3>
-            <p>High-intent traffic that converts</p>
+            <p>High-intent lead generation</p>
           </div>
         </a>
 
-        <a class="biz-card" href="#websites"
-           style="--bg:url('./assets/websites.webp')">
+        <a class="biz-card" href="#websites" style="--bg:url('./assets/websites.webp')">
           <div class="biz-overlay">
             <h3>Websites</h3>
-            <p>Built to convert paid traffic</p>
+            <p>Built to convert traffic</p>
           </div>
         </a>
 
-        <a class="biz-card" href="#crm"
-           style="--bg:url('./assets/crm-dashboard.webp')">
+        <a class="biz-card" href="#crm" style="--bg:url('./assets/crm-dashboard.webp')">
           <div class="biz-overlay">
             <h3>CRM Automation</h3>
             <p>Follow-up that runs itself</p>
           </div>
         </a>
 
-        <a class="biz-card" href="#done-for-you"
-           style="--bg:url('./assets/done-for-you.webp')">
+        <a class="biz-card" href="#done-for-you" style="--bg:url('./assets/done-for-you.webp')">
           <div class="biz-overlay">
             <h3>Done-For-You</h3>
-            <p>We build it all</p>
+            <p>We build everything</p>
           </div>
         </a>
 
@@ -140,156 +149,120 @@
   </div>
 </section>
 
-<!-- ======================================
-     GOOGLE ADS (SPLIT SECTION)
-====================================== -->
+<!-- ===============================
+     GOOGLE ADS
+================================ -->
 <section class="about-split" id="google-ads">
   <div class="container about-split-grid">
 
     <div class="about-split-text">
-      <p class="about-kicker">
-        <span class="about-link">GOOGLE ADS MANAGEMENT</span>
-      </p>
-
-      <h2 class="about-title">
-        Ads Built to Drive Calls — Not Clicks
-      </h2>
-
+      <p class="about-kicker"><span class="about-link">GOOGLE ADS MANAGEMENT</span></p>
+      <h2 class="about-title">Ads Built to Drive Calls — Not Clicks</h2>
       <div class="about-underline"></div>
-
       <p class="about-body">
-        We manage Google Search campaigns focused on **real intent** —
-        phone calls, form submissions, and booked appointments.
+        We manage Google Search campaigns focused on real buyer intent.
+        Calls, form fills, and booked appointments — fully tracked.
       </p>
-
       <p class="about-body" style="margin-top:14px;">
-        <strong>Includes:</strong> keyword strategy, conversion tracking,
-        CRM attribution, and ongoing optimization.
+        Keyword strategy · conversion tracking · CRM attribution · optimization
       </p>
-
       <a class="last-cta-phone" href="./consultation.html">
-        Book Ads Strategy Call →
+        Start Google Ads →
       </a>
     </div>
 
     <div class="about-split-image">
-      <img src="./assets/google-ads.webp" alt="Google Ads Management">
+      <img src="./assets/google-ads.webp" alt="Google Ads dashboard">
     </div>
 
   </div>
 </section>
 
-<!-- ======================================
+<!-- ===============================
      WEBSITES
-====================================== -->
+================================ -->
 <section class="about-split" id="websites">
   <div class="container about-split-grid">
 
     <div class="about-split-text">
-      <p class="about-kicker">
-        <span class="about-link">WEBSITES & LANDING PAGES</span>
-      </p>
-
-      <h2 class="about-title">
-        Websites Designed to Convert Traffic
-      </h2>
-
+      <p class="about-kicker"><span class="about-link">WEBSITES & LANDING PAGES</span></p>
+      <h2 class="about-title">Websites Designed to Convert Traffic</h2>
       <div class="about-underline"></div>
-
       <p class="about-body">
         Fast, mobile-first websites and landing pages designed specifically
-        for Google Ads and lead generation.
+        for paid traffic and lead generation.
       </p>
-
-      <p class="about-body" style="margin-top:14px;">
-        <strong>Built with:</strong> clear CTAs, call tracking,
-        CRM-embedded forms, and speed optimization.
-      </p>
-
       <a class="last-cta-phone" href="./consultation.html">
-        View Website Packages →
+        Website Packages →
       </a>
     </div>
 
     <div class="about-split-image">
-      <img src="./assets/websites.webp" alt="Conversion Websites">
+      <img src="./assets/websites.webp" alt="High converting websites">
     </div>
 
   </div>
 </section>
 
-<!-- ======================================
+<!-- ===============================
      CRM
-====================================== -->
+================================ -->
 <section class="about-split" id="crm">
   <div class="container about-split-grid">
 
     <div class="about-split-text">
-      <p class="about-kicker">
-        <span class="about-link">SUMMIT FLOW CRM</span>
-      </p>
-
-      <h2 class="about-title">
-        The System That Holds Everything Together
-      </h2>
-
+      <p class="about-kicker"><span class="about-link">SUMMIT FLOW CRM</span></p>
+      <h2 class="about-title">The System That Holds Everything Together</h2>
       <div class="about-underline"></div>
-
       <p class="about-body">
-        Every lead, every conversation, every follow-up —
-        tracked automatically in one place.
+        Every lead, every message, every follow-up — automatically tracked
+        in one system so nothing slips through the cracks.
       </p>
-
       <a class="last-cta-phone" href="./pricing.html#pricing">
         View CRM Plans →
       </a>
     </div>
 
     <div class="about-split-image">
-      <img src="./assets/crm-dashboard.webp" alt="CRM Dashboard">
+      <img src="./assets/crm-dashboard.webp" alt="Summit Flow CRM dashboard">
     </div>
 
   </div>
 </section>
 
-<!-- ======================================
+<!-- ===============================
      DONE FOR YOU
-====================================== -->
+================================ -->
 <section class="about-split" id="done-for-you">
   <div class="container about-split-grid">
 
     <div class="about-split-text">
-      <p class="about-kicker">
-        <span class="about-link">DONE-FOR-YOU SYSTEMS</span>
-      </p>
-
-      <h2 class="about-title">
-        We Build Everything. You Run the Business.
-      </h2>
-
+      <p class="about-kicker"><span class="about-link">DONE-FOR-YOU SYSTEMS</span></p>
+      <h2 class="about-title">We Build Everything. You Run the Business.</h2>
       <div class="about-underline"></div>
-
       <p class="about-body">
-        For operators who don’t want to touch tech.
-        We handle ads, websites, CRM, automation, and tracking.
+        Ads, websites, CRM, automation, tracking — fully managed for operators
+        who don’t want to touch tech.
       </p>
-
       <a class="last-cta-phone" href="./consultation.html">
         Start Done-For-You →
       </a>
     </div>
 
     <div class="about-split-image">
-      <img src="./assets/done-for-you.webp" alt="Done For You Systems">
+      <img src="./assets/done-for-you.webp" alt="Done for you growth systems">
     </div>
 
   </div>
 </section>
 
-<!-- FINAL CTA -->
+<!-- ===============================
+     FINAL CTA
+================================ -->
 <section class="last-cta">
   <div class="last-cta-grid">
     <div class="last-cta-photo"></div>
+
     <div class="last-cta-panel">
       <h2>
         <span class="cta-orange">READY TO SCALE?</span><br>
@@ -300,7 +273,7 @@
         Summit Flow builds it right.
       </p>
       <a class="last-cta-phone" href="./consultation.html">
-        Book a Demo
+        Book a Strategy Call
       </a>
     </div>
   </div>
