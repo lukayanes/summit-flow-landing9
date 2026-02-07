@@ -94,23 +94,37 @@ document.addEventListener('click', (e) => {
   }, { passive: true });
 })();
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const dropdown = document.querySelector(".nav-dropdown");
-    const button = document.querySelector(".nav-dropbtn");
-    const menu = document.querySelector(".nav-dropmenu");
+document.addEventListener("click", function (e) {
+  const btn = e.target.closest(".nav-dropbtn");
+  const openDropdown = document.querySelector(".nav-dropdown.is-open");
 
-    if (!dropdown || !button || !menu) return;
+  // If clicking the Services button
+  if (btn) {
+    e.preventDefault();
+    e.stopPropagation();
 
-    button.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      dropdown.classList.toggle("is-open");
-    });
+    const dropdown = btn.closest(".nav-dropdown");
+    if (!dropdown) return;
 
-    document.addEventListener("click", function () {
-      dropdown.classList.remove("is-open");
-    });
-  });
-</script>
+    // Close any other open dropdown first
+    if (openDropdown && openDropdown !== dropdown) {
+      openDropdown.classList.remove("is-open");
+      const b = openDropdown.querySelector(".nav-dropbtn");
+      if (b) b.setAttribute("aria-expanded", "false");
+    }
+
+    // Toggle this one
+    const isOpen = dropdown.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    return;
+  }
+
+  // If clicking anywhere else, close it
+  if (openDropdown) {
+    openDropdown.classList.remove("is-open");
+    const b = openDropdown.querySelector(".nav-dropbtn");
+    if (b) b.setAttribute("aria-expanded", "false");
+  }
+}, true); // capture = TRUE helps iOS Safari / overlays
+
 
