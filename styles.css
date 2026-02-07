@@ -1509,3 +1509,35 @@ html.is-loaded .hero-sub{
   opacity: 0.75;
 }
 
+/* ===============================
+   CRM DEMO — MATCH CRM SECTION ABOVE
+================================ */
+
+#demo {
+  background: #071427; /* same navy as CRM overview */
+}
+
+#demo .how-title {
+  font-family: "Unica One", system-ui;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffffff;                 /* WHITE title */
+  font-size: clamp(28px, 3vw, 40px);
+  margin-bottom: 18px;
+}
+
+/* Light blue kicker line under title */
+#demo .how-title::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 3px;
+  margin-top: 18px;
+  background: var(--accent);      /* light blue */
+  border-radius: 999px;
+}
+
+/* Optional: soften panel contrast so title pops */
+#demo .clips.panel {
+  background: rgba(255,255,255,0.06);
+}
