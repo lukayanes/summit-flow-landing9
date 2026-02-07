@@ -259,23 +259,18 @@
 
 
 
-  <!-- ===============================
-     FOOTER
+<!-- ===============================
+     FOOTER (3 COL)
 ================================ -->
 <footer class="site-footer">
   <div class="container footer-grid">
 
     <div class="footer-col footer-brand">
       <div class="footer-brand-row">
-        <img
-          class="footer-logo"
-          src="./assets/summit flow transparent.png"
-          alt="Summit Flow CRM Logo"
-        />
+        <img class="footer-logo" src="./assets/summit-flow-logo.webp" alt="Summit Flow CRM Logo" />
         <p class="footer-text">
-          Summit Flow CRM is a done-for-you growth platform for service businesses
-          and real estate operators. We build and manage websites, CRMs,
-          automations, and ad systems designed to scale revenue.
+          Summit Flow CRM is a done-for-you growth platform for service businesses and real estate operators.
+          We build and manage websites, CRMs, automations, and ad systems designed to scale revenue.
         </p>
       </div>
     </div>
@@ -293,7 +288,7 @@
       <h3>DONE-FOR-YOU</h3>
       <p class="footer-text">
         Every call, form, and message is captured and followed up automatically.
-        Summit Flow ensures no opportunity ever slips through the cracks.
+        Summit Flow ensures no opportunity slips through the cracks.
       </p>
     </div>
 
@@ -305,4 +300,11 @@
     <p>© <span id="year"></span> Summit Flow CRM. All Rights Reserved.</p>
   </div>
 </section>
+
+<script>
+  // year
+  document.getElementById("year").textContent = new Date().getFullYear();
+  // entrance anim hook
+  requestAnimationFrame(() => document.documentElement.classList.add("is-loaded"));
+</script>
 
