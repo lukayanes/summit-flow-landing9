@@ -1277,3 +1277,72 @@ html.is-loaded .hero-sub{
   font-size: 13px;
   opacity: 0.7;
 }
+
+/* ===============================
+   CRM PRICING CARD (VISIBLE + BOLD)
+================================ */
+
+.crm-price-card {
+  background: rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 42px;
+  max-width: 480px;
+  margin-left: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.crm-price-title {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 28px;
+}
+
+.crm-price-main {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.crm-price-setup .price {
+  font-size: 52px;
+  font-weight: 900;
+  display: block;
+}
+
+.crm-price-setup .label {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.crm-price-monthly {
+  margin-top: 14px;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.crm-price-features {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 34px;
+}
+
+.crm-price-features li {
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 20px;
+}
+
+.crm-price-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.crm-price-cta {
+  text-align: center;
+}
+
