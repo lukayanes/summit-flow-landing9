@@ -128,13 +128,16 @@ a{ color: inherit; text-decoration: none; }
   position: fixed;
   top: var(--contact-bar-h);
   left: 0; right: 0;
-  z-index: 9999;
+  height: var(--nav-h);
 
-  padding: var(--nav-pad-y) 24px;
-  background: rgba(0,0,0,0.40);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: transparent;   /* ← THIS IS THE FIX */
+  backdrop-filter: none;     /* ← IMPORTANT */
+  -webkit-backdrop-filter: none;
+
+  z-index: 9999;
+  transition: background 200ms ease;
 }
+
 
 .top-nav-inner{
   width: min(1200px, 92%);
