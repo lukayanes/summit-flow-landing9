@@ -500,6 +500,13 @@
 })();
 </script>
 
+  <script>
+  const nav = document.querySelector(".top-nav");
+  window.addEventListener("scroll", () => {
+    nav.classList.toggle("is-scrolled", window.scrollY > 40);
+  });
+</script>
+
 
 </body>
 </html>
