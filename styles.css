@@ -1792,4 +1792,26 @@ html.is-loaded .hero-sub{
     row-gap: 10px;
   }
 }
+/* ===============================
+   MOBILE SERVICES DROPDOWN FIX
+   =============================== */
+@media (max-width: 768px) {
+
+  /* allow tapping the Services button */
+  .nav-dropbtn {
+    pointer-events: auto;
+  }
+
+  /* open dropdown on tap */
+  .nav-dropdown:focus-within .nav-dropmenu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* make sure menu sits above content */
+  .nav-dropmenu {
+    z-index: 30000;
+  }
+}
 
