@@ -23,7 +23,7 @@
   --nav-pad-y: 6px;
   --nav-logo-h: 69px;
   --nav-h: calc((var(--nav-pad-y) * 2) + var(--nav-logo-h));
-  --accent: #4da3ff; /* light blue */
+  --accent: #6ec1e4; /* light blue */
 }
 
 
@@ -1416,7 +1416,7 @@ html.is-loaded .hero-sub{
   content: "✓";
   position: absolute;
   left: 0;
-  color: #4da3ff;                   /* light blue accent */
+  color: #6ec1e4;                   /* light blue accent */
   font-weight: 900;
 }
 
