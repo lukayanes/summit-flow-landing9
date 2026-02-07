@@ -1556,3 +1556,36 @@ html.is-loaded .hero-sub{
   max-width: none;
 }
 
+
+/* ===============================
+   MOBILE CONTACT BAR — ONE LINE
+   Hide long text so it doesn't cover nav
+================================ */
+
+@media (max-width: 768px) {
+
+  /* Force single-row layout */
+  .top-contact-inner {
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  /* Hide email + phone text (numbers + addresses) */
+  .top-contact-text {
+    display: none;
+  }
+
+  /* Optional: slightly reduce padding so bar stays slim */
+  .top-contact-bar {
+    padding: 6px 0;
+  }
+
+  /* Make icons tappable and centered */
+  .top-contact-item {
+    padding: 6px 10px;
+  }
+
+}
+
+
