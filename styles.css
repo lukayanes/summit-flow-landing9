@@ -1848,3 +1848,21 @@ html.is-loaded .hero-sub{
   visibility: visible !important;
   z-index: 30000 !important;
 }
+
+/* ===============================
+   LEGAL PAGES — SOLID NAV
+   =============================== */
+.page-legal .top-nav {
+  background: var(--navy);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.page-legal .top-nav.is-scrolled {
+  background: var(--navy);
+}
+
+/* Ensure spacing since no hero */
+.page-legal {
+  padding-top: calc(var(--contact-bar-h) + var(--nav-h));
+}
