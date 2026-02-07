@@ -3188,3 +3188,91 @@ html.is-loaded .top-hero::before{
     transform: scale(1);
   }
 }
+
+
+/* ===============================
+   FOOTER (Summit Flow)
+================================ */
+.site-footer{
+  background: var(--navy-deep);
+  color: #fff;
+  padding: 70px 0 0;
+}
+
+.footer-grid{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 46px;
+  align-items: start;
+}
+
+.footer-brand-row{
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.footer-logo{
+  width: 86px;
+  height: auto;
+  flex: 0 0 86px;
+  object-fit: contain;
+}
+
+.footer-text{
+  margin: 0;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.site-footer h3{
+  margin: 0 0 14px;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.site-footer a{
+  color: rgba(255,255,255,0.85);
+}
+
+.site-footer a:hover{
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 700px){
+  .footer-grid{
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .footer-brand-row{
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-logo{
+    width: 150px;
+  }
+}
+
+/* Copyright bar */
+.copyright-bar{
+  background: var(--navy-deep);
+  padding: 16px 0;
+  text-align: center;
+}
+
+.copyright-bar p{
+  margin: 0;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
