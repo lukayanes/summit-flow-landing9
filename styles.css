@@ -1917,4 +1917,51 @@ select,
   caret-color: auto;
 }
 
+/* =========================================
+   SERVICES DROPDOWN — FORCE DESKTOP HOVER
+========================================= */
+
+/* Ensure parent can hover */
+.nav-dropdown {
+  position: relative;
+}
+
+/* Dropdown hidden by default */
+.nav-dropmenu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+
+  min-width: 260px;
+  z-index: 99999;
+
+  background: rgba(10,18,30,0.98);
+  border-radius: 14px;
+  padding: 10px;
+
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+/* DESKTOP ONLY — HOVER OPENS MENU */
+@media (hover: hover) and (pointer: fine) {
+  .nav-dropdown:hover .nav-dropmenu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* hover buffer so menu doesn't collapse */
+  .nav-dropdown::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 16px;
+  }
+}
 
