@@ -80,33 +80,30 @@ window.addEventListener('message', (e) => {
 })();
 
 /* ===============================
-   MOBILE SERVICES DROPDOWN (FIXED)
-   =============================== */
+   MOBILE SERVICES DROPDOWN — FINAL
+================================ */
 (() => {
   const dropdown = document.querySelector(".nav-dropdown");
   const button = dropdown?.querySelector(".nav-dropbtn");
+
   if (!dropdown || !button) return;
 
-  // Toggle on mobile tap only
+  // Toggle on mobile only
   button.addEventListener("click", (e) => {
-    if (!window.matchMedia("(max-width: 768px)").matches) return;
+    if (window.matchMedia("(hover:hover)").matches) return;
 
     e.preventDefault();
     e.stopPropagation();
 
-    const isOpen = dropdown.classList.toggle("is-open");
-    button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    dropdown.classList.toggle("is-open");
   });
 
-  // Close when tapping outside (mobile only)
+  // Close when tapping outside (mobile)
   document.addEventListener("click", (e) => {
-    if (!window.matchMedia("(max-width: 768px)").matches) return;
+    if (window.matchMedia("(hover:hover)").matches) return;
     if (dropdown.contains(e.target)) return;
 
     dropdown.classList.remove("is-open");
-    button.setAttribute("aria-expanded", "false");
   });
 })();
-
-
 
