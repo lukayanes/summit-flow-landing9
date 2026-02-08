@@ -1887,3 +1887,41 @@ select,
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+
+/* ===============================
+   SERVICES DROPDOWN — FINAL
+================================ */
+
+/* Base (closed) */
+.nav-dropmenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 260px;
+  background: rgba(10,18,30,0.98);
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: 200ms ease;
+  z-index: 30000;
+}
+
+/* Desktop hover */
+@media (hover:hover) and (pointer:fine) {
+  .nav-dropdown:hover .nav-dropmenu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+/* Mobile open (JS controlled) */
+.nav-dropdown.is-open .nav-dropmenu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
