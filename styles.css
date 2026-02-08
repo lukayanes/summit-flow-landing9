@@ -1903,3 +1903,18 @@ html.is-loaded .hero-sub{
   }
 }
 
+/* Hide cursor globally */
+* {
+  cursor: none !important;
+}
+
+/* Restore cursor for form interactions */
+input,
+textarea,
+select,
+button,
+iframe {
+  cursor: auto !important;
+}
+
+
