@@ -1590,268 +1590,141 @@ html.is-loaded .hero-sub{
 
 }
 
+/* =====================================================
+   FINAL MOBILE CONTACT BAR + NAV + SERVICES DROPDOWN
+   CLEAN • NO CONFLICTS • SAFE FOR DESKTOP
+===================================================== */
 
-/* =========================================
-   MOBILE CONTACT BAR — ONE LINE (ICONS ONLY)
-   Fixes overlap with nav without touching desktop
-========================================= */
-@media (max-width: 768px){
+/* ===============================
+   MOBILE CONTACT BAR — ICONS ONLY
+================================ */
+@media (max-width: 768px) {
 
-  /* Mobile-only contact bar height (safe: doesn't affect desktop) */
   :root{
     --contact-bar-h: 38px;
   }
 
-  /* Force the bar into ONE row with two items */
+  .top-contact-bar{
+    padding: 0;
+    z-index: 20001;
+  }
+
   .top-contact-inner{
-    display: grid !important;
-    grid-template-columns: auto auto !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 18px !important;
-    width: min(1200px, 92%) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
   }
 
-  /* Make each item compact */
   .top-contact-item{
-    padding: 6px 10px !important;
-    gap: 10px !important;
-    border: 0 !important;                 /* remove the vertical divider */
+    padding: 6px 10px;
+    border: 0;
   }
 
-  .top-contact-item:first-child{
-    border-right: 0 !important;           /* kills desktop divider rule on mobile */
-    padding-right: 10px !important;
-    justify-content: center !important;
-    text-align: center !important;
+  /* Hide all text on mobile, keep icons */
+  .top-contact-text,
+  .top-contact-label,
+  .top-contact-value{
+    display: none;
   }
 
-  .top-contact-item:last-child{
-    padding-left: 10px !important;
-    justify-content: center !important;
-    text-align: center !important;
-  }
-
-  /* Hide the actual email + phone text on mobile */
-  .top-contact-text{
-    display: none !important;
-  }
-
-  /* Keep icons visible + tappable */
   .top-contact-icon{
-    font-size: 18px !important;
-    line-height: 1 !important;
-  }
-}
-
-/* =========================================
-   MOBILE CONTACT BAR — ONE LINE (ICONS ONLY)
-   Fixes overlap with nav without touching desktop
-========================================= */
-@media (max-width: 768px){
-
-  /* Mobile-only contact bar height (safe: doesn't affect desktop) */
-  :root{
-    --contact-bar-h: 38px;
-  }
-
-  /* Force the bar into ONE row with two items */
-  .top-contact-inner{
-    display: grid !important;
-    grid-template-columns: auto auto !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 18px !important;
-    width: min(1200px, 92%) !important;
-  }
-
-  /* Make each item compact */
-  .top-contact-item{
-    padding: 6px 10px !important;
-    gap: 10px !important;
-    border: 0 !important;                 /* remove the vertical divider */
-  }
-
-  .top-contact-item:first-child{
-    border-right: 0 !important;           /* kills desktop divider rule on mobile */
-    padding-right: 10px !important;
-    justify-content: center !important;
-    text-align: center !important;
-  }
-
-  .top-contact-item:last-child{
-    padding-left: 10px !important;
-    justify-content: center !important;
-    text-align: center !important;
-  }
-
-  /* Hide the actual email + phone text on mobile */
-  .top-contact-text{
-    display: none !important;
-  }
-
-  /* Keep icons visible + tappable */
-  .top-contact-icon{
-    font-size: 18px !important;
-    line-height: 1 !important;
+    font-size: 18px;
+    line-height: 1;
   }
 }
 
 /* ===============================
-   MOBILE NAV HEIGHT FIX
-   =============================== */
-@media (max-width: 768px) {
-  .top-nav {
-    height: auto;               /* allow nav to grow */
-    padding-top: 10px;
-    padding-bottom: 12px;
+   MOBILE NAV — ALLOW WRAP & HEIGHT
+================================ */
+@media (max-width: 768px){
+
+  .top-nav{
+    height: auto;
+    padding: 10px 0 12px;
+    z-index: 20000;
   }
 
-  .top-nav-inner {
-    row-gap: 10px;              /* space between rows */
+  .top-nav-inner{
+    row-gap: 10px;
   }
-}
 
-@media (max-width: 768px) {
   .nav-left,
-  .nav-right {
-    flex-wrap: wrap;            /* allow wrapping */
+  .nav-right{
+    flex-wrap: wrap;
     justify-content: center;
     gap: 14px;
   }
 
   .nav-left a,
   .nav-right a,
-  .nav-dropbtn {
-    font-size: 15px;            /* slightly smaller for fit */
+  .nav-dropbtn{
+    font-size: 15px;
     white-space: nowrap;
   }
-}
 
-@media (max-width: 768px) {
-  body {
+  body{
     padding-top: calc(var(--contact-bar-h) + 92px);
   }
 }
 
 /* ===============================
-   MOBILE CONTACT BAR — ICON ONLY
-   =============================== */
-@media (max-width: 768px) {
+   SERVICES DROPDOWN — BASE STATE
+================================ */
+.nav-dropdown{
+  position: relative;
+}
 
-  .top-contact-bar {
-    height: 44px;
-  }
+.nav-dropmenu{
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  min-width: 260px;
+  z-index: 30000;
 
-  .top-contact-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 28px;
-  }
+  background: rgba(10,18,30,0.98);
+  border-radius: 14px;
+  padding: 10px;
 
-  /* hide text everywhere on mobile */
-  .top-contact-text,
-  .top-contact-label,
-  .top-contact-value {
-    display: none !important;
-  }
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
 
-  /* icon sizing */
-  .top-contact-icon {
-    font-size: 18px;
-  }
+  transition: opacity 180ms ease, transform 180ms ease;
 }
 
 /* ===============================
-   MOBILE NAV CLICK FIX
-   =============================== */
-@media (max-width: 768px) {
-  .top-nav {
-    z-index: 20000 !important;
-  }
-
-  .top-contact-bar {
-    z-index: 20001 !important;
-  }
-}
-@media (max-width: 768px) {
-  .hero-overlay {
-  }
-
-  .hero-overlay * {
-    pointer-events: auto;
-  }
-}
-@media (max-width: 768px) {
-  .top-nav {
-    height: auto;
-    padding: 10px 0 12px;
-  }
-
-  .top-nav-inner {
-    row-gap: 10px;
-  }
-}
-/* ===============================
-   MOBILE SERVICES DROPDOWN FIX
-   =============================== */
-@media (max-width: 768px) {
-
-  /* allow tapping the Services button */
-  .nav-dropbtn {
-    pointer-events: auto;
-  }
-
-  /* open dropdown on tap */
-  .nav-dropdown:focus-within .nav-dropmenu {
+   SERVICES DROPDOWN — DESKTOP HOVER
+================================ */
+@media (hover: hover) and (pointer: fine){
+  .nav-dropdown:hover .nav-dropmenu{
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
   }
 
-  /* make sure menu sits above content */
-  .nav-dropmenu {
-    z-index: 30000;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav-dropdown {
-    outline: none;
-  }
-}
-
-/* ===============================
-   MOBILE SERVICES DROPDOWN — JS
-   =============================== */
-.nav-dropdown.is-open .nav-dropmenu {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-@media (max-width: 768px) {
-  .nav-dropmenu {
-    z-index: 30000;
+  /* Hover buffer so menu doesn't collapse */
+  .nav-dropdown::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 14px;
   }
 }
 
 /* ===============================
-   SERVICES DROPDOWN — FORCE OPEN WHEN .is-open
+   SERVICES DROPDOWN — MOBILE TAP
 ================================ */
-.nav-dropmenu{
-  display: none;               /* default closed */
+@media (max-width: 768px){
+  .nav-dropdown:focus-within .nav-dropmenu{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 }
 
-.nav-dropdown.is-open .nav-dropmenu{
-  display: block !important;
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  pointer-events: auto !important;
-  visibility: visible !important;
-  z-index: 30000 !important;
-}
 
 /* ===============================
    LEGAL PAGES — SOLID NAV
