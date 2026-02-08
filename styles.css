@@ -1862,3 +1862,28 @@ select,
     drop-shadow(0 3px 8px rgba(0,0,0,0.85))
     drop-shadow(0 0 16px rgba(255,255,255,0.55));
 }
+
+/* =========================================
+   NAV LOGO SIZE — DESKTOP
+========================================= */
+.nav-logo img {
+  height: 72px;          /* desktop */
+}
+
+/* =========================================
+   NAV LOGO SIZE — MOBILE
+========================================= */
+@media (max-width: 768px) {
+  .nav-logo img {
+    height: 60px;        /* mobile */
+  }
+}
+
+/* =========================================
+   NAV BACKDROP FOR VISIBILITY
+========================================= */
+.top-nav {
+  background: rgba(11, 31, 51, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
