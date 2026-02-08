@@ -79,37 +79,34 @@ window.addEventListener('message', (e) => {
   }, { passive: true });
 })();
 
-document.addEventListener("click", function (e) {
-  const btn = e.target.closest(".nav-dropbtn");
-  const openDropdown = document.querySelector(".nav-dropdown.is-open");
+/* ===============================
+   MOBILE SERVICES DROPDOWN (FIXED)
+   =============================== */
+(() => {
+  const dropdown = document.querySelector(".nav-dropdown");
+  const button = dropdown?.querySelector(".nav-dropbtn");
+  if (!dropdown || !button) return;
 
-  // If clicking the Services button
-  if (btn) {
+  // Toggle on mobile tap only
+  button.addEventListener("click", (e) => {
+    if (!window.matchMedia("(max-width: 768px)").matches) return;
+
     e.preventDefault();
     e.stopPropagation();
 
-    const dropdown = btn.closest(".nav-dropdown");
-    if (!dropdown) return;
-
-    // Close any other open dropdown first
-    if (openDropdown && openDropdown !== dropdown) {
-      openDropdown.classList.remove("is-open");
-      const b = openDropdown.querySelector(".nav-dropbtn");
-      if (b) b.setAttribute("aria-expanded", "false");
-    }
-
-    // Toggle this one
     const isOpen = dropdown.classList.toggle("is-open");
-    btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    return;
-  }
+    button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
 
-  // If clicking anywhere else, close it
-  if (openDropdown) {
-    openDropdown.classList.remove("is-open");
-    const b = openDropdown.querySelector(".nav-dropbtn");
-    if (b) b.setAttribute("aria-expanded", "false");
-  }
-}, true); // capture = TRUE helps iOS Safari / overlays
+  // Close when tapping outside (mobile only)
+  document.addEventListener("click", (e) => {
+    if (!window.matchMedia("(max-width: 768px)").matches) return;
+    if (dropdown.contains(e.target)) return;
+
+    dropdown.classList.remove("is-open");
+    button.setAttribute("aria-expanded", "false");
+  });
+})();
+
 
 
