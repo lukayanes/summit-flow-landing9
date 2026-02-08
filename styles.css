@@ -1838,3 +1838,27 @@ select,
   }
 }
 
+/* =========================================
+   GLOBAL LOGO VISIBILITY FIX
+========================================= */
+
+.nav-logo img,
+.footer-logo {
+  /* Size safety */
+  max-width: 100%;
+  height: auto;
+
+  /* High-contrast glow */
+  filter:
+    drop-shadow(0 2px 6px rgba(0,0,0,0.75))
+    drop-shadow(0 0 12px rgba(255,255,255,0.35));
+
+  /* Slight brightness bump */
+  brightness: 1.08;
+}
+
+.nav-logo img {
+  filter:
+    drop-shadow(0 3px 8px rgba(0,0,0,0.85))
+    drop-shadow(0 0 16px rgba(255,255,255,0.55));
+}
