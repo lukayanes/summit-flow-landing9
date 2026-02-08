@@ -1903,18 +1903,18 @@ html.is-loaded .hero-sub{
   }
 }
 
-/* Hide cursor globally */
+
+/* Hide caret globally */
 * {
-  cursor: none !important;
+  caret-color: transparent;
 }
 
-/* Restore cursor for form interactions */
+/* Restore caret for form inputs only */
 input,
 textarea,
 select,
-button,
-iframe {
-  cursor: auto !important;
+[contenteditable="true"] {
+  caret-color: auto;
 }
 
 
